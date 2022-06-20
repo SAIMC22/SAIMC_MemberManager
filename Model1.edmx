@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SAIMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Meetingid" />
+          </Key>
+          <Property Name="Meetingid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Agenda" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="CPDpoints" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberMeeting">
+          <Key>
+            <PropertyRef Name="MemberMeetingID" />
+          </Key>
+          <Property Name="MemberMeetingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Meetingid" Type="int" />
+          <Property Name="id" Type="int" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="char" MaxLength="50" />
+          <Property Name="Surname" Type="char" MaxLength="50" />
+          <Property Name="MemberShipNo" Type="int" />
+          <Property Name="ContactNumber" Type="char" MaxLength="20" />
+          <Property Name="IdNumber" Type="char" MaxLength="20" />
+          <Property Name="Gender" Type="char" MaxLength="10" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Haspaid" Type="bit" />
+          <Property Name="MemberQRCode" Type="image" />
+        </EntityType>
+        <Association Name="FK_MemberMeeting_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meetingid" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="Meetingid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberMeeting_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SAIMCModelStoreContainer">
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberMeeting" EntityType="Self.MemberMeeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MemberMeeting_Meeting" Association="Self.FK_MemberMeeting_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MemberMeeting" EntitySet="MemberMeeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberMeeting_Members" Association="Self.FK_MemberMeeting_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="MemberMeeting" EntitySet="MemberMeeting" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAIMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Meetingid" />
+          </Key>
+          <Property Name="Meetingid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Agenda" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CPDpoints" Type="Int32" />
+          <NavigationProperty Name="MemberMeetings" Relationship="Self.FK_MemberMeeting_Meeting" FromRole="Meeting" ToRole="MemberMeeting" />
+        </EntityType>
+        <EntityType Name="MemberMeeting">
+          <Key>
+            <PropertyRef Name="MemberMeetingID" />
+          </Key>
+          <Property Name="MemberMeetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Meetingid" Type="Int32" />
+          <Property Name="id" Type="Int32" />
+          <NavigationProperty Name="Meeting" Relationship="Self.FK_MemberMeeting_Meeting" FromRole="MemberMeeting" ToRole="Meeting" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberMeeting_Members" FromRole="MemberMeeting" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MemberShipNo" Type="Int32" />
+          <Property Name="ContactNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="IdNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Haspaid" Type="Boolean" />
+          <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="MemberMeetings" Relationship="Self.FK_MemberMeeting_Members" FromRole="Members" ToRole="MemberMeeting" />
+        </EntityType>
+        <Association Name="FK_MemberMeeting_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meetingid" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="Meetingid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberMeeting_Members">
+          <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SAIMCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="MemberMeetings" EntityType="Self.MemberMeeting" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <AssociationSet Name="FK_MemberMeeting_Meeting" Association="Self.FK_MemberMeeting_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MemberMeeting" EntitySet="MemberMeetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberMeeting_Members" Association="Self.FK_MemberMeeting_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="MemberMeeting" EntitySet="MemberMeetings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAIMCModelStoreContainer" CdmEntityContainer="SAIMCEntities">
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="SAIMCModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="Meetingid" ColumnName="Meetingid" />
+                <ScalarProperty Name="Agenda" ColumnName="Agenda" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="CPDpoints" ColumnName="CPDpoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberMeetings">
+            <EntityTypeMapping TypeName="SAIMCModel.MemberMeeting">
+              <MappingFragment StoreEntitySet="MemberMeeting">
+                <ScalarProperty Name="MemberMeetingID" ColumnName="MemberMeetingID" />
+                <ScalarProperty Name="Meetingid" ColumnName="Meetingid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="SAIMCModel.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Haspaid" ColumnName="Haspaid" />
+                <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
