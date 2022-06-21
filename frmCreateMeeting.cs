@@ -18,16 +18,6 @@ namespace SAIMC_MemberManager
         }
         SAIMCEntities db = new SAIMCEntities();
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmCreateMeeting_Load(object sender, EventArgs e)
         {
 
@@ -45,7 +35,6 @@ namespace SAIMC_MemberManager
             this.Close();
             
         }
-
         private void cancelbtn_Click(object sender, EventArgs e)
         {
             this.Close();

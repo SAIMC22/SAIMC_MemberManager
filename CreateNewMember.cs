@@ -238,7 +238,7 @@ namespace SAIMC_MemberManager
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Failed");
+                MessageBox.Show(ex.ToString());
             }
         }
     }

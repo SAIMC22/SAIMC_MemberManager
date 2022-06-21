@@ -30,13 +30,13 @@ namespace SAIMC_MemberManager
         int membershipnumber;
         private void Form1_Load(object sender, EventArgs e)
         {
+            pbxGranted.Visible = false;
+            pbxDenied.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Open New form To add a Member
-            frmcreatemember createnewMemberForm = new frmcreatemember();
-            createnewMemberForm.ShowDialog();
+           
         }
         //Check when Textbox is Populated
         List<Member> AllMembersList = new List<Member>();
@@ -87,16 +87,22 @@ namespace SAIMC_MemberManager
                         if (foundMember.Haspaid == true)
                         {
                             this.BackColor = Color.Green;
+                            pbxGranted.Visible = true;
+                            pbxDenied.Visible = false;
                             await Task.Delay(2000);
                             this.BackColor = Color.WhiteSmoke;
+                            pbxGranted.Visible = false;
                             txtScanmembership.Text = " ";
                             return;
                         }
                        else
                         {
                             this.BackColor = Color.Red;
+                            pbxGranted.Visible = false;
+                            pbxDenied.Visible = true;
                             await Task.Delay(2000);
                             this.BackColor = Color.WhiteSmoke;
+                            pbxDenied.Visible = false;
                             txtScanmembership.Text = " ";
                             return;
                         }
@@ -106,80 +112,10 @@ namespace SAIMC_MemberManager
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                
             }
 
-        }
-
-
-        //Create Datatable from Database Read
-            public static DataTable createDataTable()
-        {
-            SAIMCEntities db = new SAIMCEntities();
-            //Create Datatable
-            DataTable Membertable = new DataTable();
-            Membertable.Columns.Add("ID", typeof(int));
-            Membertable.Columns.Add("NAME", typeof(string));
-            Membertable.Columns.Add("Surname", typeof(string));
-            Membertable.Columns.Add("MemberShip Number", typeof(string));
-            Membertable.Columns.Add("ID Number", typeof(string));
-            Membertable.Columns.Add("Gender", typeof(string));
-            Membertable.Columns.Add("Date of Birth", typeof(string));
-            Membertable.Columns.Add("Has Paid", typeof(string));
-
-            foreach (Member member in db.Members)
-            {
-                Membertable.Rows.Add(member.Name, member.Surname, member.MemberShipNo, member.IdNumber, member.Gender, member.DOB, member.Haspaid);
-            }
-            return Membertable;
-
-
-        }
-
-        /*//Convert Datatable to CSV
-        public static void ToCSV(this DataTable dtDataTable, string strFilePath)
-        {
-            StreamWriter sw = new StreamWriter(strFilePath, false);
-            //headers    
-            for (int i = 0; i < dtDataTable.Columns.Count; i++)
-            {
-                sw.Write(dtDataTable.Columns[i]);
-                if (i < dtDataTable.Columns.Count - 1)
-                {
-                    sw.Write(",");
-                }
-            }
-            sw.Write(sw.NewLine);
-            foreach (DataRow dr in dtDataTable.Rows)
-            {
-                for (int i = 0; i < dtDataTable.Columns.Count; i++)
-                {
-                    if (!Convert.IsDBNull(dr[i]))
-                    {
-                        string value = dr[i].ToString();
-                        if (value.Contains(','))
-                        {
-                            value = String.Format("\"{0}\"", value);
-                            sw.Write(value);
-                        }
-                        else
-                        {
-                            sw.Write(dr[i].ToString());
-                        }
-                    }
-                    if (i < dtDataTable.Columns.Count - 1)
-                    {
-                        sw.Write(",");
-                    }
-                }
-                sw.Write(sw.NewLine);
-            }
-            sw.Close();
-        }*/
-        private void CheckTick_Tick(object sender, EventArgs e)
-        {
-
-        }
+        }      
 
         private void expExcelbtn_Click(object sender, EventArgs e)
         {
@@ -201,9 +137,6 @@ namespace SAIMC_MemberManager
                     {
                         workbook.SaveAs(Dialog.FileName);
                     }
-                  
-
-                    //workbook.SaveAs("ImportFromDT.xlsx");
                     MessageBox.Show("Success");
                 }
             }
@@ -212,18 +145,11 @@ namespace SAIMC_MemberManager
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
-            //Open New form To Create a Meeting
-            frmCreateMeeting Createmeeting = new frmCreateMeeting();
+            //Open New form To Admin
+            frmAdmin Createmeeting = new frmAdmin();
             Createmeeting.ShowDialog();
-        }
-
-        private void btnviewmeetings_Click(object sender, EventArgs e)
-        {
-            frmViewMeeting viewMeeting = new frmViewMeeting();
-            viewMeeting.ShowDialog();
         }
     }
 }

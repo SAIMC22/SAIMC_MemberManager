@@ -27,7 +27,7 @@ namespace SAIMC_MemberManager
 
             Membermeetings = db.MemberMeetings.ToList();
             members = db.Members.ToList();
-            var FoundMemberMeeting = Membermeetings.FindAll(x => x.Meetingid == numericUpDown1.Value).ToList();
+            var FoundMemberMeeting = Membermeetings.FindAll(x => x.Meetingid == 132).ToList();
             foreach(var membermeeting in FoundMemberMeeting)
             {                
                 foreach(var member in members)
@@ -49,11 +49,6 @@ namespace SAIMC_MemberManager
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void dgvMeeting_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
