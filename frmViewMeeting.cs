@@ -14,8 +14,7 @@ namespace SAIMC_MemberManager
     {
         List<Member> members = new List<Member>();
         List<MemberMeeting> Membermeetings = new List<MemberMeeting>();
-        List<MemberMeeting> foundMemberMeetings = new List<MemberMeeting>();
-        
+        List<MemberMeeting> foundMemberMeetings = new List<MemberMeeting>();        
         List<Meeting> MeetingList = new List<Meeting>();
         SAIMCEntities db = new SAIMCEntities();
         
@@ -26,28 +25,41 @@ namespace SAIMC_MemberManager
 
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            List<Member> foundMembersInMeeting = new List<Member>();
+            try
+            { 
             //Search by Agenda
+            List<Member> foundMembersInMeeting = new List<Member>();
             MeetingList = db.Meetings.ToList();
-            var foundMeeting =  MeetingList.Find(x => x.Agenda == cbxMeetings.Text); 
-            Membermeetings = db.MemberMeetings.ToList();
-            foundMemberMeetings = Membermeetings.FindAll(x => x.Meetingid == foundMeeting.Meetingid);        
-
-            members = db.Members.ToList();
-            
-            //Loop through MemberMeeting List to Find all Members ID's and Add Member Details to List
-            foreach (var membermeeting in foundMemberMeetings)
-            {                
-                foreach(var member in members)
-                {
-                    if(member.id == membermeeting.id)
-                    {
-                        foundMembersInMeeting.Add(member);                        
-                    }
-                }  
+            var foundMeeting =  MeetingList.Find(x => x.Agenda == cbxMeetings.Text);
+            if (foundMeeting == null)
+            {
+                MessageBox.Show("No Meeting Found");
             }
-            dgvMeeting.DataSource = foundMembersInMeeting;
-            dgvMeeting.Update();
+            else
+            {
+                Membermeetings = db.MemberMeetings.ToList();
+                foundMemberMeetings = Membermeetings.FindAll(x => x.Meetingid == foundMeeting.Meetingid);
+                members = db.Members.ToList();
+
+                //Loop through MemberMeeting List to Find all Members ID's and Add Member Details to List
+                foreach (var membermeeting in foundMemberMeetings)
+                {
+                    foreach (var member in members)
+                    {
+                        if (member.id == membermeeting.id)
+                        {
+                            foundMembersInMeeting.Add(member);
+                        }
+                    }
+                }
+                dgvMeeting.DataSource = foundMembersInMeeting;
+                dgvMeeting.Update();
+            }
+        }
+            catch
+            {
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,12 +69,58 @@ namespace SAIMC_MemberManager
 
         private void frmViewMeeting_Load(object sender, EventArgs e)
         {
-            MeetingList = db.Meetings.ToList();
-            foreach(var meeting in MeetingList)
+            try
             {
-                cbxMeetings.Items.Add(meeting.Agenda);
+                MeetingList = db.Meetings.ToList();
+                foreach (var meeting in MeetingList)
+                {
+                    cbxMeetings.Items.Add(meeting.Agenda);
+                }
             }
-            
+            catch
+            {
+
+            }
+
+        }
+
+        private void btnSearchbyDate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Search by Date
+                List<Member> foundMembersInMeeting = new List<Member>();
+                MeetingList = db.Meetings.ToList();
+                var foundMeeting = MeetingList.Find(x => x.date.Date == dtpSearchDate.Value.Date);
+                if (foundMeeting == null)
+                {
+                    MessageBox.Show("No Meeting Found");
+                }
+                else
+                {
+                    Membermeetings = db.MemberMeetings.ToList();
+                    foundMemberMeetings = Membermeetings.FindAll(x => x.Meetingid == foundMeeting.Meetingid);
+                    members = db.Members.ToList();
+
+                    //Loop through MemberMeeting List to Find all Members ID's and Add Member Details to List
+                    foreach (var membermeeting in foundMemberMeetings)
+                    {
+                        foreach (var member in members)
+                        {
+                            if (member.id == membermeeting.id)
+                            {
+                                foundMembersInMeeting.Add(member);
+                            }
+                        }
+                    }
+                    dgvMeeting.DataSource = foundMembersInMeeting;
+                    dgvMeeting.Update();
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

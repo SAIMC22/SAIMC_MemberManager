@@ -36,6 +36,7 @@
             this.dtpSearchDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxMeetings = new System.Windows.Forms.ComboBox();
+            this.btnSearchbyDate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeeting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,9 +61,9 @@
             this.btnsearch.Location = new System.Drawing.Point(929, 69);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(140, 34);
+            this.btnsearch.Size = new System.Drawing.Size(186, 34);
             this.btnsearch.TabIndex = 1;
-            this.btnsearch.Text = "Search";
+            this.btnsearch.Text = "Search by Agenda";
             this.btnsearch.UseVisualStyleBackColor = true;
             this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
@@ -81,10 +82,10 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1075, 69);
+            this.button1.Location = new System.Drawing.Point(1121, 69);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 34);
+            this.button1.Size = new System.Drawing.Size(180, 34);
             this.button1.TabIndex = 4;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
@@ -108,7 +109,7 @@
             this.dtpSearchDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSearchDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSearchDate.Location = new System.Drawing.Point(221, 110);
-            this.dtpSearchDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpSearchDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpSearchDate.Name = "dtpSearchDate";
             this.dtpSearchDate.Size = new System.Drawing.Size(700, 26);
             this.dtpSearchDate.TabIndex = 7;
@@ -135,11 +136,25 @@
             this.cbxMeetings.Size = new System.Drawing.Size(700, 28);
             this.cbxMeetings.TabIndex = 9;
             // 
+            // btnSearchbyDate
+            // 
+            this.btnSearchbyDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSearchbyDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchbyDate.Location = new System.Drawing.Point(928, 110);
+            this.btnSearchbyDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchbyDate.Name = "btnSearchbyDate";
+            this.btnSearchbyDate.Size = new System.Drawing.Size(187, 34);
+            this.btnSearchbyDate.TabIndex = 10;
+            this.btnSearchbyDate.Text = "Search by Date";
+            this.btnSearchbyDate.UseVisualStyleBackColor = true;
+            this.btnSearchbyDate.Click += new System.EventHandler(this.btnSearchbyDate_Click);
+            // 
             // frmViewMeeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1511, 988);
+            this.Controls.Add(this.btnSearchbyDate);
             this.Controls.Add(this.cbxMeetings);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpSearchDate);
@@ -170,5 +185,6 @@
         private System.Windows.Forms.DateTimePicker dtpSearchDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxMeetings;
+        private System.Windows.Forms.Button btnSearchbyDate;
     }
 }
