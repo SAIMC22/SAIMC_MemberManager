@@ -78,11 +78,12 @@ namespace SAIMC_MemberManager
                         }
                         else
                         {
-                            MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.id = foundMember.id;
-                            membermeeting.Meetingid = latestMeeting;
-                            db.MemberMeetings.Add(membermeeting);
-                            db.SaveChanges();
+                                MemberMeeting membermeeting = new MemberMeeting();
+                                membermeeting.id = foundMember.id;
+                                membermeeting.Meetingid = latestMeeting;
+                                db.MemberMeetings.Add(membermeeting);
+                                db.SaveChanges();
+                           
                         }
                         if (foundMember.Haspaid == true)
                         {
