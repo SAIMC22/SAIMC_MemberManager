@@ -37,6 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbxMeetings = new System.Windows.Forms.ComboBox();
             this.btnSearchbyDate = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblMeetingAgenda = new System.Windows.Forms.Label();
+            this.lblMeetingAttendanceCount = new System.Windows.Forms.Label();
+            this.lblCPDPointsOfMeeting = new System.Windows.Forms.Label();
+            this.lblMeetingDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeeting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +82,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(576, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 37);
+            this.label1.Size = new System.Drawing.Size(319, 46);
             this.label1.TabIndex = 3;
             this.label1.Text = "Search Meetings";
             // 
@@ -99,7 +107,7 @@
             this.label2.Location = new System.Drawing.Point(24, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 20);
+            this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Search by Agenda:";
             // 
@@ -111,7 +119,7 @@
             this.dtpSearchDate.Location = new System.Drawing.Point(221, 110);
             this.dtpSearchDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpSearchDate.Name = "dtpSearchDate";
-            this.dtpSearchDate.Size = new System.Drawing.Size(700, 26);
+            this.dtpSearchDate.Size = new System.Drawing.Size(700, 30);
             this.dtpSearchDate.TabIndex = 7;
             // 
             // label3
@@ -122,7 +130,7 @@
             this.label3.Location = new System.Drawing.Point(24, 110);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 20);
+            this.label3.Size = new System.Drawing.Size(153, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Search by Date:";
             // 
@@ -133,7 +141,7 @@
             this.cbxMeetings.FormattingEnabled = true;
             this.cbxMeetings.Location = new System.Drawing.Point(221, 71);
             this.cbxMeetings.Name = "cbxMeetings";
-            this.cbxMeetings.Size = new System.Drawing.Size(700, 28);
+            this.cbxMeetings.Size = new System.Drawing.Size(700, 33);
             this.cbxMeetings.TabIndex = 9;
             // 
             // btnSearchbyDate
@@ -149,11 +157,103 @@
             this.btnSearchbyDate.UseVisualStyleBackColor = true;
             this.btnSearchbyDate.Click += new System.EventHandler(this.btnSearchbyDate_Click);
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(62, 880);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(195, 29);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Meeting Agenda:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(876, 880);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(188, 29);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Date of Meeting:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(62, 921);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(232, 29);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Meeting Attendance:";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(876, 921);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(261, 29);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "CPD Points of Meeting:";
+            // 
+            // lblMeetingAgenda
+            // 
+            this.lblMeetingAgenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblMeetingAgenda.AutoSize = true;
+            this.lblMeetingAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeetingAgenda.Location = new System.Drawing.Point(302, 880);
+            this.lblMeetingAgenda.Name = "lblMeetingAgenda";
+            this.lblMeetingAgenda.Size = new System.Drawing.Size(0, 29);
+            this.lblMeetingAgenda.TabIndex = 17;
+            // 
+            // lblMeetingAttendanceCount
+            // 
+            this.lblMeetingAttendanceCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblMeetingAttendanceCount.AutoSize = true;
+            this.lblMeetingAttendanceCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeetingAttendanceCount.Location = new System.Drawing.Point(302, 921);
+            this.lblMeetingAttendanceCount.Name = "lblMeetingAttendanceCount";
+            this.lblMeetingAttendanceCount.Size = new System.Drawing.Size(0, 29);
+            this.lblMeetingAttendanceCount.TabIndex = 18;
+            // 
+            // lblCPDPointsOfMeeting
+            // 
+            this.lblCPDPointsOfMeeting.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCPDPointsOfMeeting.AutoSize = true;
+            this.lblCPDPointsOfMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPDPointsOfMeeting.Location = new System.Drawing.Point(1143, 921);
+            this.lblCPDPointsOfMeeting.Name = "lblCPDPointsOfMeeting";
+            this.lblCPDPointsOfMeeting.Size = new System.Drawing.Size(0, 29);
+            this.lblCPDPointsOfMeeting.TabIndex = 19;
+            // 
+            // lblMeetingDate
+            // 
+            this.lblMeetingDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblMeetingDate.AutoSize = true;
+            this.lblMeetingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeetingDate.Location = new System.Drawing.Point(1144, 880);
+            this.lblMeetingDate.Name = "lblMeetingDate";
+            this.lblMeetingDate.Size = new System.Drawing.Size(0, 29);
+            this.lblMeetingDate.TabIndex = 20;
+            // 
             // frmViewMeeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1511, 988);
+            this.Controls.Add(this.lblMeetingDate);
+            this.Controls.Add(this.lblCPDPointsOfMeeting);
+            this.Controls.Add(this.lblMeetingAttendanceCount);
+            this.Controls.Add(this.lblMeetingAgenda);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSearchbyDate);
             this.Controls.Add(this.cbxMeetings);
             this.Controls.Add(this.label3);
@@ -186,5 +286,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxMeetings;
         private System.Windows.Forms.Button btnSearchbyDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMeetingAgenda;
+        private System.Windows.Forms.Label lblMeetingAttendanceCount;
+        private System.Windows.Forms.Label lblCPDPointsOfMeeting;
+        private System.Windows.Forms.Label lblMeetingDate;
     }
 }

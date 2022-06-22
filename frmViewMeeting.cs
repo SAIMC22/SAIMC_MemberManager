@@ -37,6 +37,10 @@ namespace SAIMC_MemberManager
             }
             else
             {
+                lblMeetingAgenda.Text = foundMeeting.Agenda;
+                lblCPDPointsOfMeeting.Text = foundMeeting.CPDpoints.ToString();
+                lblMeetingDate.Text = foundMeeting.date.ToString();
+                    
                 Membermeetings = db.MemberMeetings.ToList();
                 foundMemberMeetings = Membermeetings.FindAll(x => x.Meetingid == foundMeeting.Meetingid);
                 members = db.Members.ToList();
@@ -52,6 +56,7 @@ namespace SAIMC_MemberManager
                         }
                     }
                 }
+                lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
                 dgvMeeting.DataSource = foundMembersInMeeting;
                 dgvMeeting.Update();
             }
@@ -98,6 +103,10 @@ namespace SAIMC_MemberManager
                 }
                 else
                 {
+                    lblMeetingAgenda.Text = foundMeeting.Agenda;
+                    lblCPDPointsOfMeeting.Text = foundMeeting.CPDpoints.ToString();
+                    lblMeetingDate.Text = foundMeeting.date.ToString();
+
                     Membermeetings = db.MemberMeetings.ToList();
                     foundMemberMeetings = Membermeetings.FindAll(x => x.Meetingid == foundMeeting.Meetingid);
                     members = db.Members.ToList();
@@ -113,6 +122,7 @@ namespace SAIMC_MemberManager
                             }
                         }
                     }
+                    lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
                     dgvMeeting.DataSource = foundMembersInMeeting;
                     dgvMeeting.Update();
                 }
