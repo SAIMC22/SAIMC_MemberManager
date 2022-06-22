@@ -33,6 +33,12 @@ namespace SAIMC_MemberManager
         {
             pbxGranted.Visible = false;
             pbxDenied.Visible = false;
+            meetingList = db.Meetings.ToList();
+            if (meetingList.Count > 0)
+            {
+                int latestMeeting = db.Meetings.Max(p => p.Meetingid);
+                lblMeetingAgenda.Text = "Meeting Agenda:" + " " + db.Meetings.FirstOrDefault(x => x.Meetingid == latestMeeting).Agenda.ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
