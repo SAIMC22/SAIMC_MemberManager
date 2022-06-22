@@ -27,6 +27,7 @@ namespace SAIMC_MemberManager
         }
         SAIMCEntities db = new SAIMCEntities();
         List<MemberMeeting> membermeetingList = new List<MemberMeeting>();
+        List<Meeting> meetingList = new List<Meeting>();
         int membershipnumber;
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,31 +44,69 @@ namespace SAIMC_MemberManager
         private async void txtScanmembership_TextChanged(object sender, EventArgs e)
         {
             try
-            {
-                AllMembersList = db.Members.ToList();                
+            {    
                 await Task.Delay(3);
                 {
+                    meetingList = db.Meetings.ToList();
+                    if (meetingList.Count == 0)
+                    {
+                        string message = "Would you like to create a Meeting?";
+                        string title = "No Created Meeting";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result = MessageBox.Show(message, title, buttons);
+                        if (result == DialogResult.Yes)
+                        {
+                            //Open New form To Create a Meeting
+                            frmCreateMeeting Createmeeting = new frmCreateMeeting();
+                            Createmeeting.ShowDialog();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }
                     membershipnumber = Convert.ToInt32(txtScanmembership.Text);
                 }
                 
                 if (membershipnumber != 0)
                 {
-                    
+                    AllMembersList = db.Members.ToList();
                     var Foundmember = new Member();
                     membermeetingList = db.MemberMeetings.ToList();
-                    //Found Member with same Membership Number scanned
+                    //Fins Member with same Membership Number scanned
                     var foundMember =  AllMembersList.FirstOrDefault(x => x.MemberShipNo == membershipnumber);
                     if(foundMember != null)
                     {
                         //Add Member to new Meeting
+                        //Get Latest Meeting
+                        
                         int latestMeeting = db.Meetings.Max(p => p.Meetingid);
-                        //Find all Member Meeting with Lastest Meeting ID
-                        MemberMeeting exsistingMemberMeetingList = membermeetingList.Find(x => x.Meetingid == latestMeeting);
 
-                        //Check if Member is in the exsisting Meeting
-                        if(exsistingMemberMeetingList != null)
+                        //Find all Member Meeting with Lastest Meeting ID
+                        List<MemberMeeting> LatestMemberMeetingList = new List<MemberMeeting>();
+                        if (membermeetingList.Count != 0)
                         {
-                            if(exsistingMemberMeetingList.id != foundMember.id)
+                            foreach (MemberMeeting meeting in membermeetingList)
+                            {
+                                if (latestMeeting == meeting.Meetingid)
+                                {
+                                    LatestMemberMeetingList.Add(meeting);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MemberMeeting membermeeting = new MemberMeeting();
+                            membermeeting.id = foundMember.id;
+                            membermeeting.Meetingid = latestMeeting;
+                            db.MemberMeetings.Add(membermeeting);
+                            db.SaveChanges();
+                        }
+                        //LatestMemberMeetingList = membermeetingList.FindAll(x=>x.Meetingid == latestMeeting);
+                        var memberExsists = LatestMemberMeetingList.Find(x => x.id == foundMember.id);
+                        if (LatestMemberMeetingList != null)
+                        {
+                            if (memberExsists == null)
                             {
                                 MemberMeeting membermeeting = new MemberMeeting();
                                 membermeeting.id = foundMember.id;
@@ -78,13 +117,14 @@ namespace SAIMC_MemberManager
                         }
                         else
                         {
-                                MemberMeeting membermeeting = new MemberMeeting();
-                                membermeeting.id = foundMember.id;
-                                membermeeting.Meetingid = latestMeeting;
-                                db.MemberMeetings.Add(membermeeting);
-                                db.SaveChanges();
-                           
+                            MemberMeeting membermeeting = new MemberMeeting();
+                            membermeeting.id = foundMember.id;
+                            membermeeting.Meetingid = latestMeeting;
+                            db.MemberMeetings.Add(membermeeting);
+                            db.SaveChanges();
+
                         }
+                       
                         if (foundMember.Haspaid == true)
                         {
                             this.BackColor = Color.Green;
@@ -108,7 +148,7 @@ namespace SAIMC_MemberManager
                             return;
                         }
 
-                    }                   
+                    }
                 }                
             }
             catch (Exception ex)

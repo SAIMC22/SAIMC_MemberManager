@@ -25,15 +25,47 @@ namespace SAIMC_MemberManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Meeting meeting = new Meeting();
-            meeting.Agenda = txtagenda.Text;
-            meeting.date = DateTime.Now;
-            meeting.CPDpoints = Convert.ToInt32(txtCPDPoints.Text);
-            db.Meetings.Add(meeting);
-            db.SaveChanges();
-            MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK); 
-            this.Close();
-            
+            if (txtagenda.Text == "")
+            {
+                MessageBox.Show("Please fill in all Information");
+            }
+            else
+            {
+                if (nudCPDPoints.Value < 1)
+                {
+                    string message = "Is this Meetings CPD points 0?";
+                    string title = "Please Confirm";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
+                    if (result == DialogResult.No)
+                    {
+
+                    }
+                    else
+                    {
+                        Meeting meeting = new Meeting();
+                        meeting.Agenda = txtagenda.Text;
+                        meeting.date = DateTime.Now;
+                        meeting.CPDpoints = Convert.ToInt32(nudCPDPoints.Value);
+                        db.Meetings.Add(meeting);
+                        db.SaveChanges();
+                        MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    Meeting meeting = new Meeting();
+                    meeting.Agenda = txtagenda.Text;
+                    meeting.date = DateTime.Now;
+                    meeting.CPDpoints = Convert.ToInt32(nudCPDPoints.Value);
+                    db.Meetings.Add(meeting);
+                    db.SaveChanges();
+                    MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+          
+            }
         }
         private void cancelbtn_Click(object sender, EventArgs e)
         {
