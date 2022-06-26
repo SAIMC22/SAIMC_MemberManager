@@ -76,6 +76,8 @@ namespace SAIMC_MemberManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            frmAdmin frmAdmin = new frmAdmin();
+            frmAdmin.ShowDialog();
             this.Close();
         }
 

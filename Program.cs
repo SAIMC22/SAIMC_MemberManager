@@ -16,7 +16,7 @@ namespace SAIMC_MemberManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmScanQR());
+            Application.Run(new frmAdmin());
         }
     }
 }

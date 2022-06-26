@@ -243,6 +243,12 @@
     <Compile Include="frmCreateMeeting.Designer.cs">
       <DependentUpon>frmCreateMeeting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageMembers.Designer.cs">
+      <DependentUpon>frmManageMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmscanmember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateMeeting.resx">
       <DependentUpon>frmCreateMeeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageMembers.resx">
+      <DependentUpon>frmManageMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmscanmember.resx">
       <DependentUpon>frmscanmember.cs</DependentUpon>

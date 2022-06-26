@@ -33,13 +33,15 @@
             this.btncreatenewMember = new System.Windows.Forms.Button();
             this.lbadmin = new System.Windows.Forms.Label();
             this.btncancel = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnCloseApplication = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnviewmeetings
             // 
             this.btnviewmeetings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnviewmeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewmeetings.Location = new System.Drawing.Point(306, 378);
+            this.btnviewmeetings.Location = new System.Drawing.Point(306, 426);
             this.btnviewmeetings.Margin = new System.Windows.Forms.Padding(4);
             this.btnviewmeetings.Name = "btnviewmeetings";
             this.btnviewmeetings.Size = new System.Drawing.Size(329, 38);
@@ -90,7 +92,7 @@
             // 
             this.btncancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(306, 424);
+            this.btncancel.Location = new System.Drawing.Point(306, 472);
             this.btncancel.Margin = new System.Windows.Forms.Padding(4);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(329, 38);
@@ -99,11 +101,39 @@
             this.btncancel.UseVisualStyleBackColor = true;
             this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(306, 378);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(329, 38);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Manage Members";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnCloseApplication
+            // 
+            this.btnCloseApplication.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCloseApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseApplication.Location = new System.Drawing.Point(306, 518);
+            this.btnCloseApplication.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseApplication.Name = "btnCloseApplication";
+            this.btnCloseApplication.Size = new System.Drawing.Size(329, 38);
+            this.btnCloseApplication.TabIndex = 14;
+            this.btnCloseApplication.Text = "Close Application";
+            this.btnCloseApplication.UseVisualStyleBackColor = true;
+            this.btnCloseApplication.Click += new System.EventHandler(this.btnCloseApplication_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 555);
+            this.Controls.Add(this.btnCloseApplication);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.lbadmin);
             this.Controls.Add(this.btnviewmeetings);
@@ -112,6 +142,7 @@
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +155,7 @@
         private System.Windows.Forms.Button btncreatenewMember;
         private System.Windows.Forms.Label lbadmin;
         private System.Windows.Forms.Button btncancel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCloseApplication;
     }
 }

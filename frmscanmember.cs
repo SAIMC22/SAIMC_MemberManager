@@ -197,6 +197,7 @@ namespace SAIMC_MemberManager
             //Open New form To Admin
             frmAdmin Createmeeting = new frmAdmin();
             Createmeeting.ShowDialog();
+            this.Close();
         }
     }
 }

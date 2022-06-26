@@ -27,6 +27,7 @@ namespace SAIMC_MemberManager
             //Open New form To add a Member
             frmcreatemember createnewMemberForm = new frmcreatemember();
             createnewMemberForm.ShowDialog();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,17 +35,39 @@ namespace SAIMC_MemberManager
             //Open New form To Create a Meeting
             frmCreateMeeting Createmeeting = new frmCreateMeeting();
             Createmeeting.ShowDialog();
+            this.Close();
         }
 
         private void btnviewmeetings_Click(object sender, EventArgs e)
         {
             frmViewMeeting viewMeeting = new frmViewMeeting();
             viewMeeting.ShowDialog();
+            this.Close();
         }
 
         private void btncancel_Click(object sender, EventArgs e)
         {
+            frmScanQR viewMeeting = new frmScanQR();
+            viewMeeting.ShowDialog();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Manage Members
+            frmManageMembers viewMeeting = new frmManageMembers();
+            viewMeeting.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCloseApplication_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
