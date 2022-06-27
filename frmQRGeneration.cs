@@ -80,5 +80,12 @@ namespace SAIMC_MemberManager
                 }   
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAdmin myadmin = new frmAdmin();
+            myadmin.ShowDialog();
+            this.Close();
+        }
     }
 }

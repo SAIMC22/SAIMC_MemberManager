@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.btnviewmeetings = new System.Windows.Forms.Button();
             this.btnGenerateQrCode = new System.Windows.Forms.Button();
             this.lbadmin = new System.Windows.Forms.Label();
@@ -124,8 +125,9 @@
             this.Controls.Add(this.lbadmin);
             this.Controls.Add(this.btnviewmeetings);
             this.Controls.Add(this.btnGenerateQrCode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin";
-            this.Text = "frmAdmin";
+            this.Text = "Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.ResumeLayout(false);

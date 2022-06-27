@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateMemberManual));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxpayment = new System.Windows.Forms.ComboBox();
@@ -323,6 +324,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnSaveMem);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCreateMemberManual";
             this.Text = "Create New Member";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

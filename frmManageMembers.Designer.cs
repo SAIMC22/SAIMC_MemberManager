@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageMembers));
             this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.btnSearchMember = new System.Windows.Forms.Button();
             this.txtSearchMember = new System.Windows.Forms.TextBox();
@@ -68,7 +69,7 @@
             this.txtSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchMember.Location = new System.Drawing.Point(166, 18);
             this.txtSearchMember.Name = "txtSearchMember";
-            this.txtSearchMember.Size = new System.Drawing.Size(216, 30);
+            this.txtSearchMember.Size = new System.Drawing.Size(216, 26);
             this.txtSearchMember.TabIndex = 2;
             this.txtSearchMember.TextChanged += new System.EventHandler(this.txtSearchMember_TextChanged);
             // 
@@ -79,7 +80,7 @@
             this.lblmembername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmembername.Location = new System.Drawing.Point(13, 18);
             this.lblmembername.Name = "lblmembername";
-            this.lblmembername.Size = new System.Drawing.Size(147, 25);
+            this.lblmembername.Size = new System.Drawing.Size(117, 20);
             this.lblmembername.TabIndex = 3;
             this.lblmembername.Text = "Member Name:";
             // 
@@ -118,8 +119,9 @@
             this.Controls.Add(this.txtSearchMember);
             this.Controls.Add(this.btnSearchMember);
             this.Controls.Add(this.dgvMembers);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmManageMembers";
-            this.Text = "frmManageMembers";
+            this.Text = "Manage Members";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmManageMembers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();

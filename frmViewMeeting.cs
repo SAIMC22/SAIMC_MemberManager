@@ -64,6 +64,15 @@ namespace SAIMC_MemberManager
                         }
                         lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
                         dgvMeeting.DataSource = foundMembersInMeeting;
+                        dgvMeeting.AllowUserToAddRows = false;
+                        dgvMeeting.AllowUserToDeleteRows = true;
+                        dgvMeeting.AllowUserToResizeRows = false;
+                        dgvMeeting.RowHeadersWidthSizeMode =
+                            DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                        dgvMeeting.ColumnHeadersHeightSizeMode =
+                            DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                        dgvMeeting.AutoSizeColumnsMode =
+                            DataGridViewAutoSizeColumnsMode.Fill;
                         dgvMeeting.Update();
                     }
                 }
@@ -133,6 +142,12 @@ namespace SAIMC_MemberManager
                         }
                         lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
                         dgvMeeting.DataSource = foundMembersInMeeting;
+                        dgvMeeting.AllowUserToAddRows = false;
+                        dgvMeeting.AllowUserToDeleteRows = true;
+                        dgvMeeting.AllowUserToResizeRows = false;
+                        dgvMeeting.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                        dgvMeeting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                        dgvMeeting.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dgvMeeting.Update();
                     }
                 
