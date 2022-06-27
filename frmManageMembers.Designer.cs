@@ -70,6 +70,7 @@
             this.txtSearchMember.Name = "txtSearchMember";
             this.txtSearchMember.Size = new System.Drawing.Size(216, 30);
             this.txtSearchMember.TabIndex = 2;
+            this.txtSearchMember.TextChanged += new System.EventHandler(this.txtSearchMember_TextChanged);
             // 
             // lblmembername
             // 

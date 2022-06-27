@@ -28,5 +28,6 @@ namespace SAIMC_MemberManager
         public virtual DbSet<Meeting> Meetings { get; set; }
         public virtual DbSet<MemberMeeting> MemberMeetings { get; set; }
         public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<QRGeneration> QRGenerations { get; set; }
     }
 }

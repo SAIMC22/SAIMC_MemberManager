@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SAIMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SAIMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Meeting">
           <Key>
             <PropertyRef Name="Meetingid" />
@@ -37,6 +37,16 @@
           <Property Name="Haspaid" Type="bit" />
           <Property Name="MemberQRCode" Type="image" />
         </EntityType>
+        <EntityType Name="QRGeneration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Surname" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="MemberShipNumber" Type="int" Nullable="false" />
+          <Property Name="MemberQRCode" Type="image" />
+        </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
           <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
@@ -65,6 +75,7 @@
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberMeeting" EntityType="Self.MemberMeeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QRGeneration" EntityType="Self.QRGeneration" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_MemberMeeting_Meeting" Association="Self.FK_MemberMeeting_Meeting">
             <End Role="Meeting" EntitySet="Meeting" />
             <End Role="MemberMeeting" EntitySet="MemberMeeting" />
@@ -74,8 +85,7 @@
             <End Role="MemberMeeting" EntitySet="MemberMeeting" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SAIMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -151,7 +161,18 @@
             <End Role="Members" EntitySet="Members" />
             <End Role="MemberMeeting" EntitySet="MemberMeetings" />
           </AssociationSet>
+          <EntitySet Name="QRGenerations" EntityType="SAIMCModel.QRGeneration" />
         </EntityContainer>
+        <EntityType Name="QRGeneration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberShipNumber" Type="Int32" Nullable="false" />
+          <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -190,6 +211,17 @@
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Haspaid" ColumnName="Haspaid" />
                 <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QRGenerations">
+            <EntityTypeMapping TypeName="SAIMCModel.QRGeneration">
+              <MappingFragment StoreEntitySet="QRGeneration">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
+                <ScalarProperty Name="MemberShipNumber" ColumnName="MemberShipNumber" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

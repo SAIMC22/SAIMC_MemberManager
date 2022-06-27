@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.btnviewmeetings = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btncreatenewMember = new System.Windows.Forms.Button();
+            this.btnGenerateQrCode = new System.Windows.Forms.Button();
             this.lbadmin = new System.Windows.Forms.Label();
             this.btncancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,31 +49,18 @@
             this.btnviewmeetings.UseVisualStyleBackColor = true;
             this.btnviewmeetings.Click += new System.EventHandler(this.btnviewmeetings_Click);
             // 
-            // button1
+            // btnGenerateQrCode
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(306, 332);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(329, 38);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Create Meeting";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btncreatenewMember
-            // 
-            this.btncreatenewMember.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btncreatenewMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncreatenewMember.Location = new System.Drawing.Point(306, 284);
-            this.btncreatenewMember.Margin = new System.Windows.Forms.Padding(4);
-            this.btncreatenewMember.Name = "btncreatenewMember";
-            this.btncreatenewMember.Size = new System.Drawing.Size(329, 38);
-            this.btncreatenewMember.TabIndex = 8;
-            this.btncreatenewMember.Text = "Create A New Member";
-            this.btncreatenewMember.UseVisualStyleBackColor = true;
-            this.btncreatenewMember.Click += new System.EventHandler(this.btncreatenewMember_Click);
+            this.btnGenerateQrCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnGenerateQrCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateQrCode.Location = new System.Drawing.Point(306, 332);
+            this.btnGenerateQrCode.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerateQrCode.Name = "btnGenerateQrCode";
+            this.btnGenerateQrCode.Size = new System.Drawing.Size(329, 38);
+            this.btnGenerateQrCode.TabIndex = 9;
+            this.btnGenerateQrCode.Text = "Generate QR Codes";
+            this.btnGenerateQrCode.UseVisualStyleBackColor = true;
+            this.btnGenerateQrCode.Click += new System.EventHandler(this.btnGenerateQrCode_Click_1);
             // 
             // lbadmin
             // 
@@ -83,7 +69,7 @@
             this.lbadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbadmin.Location = new System.Drawing.Point(244, 210);
             this.lbadmin.Name = "lbadmin";
-            this.lbadmin.Size = new System.Drawing.Size(454, 51);
+            this.lbadmin.Size = new System.Drawing.Size(364, 39);
             this.lbadmin.TabIndex = 11;
             this.lbadmin.Text = "Select Admin Function";
             this.lbadmin.Click += new System.EventHandler(this.label1_Click);
@@ -137,8 +123,7 @@
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.lbadmin);
             this.Controls.Add(this.btnviewmeetings);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btncreatenewMember);
+            this.Controls.Add(this.btnGenerateQrCode);
             this.Name = "frmAdmin";
             this.Text = "frmAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -151,8 +136,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnviewmeetings;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btncreatenewMember;
+        private System.Windows.Forms.Button btnGenerateQrCode;
         private System.Windows.Forms.Label lbadmin;
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.Button button2;

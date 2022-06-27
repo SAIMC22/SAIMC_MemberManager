@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="SAIMCModel.Member" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SAIMCModel.FK_MemberMeeting_Meeting" ManuallyRouted="false" />
         <AssociationConnector Association="SAIMCModel.FK_MemberMeeting_Members" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SAIMCModel.QRGeneration" Width="1.5" PointX="5.25" PointY="3.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

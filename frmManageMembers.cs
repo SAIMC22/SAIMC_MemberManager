@@ -21,8 +21,9 @@ namespace SAIMC_MemberManager
         private void btnCreate_Click(object sender, EventArgs e)
         {
             //Create new Members
-            frmcreatemember viewMeeting = new frmcreatemember();
+            frmCreateMemberManual viewMeeting = new frmCreateMemberManual();
             viewMeeting.ShowDialog();
+            this.Close();
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -52,7 +53,16 @@ namespace SAIMC_MemberManager
         {
             List<Member> members = new List<Member>();
             members = db.Members.ToList();
-            Member member = members.Where(x => x.Name == txtSearchMember.Text).FirstOrDefault();
+            List<Member> member = members.FindAll(x => x.Name.Contains(txtSearchMember.Text)).ToList();
+            dgvMembers.DataSource = member;
+            dgvMembers.Update();
+        }
+
+        private void txtSearchMember_TextChanged(object sender, EventArgs e)
+        {
+            List<Member> members = new List<Member>();
+            members = db.Members.ToList();
+            List<Member> member = members.FindAll(x => x.Name.Contains(txtSearchMember.Text)).ToList();
             dgvMembers.DataSource = member;
             dgvMembers.Update();
         }
