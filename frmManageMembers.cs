@@ -13,6 +13,7 @@ namespace SAIMC_MemberManager
     public partial class frmManageMembers : Form
     {
         SAIMCEntities db = new SAIMCEntities();
+        public static string MemberId = "";
         public frmManageMembers()
         {
             InitializeComponent();
@@ -65,6 +66,14 @@ namespace SAIMC_MemberManager
             List<Member> member = members.FindAll(x => x.Name.Contains(txtSearchMember.Text)).ToList();
             dgvMembers.DataSource = member;
             dgvMembers.Update();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int rowindex = dgvMembers.CurrentCell.RowIndex;
+            MemberId = dgvMembers.Rows[rowindex].Cells[0].Value.ToString();
+            frmEditMember editmember = new frmEditMember();
+            editmember.ShowDialog();
         }
     }
 }
