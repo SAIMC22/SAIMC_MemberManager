@@ -75,5 +75,32 @@ namespace SAIMC_MemberManager
             frmEditMember editmember = new frmEditMember();
             editmember.ShowDialog();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to delete?";
+            string title = "Please Confirm Deletion";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.No)
+            {
+
+            }
+            else
+            {
+                int rowindex = dgvMembers.CurrentCell.RowIndex;
+                MemberId = dgvMembers.Rows[rowindex].Cells[0].Value.ToString();
+                List<Member> members = new List<Member>();
+                members = db.Members.ToList();
+                Member member = members.Find(x => x.id == Convert.ToInt32(MemberId));
+                db.Members.Remove(member);
+                db.SaveChanges();
+                List<Member> newmemberList = new List<Member>();
+                newmemberList = db.Members.ToList();
+                dgvMembers.DataSource = newmemberList;
+                dgvMembers.Update();
+            }
+
+        }
     }
 }
