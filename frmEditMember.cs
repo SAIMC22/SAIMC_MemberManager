@@ -42,7 +42,7 @@ namespace SAIMC_MemberManager
                     txtSurname.Text = member.Surname;
                     nudMembershipNumber.Value = Convert.ToInt32(member.MemberShipNo);
                     nudIdNumber.Value = Convert.ToInt64(member.IdNumber);
-                    nudCellNumber.Value = Convert.ToInt32(member.ContactNumber);
+                    nudCellNumber.Value = Convert.ToInt64(member.ContactNumber);
                     dob.Value = member.DOB.Value;
                     cbxgender.Text = member.Gender;
                     if(member.Haspaid == true)
@@ -77,13 +77,14 @@ namespace SAIMC_MemberManager
                         MessageBox.Show("Invalid Cell Number");
                         return;
                     }
+
                     //Save New Member to Database
-                    mymembers.MemberShipNo = Convert.ToInt32(nudMembershipNumber.Value);
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.ContactNumber = nudCellNumber.Value.ToString();
+                    mymembers.MemberShipNo = Convert.ToInt32(nudMembershipNumber.Value);
                     mymembers.IdNumber = nudIdNumber.Value.ToString();
-                    mymembers.DOB = dob.Value.Date;
+                    mymembers.ContactNumber = nudCellNumber.Value.ToString();
+                    mymembers.DOB = dob.Value;
                     mymembers.Gender = cbxgender.Text;
 
                     if (cbxpayment.Text == "Paid")
@@ -98,7 +99,7 @@ namespace SAIMC_MemberManager
                     }
                     db.Members.Add(mymembers);
 
-                    string message = "Please confirm creation of:" + txtName.Text + " " + txtSurname.Text; ;
+                    string message = "Please confirm creation of:" + txtName.Text + " " + txtSurname.Text;
                     string title = "Please Confirm";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons);

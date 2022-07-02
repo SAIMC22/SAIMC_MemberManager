@@ -35,6 +35,8 @@
             this.btncancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCloseApplication = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnviewmeetings
@@ -70,7 +72,7 @@
             this.lbadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbadmin.Location = new System.Drawing.Point(244, 210);
             this.lbadmin.Name = "lbadmin";
-            this.lbadmin.Size = new System.Drawing.Size(364, 39);
+            this.lbadmin.Size = new System.Drawing.Size(454, 51);
             this.lbadmin.TabIndex = 11;
             this.lbadmin.Text = "Select Admin Function";
             this.lbadmin.Click += new System.EventHandler(this.label1_Click);
@@ -114,11 +116,23 @@
             this.btnCloseApplication.UseVisualStyleBackColor = true;
             this.btnCloseApplication.Click += new System.EventHandler(this.btnCloseApplication_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
+            this.pictureBox1.Location = new System.Drawing.Point(215, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(520, 108);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 555);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseApplication);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btncancel);
@@ -130,6 +144,7 @@
             this.Text = "Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAdmin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +158,6 @@
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCloseApplication;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -50,7 +50,10 @@ namespace SAIMC_MemberManager
                 {
                     // Create the subfolder
                     System.IO.Directory.CreateDirectory(pathString);
-                    string fileName = System.IO.Path.GetFileName(qrcodes.Name + " " + qrcodes.Surname + " " + "QRCode");
+                    //TODO ------> Short Char Count & MemberShip Number
+                    string firststring = qrcodes.Surname + " " + qrcodes.Name + " " + qrcodes.MemberShipNumber + " " + "QRCode";
+                    string message = firststring.Replace(" ", firststring);
+                    string fileName = System.IO.Path.GetFileName(message);
                     pathString = System.IO.Path.Combine(pathString, fileName);
                 }
                 
@@ -77,7 +80,8 @@ namespace SAIMC_MemberManager
                         picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\"+filename);
 
                     }
-                }   
+                }
+                MessageBox.Show("QR Codes Successfully Generated");
             }
         }
 

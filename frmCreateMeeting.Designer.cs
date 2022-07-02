@@ -36,7 +36,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cancelbtn = new System.Windows.Forms.Button();
             this.nudCPDPoints = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCPDPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -47,7 +49,7 @@
             this.label6.Location = new System.Drawing.Point(413, 162);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(300, 37);
+            this.label6.Size = new System.Drawing.Size(375, 46);
             this.label6.TabIndex = 43;
             this.label6.Text = "Create new Meeting";
             // 
@@ -56,10 +58,10 @@
             this.txtagenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtagenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenda.Location = new System.Drawing.Point(405, 231);
-            this.txtagenda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtagenda.Margin = new System.Windows.Forms.Padding(4);
             this.txtagenda.MinimumSize = new System.Drawing.Size(4, 20);
             this.txtagenda.Name = "txtagenda";
-            this.txtagenda.Size = new System.Drawing.Size(420, 26);
+            this.txtagenda.Size = new System.Drawing.Size(420, 30);
             this.txtagenda.TabIndex = 49;
             // 
             // label10
@@ -70,7 +72,7 @@
             this.label10.Location = new System.Drawing.Point(236, 231);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 26);
+            this.label10.Size = new System.Drawing.Size(128, 32);
             this.label10.TabIndex = 48;
             this.label10.Text = "Agenda: ";
             // 
@@ -82,7 +84,7 @@
             this.label2.Location = new System.Drawing.Point(231, 271);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 26);
+            this.label2.Size = new System.Drawing.Size(168, 32);
             this.label2.TabIndex = 45;
             this.label2.Text = "CPD Points:";
             // 
@@ -117,16 +119,28 @@
             this.nudCPDPoints.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nudCPDPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCPDPoints.Location = new System.Drawing.Point(405, 274);
-            this.nudCPDPoints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudCPDPoints.Margin = new System.Windows.Forms.Padding(4);
             this.nudCPDPoints.Name = "nudCPDPoints";
-            this.nudCPDPoints.Size = new System.Drawing.Size(421, 26);
+            this.nudCPDPoints.Size = new System.Drawing.Size(421, 30);
             this.nudCPDPoints.TabIndex = 52;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
+            this.pictureBox1.Location = new System.Drawing.Point(306, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(520, 108);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 53;
+            this.pictureBox1.TabStop = false;
             // 
             // frmCreateMeeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 668);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nudCPDPoints);
             this.Controls.Add(this.cancelbtn);
             this.Controls.Add(this.button1);
@@ -141,6 +155,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCreateMeeting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCPDPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +169,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button cancelbtn;
         private System.Windows.Forms.NumericUpDown nudCPDPoints;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
