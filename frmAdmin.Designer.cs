@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnCloseApplication = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCreateMeeting = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             // 
             this.btnviewmeetings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnviewmeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewmeetings.Location = new System.Drawing.Point(306, 426);
+            this.btnviewmeetings.Location = new System.Drawing.Point(306, 470);
             this.btnviewmeetings.Margin = new System.Windows.Forms.Padding(4);
             this.btnviewmeetings.Name = "btnviewmeetings";
             this.btnviewmeetings.Size = new System.Drawing.Size(329, 38);
@@ -81,7 +82,7 @@
             // 
             this.btncancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(306, 472);
+            this.btncancel.Location = new System.Drawing.Point(306, 516);
             this.btncancel.Margin = new System.Windows.Forms.Padding(4);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(329, 38);
@@ -107,7 +108,7 @@
             // 
             this.btnCloseApplication.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCloseApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApplication.Location = new System.Drawing.Point(306, 518);
+            this.btnCloseApplication.Location = new System.Drawing.Point(306, 562);
             this.btnCloseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseApplication.Name = "btnCloseApplication";
             this.btnCloseApplication.Size = new System.Drawing.Size(329, 38);
@@ -127,11 +128,25 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // btnCreateMeeting
+            // 
+            this.btnCreateMeeting.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCreateMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMeeting.Location = new System.Drawing.Point(306, 424);
+            this.btnCreateMeeting.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateMeeting.Name = "btnCreateMeeting";
+            this.btnCreateMeeting.Size = new System.Drawing.Size(329, 38);
+            this.btnCreateMeeting.TabIndex = 16;
+            this.btnCreateMeeting.Text = "Create New Meeting";
+            this.btnCreateMeeting.UseVisualStyleBackColor = true;
+            this.btnCreateMeeting.Click += new System.EventHandler(this.btnCreateMeeting_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 555);
+            this.ClientSize = new System.Drawing.Size(975, 604);
+            this.Controls.Add(this.btnCreateMeeting);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseApplication);
             this.Controls.Add(this.button2);
@@ -159,5 +174,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCloseApplication;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCreateMeeting;
     }
 }

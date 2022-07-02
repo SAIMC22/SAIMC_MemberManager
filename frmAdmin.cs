@@ -68,5 +68,13 @@ namespace SAIMC_MemberManager
             QrCodeGenration.ShowDialog();
             this.Close();
         }
+
+        private void btnCreateMeeting_Click(object sender, EventArgs e)
+        {
+            //Create New Meeting
+            frmCreateMeeting createMeeting = new frmCreateMeeting();
+            createMeeting.ShowDialog();
+            this.Close();
+        }
     }
 }
