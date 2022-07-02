@@ -43,7 +43,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(229, 227);
+            this.label8.Location = new System.Drawing.Point(206, 226);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(419, 52);
             this.label8.TabIndex = 82;
@@ -53,7 +53,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(238, 373);
+            this.button1.Location = new System.Drawing.Point(217, 373);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(408, 41);
@@ -77,7 +77,7 @@
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.AutoSize = true;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(238, 434);
+            this.button2.Location = new System.Drawing.Point(217, 434);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(408, 41);
@@ -90,7 +90,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(175, 69);
+            this.pictureBox1.Location = new System.Drawing.Point(92, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

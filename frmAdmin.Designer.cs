@@ -70,7 +70,7 @@
             this.lbadmin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbadmin.AutoSize = true;
             this.lbadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbadmin.Location = new System.Drawing.Point(244, 210);
+            this.lbadmin.Location = new System.Drawing.Point(244, 235);
             this.lbadmin.Name = "lbadmin";
             this.lbadmin.Size = new System.Drawing.Size(454, 51);
             this.lbadmin.TabIndex = 11;
@@ -120,7 +120,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(215, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(138, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
