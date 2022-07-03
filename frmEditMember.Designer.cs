@@ -30,9 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditMember));
             this.label8 = new System.Windows.Forms.Label();
-            this.nudCellNumber = new System.Windows.Forms.NumericUpDown();
-            this.nudIdNumber = new System.Windows.Forms.NumericUpDown();
-            this.nudMembershipNumber = new System.Windows.Forms.NumericUpDown();
+            this.btncancel = new System.Windows.Forms.Button();
+            this.btnSaveMem = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtMemberShipnumber = new System.Windows.Forms.TextBox();
+            this.txtIdNumber = new System.Windows.Forms.TextBox();
+            this.txtcellnumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxpayment = new System.Windows.Forms.ComboBox();
@@ -46,13 +50,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btncancel = new System.Windows.Forms.Button();
-            this.btnSaveMem = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCellNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMembershipNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,204 +63,6 @@
             this.label8.Size = new System.Drawing.Size(426, 52);
             this.label8.TabIndex = 100;
             this.label8.Text = "Create New Member";
-            // 
-            // nudCellNumber
-            // 
-            this.nudCellNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudCellNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCellNumber.Location = new System.Drawing.Point(406, 482);
-            this.nudCellNumber.Maximum = new decimal(new int[] {
-            1215752191,
-            23,
-            0,
-            0});
-            this.nudCellNumber.Name = "nudCellNumber";
-            this.nudCellNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudCellNumber.TabIndex = 99;
-            // 
-            // nudIdNumber
-            // 
-            this.nudIdNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudIdNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudIdNumber.Location = new System.Drawing.Point(406, 532);
-            this.nudIdNumber.Maximum = new decimal(new int[] {
-            1569325055,
-            23283064,
-            0,
-            0});
-            this.nudIdNumber.Name = "nudIdNumber";
-            this.nudIdNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudIdNumber.TabIndex = 98;
-            // 
-            // nudMembershipNumber
-            // 
-            this.nudMembershipNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudMembershipNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudMembershipNumber.Location = new System.Drawing.Point(406, 328);
-            this.nudMembershipNumber.Maximum = new decimal(new int[] {
-            -559939585,
-            902409669,
-            54,
-            0});
-            this.nudMembershipNumber.Name = "nudMembershipNumber";
-            this.nudMembershipNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudMembershipNumber.TabIndex = 97;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 678);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 25);
-            this.label2.TabIndex = 96;
-            this.label2.Text = "Payment:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(251, 622);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 25);
-            this.label1.TabIndex = 95;
-            this.label1.Text = "Gender:";
-            // 
-            // cbxpayment
-            // 
-            this.cbxpayment.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxpayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxpayment.FormattingEnabled = true;
-            this.cbxpayment.Items.AddRange(new object[] {
-            "Paid",
-            "Unpaid"});
-            this.cbxpayment.Location = new System.Drawing.Point(406, 673);
-            this.cbxpayment.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxpayment.Name = "cbxpayment";
-            this.cbxpayment.Size = new System.Drawing.Size(336, 33);
-            this.cbxpayment.TabIndex = 94;
-            // 
-            // cbxgender
-            // 
-            this.cbxgender.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxgender.FormattingEnabled = true;
-            this.cbxgender.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
-            this.cbxgender.Location = new System.Drawing.Point(406, 620);
-            this.cbxgender.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxgender.Name = "cbxgender";
-            this.cbxgender.Size = new System.Drawing.Size(336, 33);
-            this.cbxgender.TabIndex = 93;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(179, 327);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 25);
-            this.label3.TabIndex = 92;
-            this.label3.Text = "Membership Number:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(215, 578);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 25);
-            this.label5.TabIndex = 91;
-            this.label5.Text = "Date of Birth:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(229, 534);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 25);
-            this.label4.TabIndex = 90;
-            this.label4.Text = "ID Number:";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(220, 482);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 25);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "Cell Number:";
-            // 
-            // dob
-            // 
-            this.dob.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dob.Location = new System.Drawing.Point(406, 576);
-            this.dob.Margin = new System.Windows.Forms.Padding(4);
-            this.dob.Name = "dob";
-            this.dob.Size = new System.Drawing.Size(336, 30);
-            this.dob.TabIndex = 88;
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurname.Location = new System.Drawing.Point(406, 430);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(336, 30);
-            this.txtSurname.TabIndex = 87;
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(406, 376);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName.MinimumSize = new System.Drawing.Size(4, 20);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(336, 30);
-            this.txtName.TabIndex = 86;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(240, 432);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 25);
-            this.label7.TabIndex = 85;
-            this.label7.Text = "Surname:";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(263, 378);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 25);
-            this.label11.TabIndex = 84;
-            this.label11.Text = "Name:";
             // 
             // btncancel
             // 
@@ -313,17 +112,203 @@
             this.pictureBox1.TabIndex = 102;
             this.pictureBox1.TabStop = false;
             // 
+            // txtMemberShipnumber
+            // 
+            this.txtMemberShipnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMemberShipnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMemberShipnumber.Location = new System.Drawing.Point(408, 323);
+            this.txtMemberShipnumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemberShipnumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtMemberShipnumber.Name = "txtMemberShipnumber";
+            this.txtMemberShipnumber.Size = new System.Drawing.Size(336, 30);
+            this.txtMemberShipnumber.TabIndex = 118;
+            // 
+            // txtIdNumber
+            // 
+            this.txtIdNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtIdNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdNumber.Location = new System.Drawing.Point(408, 527);
+            this.txtIdNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdNumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtIdNumber.Name = "txtIdNumber";
+            this.txtIdNumber.Size = new System.Drawing.Size(336, 30);
+            this.txtIdNumber.TabIndex = 117;
+            // 
+            // txtcellnumber
+            // 
+            this.txtcellnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtcellnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcellnumber.Location = new System.Drawing.Point(409, 478);
+            this.txtcellnumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcellnumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtcellnumber.Name = "txtcellnumber";
+            this.txtcellnumber.Size = new System.Drawing.Size(336, 30);
+            this.txtcellnumber.TabIndex = 116;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(245, 674);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 115;
+            this.label2.Text = "Payment:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(253, 618);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 25);
+            this.label1.TabIndex = 114;
+            this.label1.Text = "Gender:";
+            // 
+            // cbxpayment
+            // 
+            this.cbxpayment.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxpayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxpayment.FormattingEnabled = true;
+            this.cbxpayment.Items.AddRange(new object[] {
+            "Paid",
+            "Unpaid"});
+            this.cbxpayment.Location = new System.Drawing.Point(408, 669);
+            this.cbxpayment.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxpayment.Name = "cbxpayment";
+            this.cbxpayment.Size = new System.Drawing.Size(336, 33);
+            this.cbxpayment.TabIndex = 113;
+            // 
+            // cbxgender
+            // 
+            this.cbxgender.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxgender.FormattingEnabled = true;
+            this.cbxgender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.cbxgender.Location = new System.Drawing.Point(408, 616);
+            this.cbxgender.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxgender.Name = "cbxgender";
+            this.cbxgender.Size = new System.Drawing.Size(336, 33);
+            this.cbxgender.TabIndex = 112;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(181, 323);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 25);
+            this.label3.TabIndex = 111;
+            this.label3.Text = "Membership Number:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(217, 574);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 25);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Date of Birth:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(231, 530);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 25);
+            this.label4.TabIndex = 109;
+            this.label4.Text = "ID Number:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(222, 478);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 25);
+            this.label6.TabIndex = 108;
+            this.label6.Text = "Cell Number:";
+            // 
+            // dob
+            // 
+            this.dob.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dob.Location = new System.Drawing.Point(408, 572);
+            this.dob.Margin = new System.Windows.Forms.Padding(4);
+            this.dob.Name = "dob";
+            this.dob.Size = new System.Drawing.Size(336, 30);
+            this.dob.TabIndex = 107;
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSurname.Location = new System.Drawing.Point(408, 426);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(336, 30);
+            this.txtSurname.TabIndex = 106;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(408, 372);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(336, 30);
+            this.txtName.TabIndex = 105;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(242, 428);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 25);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "Surname:";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(265, 374);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 25);
+            this.label11.TabIndex = 103;
+            this.label11.Text = "Name:";
+            // 
             // frmEditMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 820);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.nudCellNumber);
-            this.Controls.Add(this.nudIdNumber);
-            this.Controls.Add(this.nudMembershipNumber);
+            this.Controls.Add(this.txtMemberShipnumber);
+            this.Controls.Add(this.txtIdNumber);
+            this.Controls.Add(this.txtcellnumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxpayment);
@@ -337,6 +322,9 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnSaveMem);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -344,9 +332,6 @@
             this.Text = "Edit Member";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmEditMember_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nudCellNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMembershipNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -356,9 +341,13 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown nudCellNumber;
-        private System.Windows.Forms.NumericUpDown nudIdNumber;
-        private System.Windows.Forms.NumericUpDown nudMembershipNumber;
+        private System.Windows.Forms.Button btncancel;
+        private System.Windows.Forms.Button btnSaveMem;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtMemberShipnumber;
+        private System.Windows.Forms.TextBox txtIdNumber;
+        private System.Windows.Forms.TextBox txtcellnumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxpayment;
@@ -372,9 +361,5 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btncancel;
-        private System.Windows.Forms.Button btnSaveMem;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

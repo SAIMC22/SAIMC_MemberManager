@@ -36,24 +36,24 @@ namespace SAIMC_MemberManager
             {
 
                 //Add Member Details to system and Create a QR Code for that Member
-                if (txtName.Text != "" && txtSurname.Text != "" && nudCellNumber.Value != 0 && nudIdNumber.Value != 0 && cbxgender.Text != "" && cbxpayment.Text != "" && nudMembershipNumber.Value != 0)
+                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
-                    if (nudIdNumber.Value.ToString().Length != 13)
+                    if (txtIdNumber.Text.Length != 13)
                     {
                         MessageBox.Show("Invalid Id Number");
                         return;
                     }
-                    if (nudCellNumber.Value.ToString().Length != 10)
+                    if (txtcellnumber.Text.Length != 10)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
                     }                    
                     //Save New Member to Database
-                    mymembers.MemberShipNo = Convert.ToInt32(nudMembershipNumber.Value);
+                    mymembers.MemberShipNo = Convert.ToInt32(txtMemberShipnumber.Text);
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.ContactNumber = nudCellNumber.Value.ToString();                    
-                    mymembers.IdNumber = nudIdNumber.Value.ToString();
+                    mymembers.ContactNumber = txtcellnumber.Text;                    
+                    mymembers.IdNumber = txtcellnumber.Text;
                     mymembers.DOB = dob.Value.Date;
                     mymembers.Gender = cbxgender.Text;
 
@@ -79,7 +79,7 @@ namespace SAIMC_MemberManager
                     }
                     else
                     {
-                        string QRinputtext = nudMembershipNumber.Value.ToString();
+                        string QRinputtext = txtMemberShipnumber.Text;
                         QRCodeGenerator NewQR = new QRCodeGenerator();
                         QRCodeData data = NewQR.CreateQrCode(QRinputtext, QRCodeGenerator.ECCLevel.Q);
                         QRCode code = new QRCode(data);
@@ -109,11 +109,11 @@ namespace SAIMC_MemberManager
                             }
                         }
                         db.SaveChanges();
-                        nudMembershipNumber.Value = 0;
+                        txtMemberShipnumber.Text = "";
                         txtName.Text = "";
                         txtSurname.Text = "";
-                        nudCellNumber.Value = 0;
-                        nudIdNumber.Value = 0;
+                        txtcellnumber.Text = "";
+                        txtIdNumber.Text = "";
                         cbxgender.Text = "";
                         cbxpayment.Text = "";
                         MessageBox.Show("New Member Successfully Created");                       

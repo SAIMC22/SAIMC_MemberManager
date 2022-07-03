@@ -42,8 +42,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Surname" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Name" Type="char" MaxLength="20" />
+          <Property Name="Surname" Type="char" MaxLength="20" />
           <Property Name="MemberShipNumber" Type="int" Nullable="false" />
           <Property Name="MemberQRCode" Type="image" />
         </EntityType>
@@ -170,8 +170,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MemberShipNumber" Type="Int32" Nullable="false" />
           <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

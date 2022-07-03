@@ -40,9 +40,9 @@ namespace SAIMC_MemberManager
                 {
                     txtName.Text = member.Name;
                     txtSurname.Text = member.Surname;
-                    nudMembershipNumber.Value = Convert.ToInt32(member.MemberShipNo);
-                    nudIdNumber.Value = Convert.ToInt64(member.IdNumber);
-                    nudCellNumber.Value = Convert.ToInt64(member.ContactNumber);
+                    txtMemberShipnumber.Text = member.MemberShipNo.ToString();
+                    txtIdNumber.Text = member.IdNumber.ToString();
+                    txtcellnumber.Text = member.ContactNumber.ToString();
                     dob.Value = member.DOB.Value;
                     cbxgender.Text = member.Gender;
                     if(member.Haspaid == true)
@@ -65,14 +65,14 @@ namespace SAIMC_MemberManager
             try
             {
                 //Add Member Details to system and Create a QR Code for that Member
-                if (txtName.Text != "" && txtSurname.Text != "" && nudCellNumber.Value != 0 && nudIdNumber.Value != 0 && cbxgender.Text != "" && cbxpayment.Text != "" && nudMembershipNumber.Value != 0)
+                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
-                    if (nudIdNumber.Value.ToString().Length != 13)
+                    if (txtIdNumber.Text.Length != 13)
                     {
                         MessageBox.Show("Invalid Id Number");
                         return;
                     }
-                    if (nudCellNumber.Value.ToString().Length != 10)
+                    if (txtcellnumber.Text.Length != 10)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
@@ -81,9 +81,9 @@ namespace SAIMC_MemberManager
                     //Save New Member to Database
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.MemberShipNo = Convert.ToInt32(nudMembershipNumber.Value);
-                    mymembers.IdNumber = nudIdNumber.Value.ToString();
-                    mymembers.ContactNumber = nudCellNumber.Value.ToString();
+                    mymembers.MemberShipNo = Convert.ToInt32(txtMemberShipnumber.Text);
+                    mymembers.IdNumber = txtIdNumber.Text;
+                    mymembers.ContactNumber = txtcellnumber.Text;
                     mymembers.DOB = dob.Value;
                     mymembers.Gender = cbxgender.Text;
 

@@ -44,15 +44,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btncancel = new System.Windows.Forms.Button();
             this.btnSaveMem = new System.Windows.Forms.Button();
-            this.nudMembershipNumber = new System.Windows.Forms.NumericUpDown();
-            this.nudIdNumber = new System.Windows.Forms.NumericUpDown();
-            this.nudCellNumber = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.picboxQRCode = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMembershipNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCellNumber)).BeginInit();
+            this.txtcellnumber = new System.Windows.Forms.TextBox();
+            this.txtIdNumber = new System.Windows.Forms.TextBox();
+            this.txtMemberShipnumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxQRCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -239,48 +236,6 @@
             this.btnSaveMem.UseVisualStyleBackColor = true;
             this.btnSaveMem.Click += new System.EventHandler(this.btnSaveMem_Click);
             // 
-            // nudMembershipNumber
-            // 
-            this.nudMembershipNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudMembershipNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudMembershipNumber.Location = new System.Drawing.Point(380, 317);
-            this.nudMembershipNumber.Maximum = new decimal(new int[] {
-            -559939585,
-            902409669,
-            54,
-            0});
-            this.nudMembershipNumber.Name = "nudMembershipNumber";
-            this.nudMembershipNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudMembershipNumber.TabIndex = 78;
-            // 
-            // nudIdNumber
-            // 
-            this.nudIdNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudIdNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudIdNumber.Location = new System.Drawing.Point(380, 521);
-            this.nudIdNumber.Maximum = new decimal(new int[] {
-            1569325055,
-            23283064,
-            0,
-            0});
-            this.nudIdNumber.Name = "nudIdNumber";
-            this.nudIdNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudIdNumber.TabIndex = 79;
-            // 
-            // nudCellNumber
-            // 
-            this.nudCellNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nudCellNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCellNumber.Location = new System.Drawing.Point(380, 471);
-            this.nudCellNumber.Maximum = new decimal(new int[] {
-            1215752191,
-            23,
-            0,
-            0});
-            this.nudCellNumber.Name = "nudCellNumber";
-            this.nudCellNumber.Size = new System.Drawing.Size(336, 30);
-            this.nudCellNumber.TabIndex = 80;
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -312,17 +267,50 @@
             this.pictureBox1.TabIndex = 83;
             this.pictureBox1.TabStop = false;
             // 
+            // txtcellnumber
+            // 
+            this.txtcellnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtcellnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcellnumber.Location = new System.Drawing.Point(381, 471);
+            this.txtcellnumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcellnumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtcellnumber.Name = "txtcellnumber";
+            this.txtcellnumber.Size = new System.Drawing.Size(336, 30);
+            this.txtcellnumber.TabIndex = 84;
+            // 
+            // txtIdNumber
+            // 
+            this.txtIdNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtIdNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdNumber.Location = new System.Drawing.Point(380, 520);
+            this.txtIdNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdNumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtIdNumber.Name = "txtIdNumber";
+            this.txtIdNumber.Size = new System.Drawing.Size(336, 30);
+            this.txtIdNumber.TabIndex = 85;
+            // 
+            // txtMemberShipnumber
+            // 
+            this.txtMemberShipnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMemberShipnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMemberShipnumber.Location = new System.Drawing.Point(380, 316);
+            this.txtMemberShipnumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemberShipnumber.MinimumSize = new System.Drawing.Size(4, 20);
+            this.txtMemberShipnumber.Name = "txtMemberShipnumber";
+            this.txtMemberShipnumber.Size = new System.Drawing.Size(336, 30);
+            this.txtMemberShipnumber.TabIndex = 86;
+            // 
             // frmCreateMemberManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 805);
+            this.Controls.Add(this.txtMemberShipnumber);
+            this.Controls.Add(this.txtIdNumber);
+            this.Controls.Add(this.txtcellnumber);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.picboxQRCode);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.nudCellNumber);
-            this.Controls.Add(this.nudIdNumber);
-            this.Controls.Add(this.nudMembershipNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxpayment);
@@ -342,9 +330,6 @@
             this.Name = "frmCreateMemberManual";
             this.Text = "Create New Member";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.nudMembershipNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCellNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxQRCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -369,11 +354,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btncancel;
         private System.Windows.Forms.Button btnSaveMem;
-        private System.Windows.Forms.NumericUpDown nudMembershipNumber;
-        private System.Windows.Forms.NumericUpDown nudIdNumber;
-        private System.Windows.Forms.NumericUpDown nudCellNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox picboxQRCode;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtcellnumber;
+        private System.Windows.Forms.TextBox txtIdNumber;
+        private System.Windows.Forms.TextBox txtMemberShipnumber;
     }
 }
