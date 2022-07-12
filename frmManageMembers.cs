@@ -23,6 +23,7 @@ namespace SAIMC_MemberManager
         {
             //Create new Members
             frmCreateMemberManual viewMeeting = new frmCreateMemberManual();
+            this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
         }
@@ -30,6 +31,7 @@ namespace SAIMC_MemberManager
         private void btncancel_Click(object sender, EventArgs e)
         {
             frmAdmin viewMeeting = new frmAdmin();
+            this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
         }
@@ -73,6 +75,7 @@ namespace SAIMC_MemberManager
             int rowindex = dgvMembers.CurrentCell.RowIndex;
             MemberId = dgvMembers.Rows[rowindex].Cells[0].Value.ToString();
             frmEditMember editmember = new frmEditMember();
+            this.Hide();
             editmember.ShowDialog();
         }
 

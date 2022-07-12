@@ -53,6 +53,7 @@ namespace SAIMC_MemberManager
                         {
                             //Open New form To Create a Meeting
                             frmCreateMeeting Createmeeting = new frmCreateMeeting();
+                            this.Hide();
                             Createmeeting.ShowDialog();
                         }
                         else
@@ -185,6 +186,7 @@ namespace SAIMC_MemberManager
         {
             //Open New form To Admin
             frmAdmin Createmeeting = new frmAdmin();
+            this.Hide();
             Createmeeting.ShowDialog();
             this.Close();
         }

@@ -26,12 +26,14 @@ namespace SAIMC_MemberManager
         {
             //Open New form To add a Member
             frmcreatemember createnewMemberForm = new frmcreatemember();
+            this.Hide();
             createnewMemberForm.ShowDialog();
             this.Close();
         }
         private void btnviewmeetings_Click(object sender, EventArgs e)
         {
             frmViewMeeting viewMeeting = new frmViewMeeting();
+            this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
         }
@@ -39,6 +41,7 @@ namespace SAIMC_MemberManager
         private void btncancel_Click(object sender, EventArgs e)
         {
             frmScanQR viewMeeting = new frmScanQR();
+            this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
         }
@@ -47,8 +50,9 @@ namespace SAIMC_MemberManager
         {
             //Manage Members
             frmManageMembers viewMeeting = new frmManageMembers();
+            this.Hide();
             viewMeeting.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void btnCloseApplication_Click(object sender, EventArgs e)
@@ -65,6 +69,7 @@ namespace SAIMC_MemberManager
         {
             //Open New form To QrCode Generation
             frmQRGeneration QrCodeGenration = new frmQRGeneration();
+            this.Hide();
             QrCodeGenration.ShowDialog();
             this.Close();
         }
@@ -73,8 +78,9 @@ namespace SAIMC_MemberManager
         {
             //Create New Meeting
             frmCreateMeeting createMeeting = new frmCreateMeeting();
+            this.Hide();
             createMeeting.ShowDialog();
-            this.Close();
+            
         }
     }
 }

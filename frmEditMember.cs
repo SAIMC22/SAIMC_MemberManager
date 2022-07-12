@@ -22,6 +22,7 @@ namespace SAIMC_MemberManager
         private void btncancel_Click(object sender, EventArgs e)
         {
             frmManageMembers frmManageMembers = new frmManageMembers();
+            this.Hide();
             frmManageMembers.ShowDialog();
             this.Close();
         }
@@ -112,6 +113,7 @@ namespace SAIMC_MemberManager
                         db.SaveChanges();
                         MessageBox.Show("New Member Successfully Created");
                         frmManageMembers frmManageMembers = new frmManageMembers();
+                        this.Hide();
                         frmManageMembers.ShowDialog();
                         this.Close();
                     }

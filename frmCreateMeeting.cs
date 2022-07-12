@@ -51,6 +51,7 @@ namespace SAIMC_MemberManager
                         db.SaveChanges();
                         MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
                         frmAdmin frmAdmin = new frmAdmin();
+                        this.Hide();
                         frmAdmin.ShowDialog();
                         this.Close();
                     }
@@ -65,6 +66,7 @@ namespace SAIMC_MemberManager
                     db.SaveChanges();
                     MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
                     frmAdmin frmAdmin = new frmAdmin();
+                    this.Hide();
                     frmAdmin.ShowDialog();
                     this.Close();
                 }
@@ -74,6 +76,7 @@ namespace SAIMC_MemberManager
         private void cancelbtn_Click(object sender, EventArgs e)
         {
             frmAdmin frmAdmin = new frmAdmin();
+            this.Hide();
             frmAdmin.ShowDialog();
             this.Close();
         }

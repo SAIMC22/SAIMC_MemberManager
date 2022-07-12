@@ -25,8 +25,8 @@ namespace SAIMC_MemberManager
         {
             //Back to Manage Member
             frmManageMembers frmManageMembers = new frmManageMembers();
+            this.Hide();
             frmManageMembers.ShowDialog();
-            this.Close();
         }
 
         private void btnSaveMem_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace SAIMC_MemberManager
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
                     mymembers.ContactNumber = txtcellnumber.Text;                    
-                    mymembers.IdNumber = txtcellnumber.Text;
+                    mymembers.IdNumber = txtIdNumber.Text;
                     mymembers.DOB = dob.Value.Date;
                     mymembers.Gender = cbxgender.Text;
 

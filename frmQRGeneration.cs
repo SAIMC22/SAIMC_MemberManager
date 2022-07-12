@@ -88,8 +88,8 @@ namespace SAIMC_MemberManager
         private void button2_Click(object sender, EventArgs e)
         {
             frmAdmin myadmin = new frmAdmin();
+            this.Hide();
             myadmin.ShowDialog();
-            this.Close();
         }
     }
 }

@@ -158,9 +158,9 @@ namespace SAIMC_MemberManager
         }
 
         private void btncancel_Click(object sender, EventArgs e)
-        {
-            Hide();            
+        {           
             frmScanQR viewscannerform = new frmScanQR();
+            this.Hide();
             viewscannerform.ShowDialog();
         }
 
