@@ -38,16 +38,44 @@ namespace SAIMC_MemberManager
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
+                    if (txtMemberShipnumber.Text.All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("MemberShip Number can only contain numbers");
+                        return;
+                    }
+                    if (txtIdNumber.Text.All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("Id Number can only contain numbers");
+                        return;
+                    }
                     if (txtIdNumber.Text.Length != 13)
                     {
                         MessageBox.Show("Invalid Id Number");
+                        return;
+                    }
+                    if (txtcellnumber.Text.All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("Cell Phone Number can only contain numbers");
                         return;
                     }
                     if (txtcellnumber.Text.Length != 10)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
-                    }                    
+                    }    
+                    List<Member> memberlist = new List<Member>();
+                    memberlist = db.Members.ToList();
+                    if(memberlist != null)
+                    { 
+                    foreach(Member member in memberlist)
+                    {
+                        if(member.MemberShipNo == Convert.ToInt32(txtMemberShipnumber.Text))
+                        {
+                            MessageBox.Show("MemberShip Number Already Exsists.");
+                            return;
+                        }
+                    }
+                    }
                     //Save New Member to Database
                     mymembers.MemberShipNo = Convert.ToInt32(txtMemberShipnumber.Text);
                     mymembers.Name = txtName.Text;

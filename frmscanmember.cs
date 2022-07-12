@@ -1,20 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ZXing;
-using ZXing.Common;
-using AForge.Video;
-using AForge.Video.DirectShow;
-using ClosedXML.Excel;
-using System.Data.OleDb;
-using Microsoft.Azure.ActiveDirectory.GraphClient;
-using System.IO;
 using Syncfusion.XlsIO;
 
 namespace SAIMC_MemberManager

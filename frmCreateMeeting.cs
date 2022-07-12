@@ -50,6 +50,8 @@ namespace SAIMC_MemberManager
                         db.Meetings.Add(meeting);
                         db.SaveChanges();
                         MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
+                        frmAdmin frmAdmin = new frmAdmin();
+                        frmAdmin.ShowDialog();
                         this.Close();
                     }
                 }
@@ -62,6 +64,8 @@ namespace SAIMC_MemberManager
                     db.Meetings.Add(meeting);
                     db.SaveChanges();
                     MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
+                    frmAdmin frmAdmin = new frmAdmin();
+                    frmAdmin.ShowDialog();
                     this.Close();
                 }
           
