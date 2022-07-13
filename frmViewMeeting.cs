@@ -85,17 +85,27 @@ namespace SAIMC_MemberManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmAdmin frmAdmin = new frmAdmin();
-            this.Hide();
-            frmAdmin.ShowDialog();
-            this.Close();
+            try
+            {
+                frmAdmin frmAdmin = new frmAdmin();
+                this.Hide();
+                frmAdmin.ShowDialog();
+                this.Close();
+            
+            }
+            catch
+            {
+
+            }
         }
 
         private void frmViewMeeting_Load(object sender, EventArgs e)
         {
             try
             {
+                dtpSearchDate.MaxDate = DateTime.Today;
                 MeetingList = db.Meetings.ToList();
+                MeetingList.Sort((y, x) => x.Agenda.CompareTo(y.Agenda));
                 foreach (var meeting in MeetingList)
                 {
                     cbxMeetings.Items.Add(meeting.Agenda);

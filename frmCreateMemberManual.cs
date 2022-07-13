@@ -23,10 +23,17 @@ namespace SAIMC_MemberManager
 
         private void btncancel_Click(object sender, EventArgs e)
         {
+            try
+            { 
             //Back to Manage Member
             frmManageMembers frmManageMembers = new frmManageMembers();
             this.Hide();
             frmManageMembers.ShowDialog();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnSaveMem_Click(object sender, EventArgs e)
@@ -157,6 +164,11 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Creation Failed,Please try Again");
             }
+
+        }
+
+        private void frmCreateMemberManual_Load(object sender, EventArgs e)
+        {
 
         }
     }

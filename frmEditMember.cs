@@ -13,7 +13,7 @@ namespace SAIMC_MemberManager
     public partial class frmEditMember : Form
     {
         SAIMCEntities db = new SAIMCEntities();
-        public static string MemberId = "";
+        public static int MemberShipNumber = 0;
         public frmEditMember()
         {
             InitializeComponent();
@@ -21,15 +21,24 @@ namespace SAIMC_MemberManager
 
         private void btncancel_Click(object sender, EventArgs e)
         {
+            try
+            { 
             frmManageMembers frmManageMembers = new frmManageMembers();
             this.Hide();
             frmManageMembers.ShowDialog();
             this.Close();
+            }
+            catch
+            {
+
+            }
         }
 
         private void frmEditMember_Load(object sender, EventArgs e)
         {
-            MemberId = frmManageMembers.MemberId;
+            try
+            { 
+            MemberShipNumber = frmManageMembers.MemberShipNumber;
             List<Member> members = new List<Member>();
             members = db.Members.ToList();
             //members.FirstOrDefault(x => x.id == MemberId);
@@ -37,11 +46,11 @@ namespace SAIMC_MemberManager
             {
                 if(member != null)
                 { 
-                if(member.id.ToString() == MemberId)
+                if(Convert.ToInt32(member.MemberShipNo) == MemberShipNumber)
                 {
                     txtName.Text = member.Name;
                     txtSurname.Text = member.Surname;
-                    txtMemberShipnumber.Text = member.MemberShipNo.ToString();
+                    txtMemberShipnumber.Text = Convert.ToInt32(member.MemberShipNo).ToString();
                     txtIdNumber.Text = member.IdNumber.ToString();
                     txtcellnumber.Text = member.ContactNumber.ToString();
                     dob.Value = member.DOB.Value;
@@ -57,7 +66,12 @@ namespace SAIMC_MemberManager
                 }
                 }
             }
-            
+            }
+            catch
+            {
+
+            }
+
         }
 
         private void btnSaveMem_Click(object sender, EventArgs e)
@@ -68,9 +82,24 @@ namespace SAIMC_MemberManager
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
+                    if (Convert.ToInt32(txtMemberShipnumber.Text).ToString().All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("MemberShip Number can only contain numbers");
+                        return;
+                    }
+                    if (Convert.ToInt32(txtIdNumber.Text).ToString().All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("Id Number can only contain numbers");
+                        return;
+                    }
                     if (txtIdNumber.Text.Length != 13)
                     {
                         MessageBox.Show("Invalid Id Number");
+                        return;
+                    }
+                    if (Convert.ToInt32(txtcellnumber.Text).ToString().All(char.IsDigit) == false)
+                    {
+                        MessageBox.Show("Cell Phone Number can only contain numbers");
                         return;
                     }
                     if (txtcellnumber.Text.Length != 10)

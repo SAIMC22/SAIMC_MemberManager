@@ -24,35 +24,60 @@ namespace SAIMC_MemberManager
 
         private void btncreatenewMember_Click(object sender, EventArgs e)
         {
-            //Open New form To add a Member
-            frmcreatemember createnewMemberForm = new frmcreatemember();
-            this.Hide();
-            createnewMemberForm.ShowDialog();
-            this.Close();
+            try
+            {
+                //Open New form To add a Member
+                frmcreatemember createnewMemberForm = new frmcreatemember();
+                this.Hide();
+                createnewMemberForm.ShowDialog();
+                this.Close();
+            }
+            catch
+            {
+
+            }
         }
         private void btnviewmeetings_Click(object sender, EventArgs e)
         {
+            try { 
             frmViewMeeting viewMeeting = new frmViewMeeting();
             this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btncancel_Click(object sender, EventArgs e)
         {
+            try { 
             frmScanQR viewMeeting = new frmScanQR();
             this.Hide();
             viewMeeting.ShowDialog();
             this.Close();
+            }
+            catch
+            {
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try { 
             //Manage Members
             frmManageMembers viewMeeting = new frmManageMembers();
             this.Hide();
             viewMeeting.ShowDialog();
             this.Hide();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnCloseApplication_Click(object sender, EventArgs e)
@@ -67,20 +92,32 @@ namespace SAIMC_MemberManager
 
         private void btnGenerateQrCode_Click_1(object sender, EventArgs e)
         {
+            try { 
             //Open New form To QrCode Generation
             frmQRGeneration QrCodeGenration = new frmQRGeneration();
             this.Hide();
             QrCodeGenration.ShowDialog();
             this.Close();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnCreateMeeting_Click(object sender, EventArgs e)
         {
+            try { 
             //Create New Meeting
             frmCreateMeeting createMeeting = new frmCreateMeeting();
             this.Hide();
             createMeeting.ShowDialog();
-            
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }
