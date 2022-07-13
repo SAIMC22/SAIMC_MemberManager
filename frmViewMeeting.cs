@@ -63,7 +63,7 @@ namespace SAIMC_MemberManager
                             }
                         }
                         lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
-                        dgvMeeting.DataSource = foundMembersInMeeting;
+                        dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Name, Surname = x.Surname, Membership_Number = x.MemberShipNo, ID_Number = x.IdNumber, Contact_Number = x.ContactNumber, Gender = x.Gender, Date_Of_Birth = x.DOB, Paid = x.Haspaid }).ToList();
                         dgvMeeting.AllowUserToAddRows = false;
                         dgvMeeting.AllowUserToDeleteRows = true;
                         dgvMeeting.AllowUserToResizeRows = false;
@@ -142,8 +142,8 @@ namespace SAIMC_MemberManager
                             }
                         }
                         lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
-                        dgvMeeting.DataSource = foundMembersInMeeting;
-                        dgvMeeting.AllowUserToAddRows = false;
+                        dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Name, Surname = x.Surname, Membership_Number = x.MemberShipNo, ID_Number = x.IdNumber, Contact_Number = x.ContactNumber, Gender = x.Gender, Date_Of_Birth = x.DOB, Paid = x.Haspaid }).ToList();
+                    dgvMeeting.AllowUserToAddRows = false;
                         dgvMeeting.AllowUserToDeleteRows = true;
                         dgvMeeting.AllowUserToResizeRows = false;
                         dgvMeeting.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;

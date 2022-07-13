@@ -82,7 +82,7 @@ namespace SAIMC_MemberManager
                         }
                     }
                     //Save New Member to Database
-                    mymembers.MemberShipNo = Convert.ToInt32(txtmembershipno.Text);
+                    mymembers.MemberShipNo = txtmembershipno.Text;
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
                     mymembers.ContactNumber = txtcontactnumber.Text;

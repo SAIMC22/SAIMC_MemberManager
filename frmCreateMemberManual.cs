@@ -69,7 +69,7 @@ namespace SAIMC_MemberManager
                     { 
                     foreach(Member member in memberlist)
                     {
-                        if(member.MemberShipNo == Convert.ToInt32(txtMemberShipnumber.Text))
+                        if(member.MemberShipNo == txtMemberShipnumber.Text)
                         {
                             MessageBox.Show("MemberShip Number Already Exsists.");
                             return;
@@ -77,7 +77,7 @@ namespace SAIMC_MemberManager
                     }
                     }
                     //Save New Member to Database
-                    mymembers.MemberShipNo = Convert.ToInt32(txtMemberShipnumber.Text);
+                    mymembers.MemberShipNo = txtMemberShipnumber.Text;
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
                     mymembers.ContactNumber = txtcellnumber.Text;                    

@@ -15,9 +15,9 @@ namespace SAIMC_MemberManager
     public partial class QRGeneration
     {
         public int id { get; set; }
-        public int MemberShipNumber { get; set; }
-        public byte[] MemberQRCode { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public int MemberShipNumber { get; set; }
+        public byte[] MemberQRCode { get; set; }
     }
 }

@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="708eba62a96c46788e6ba313fd8326b1" Name="Diagram1">
+      <Diagram DiagramId="d92201551c584730992c8475f1cadeaa" Name="Diagram1">
         <EntityTypeShape EntityType="SAIMCModel.Meeting" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SAIMCModel.MemberMeeting" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SAIMCModel.Member" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAIMCModel.QRGeneration" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="SAIMCModel.FK_MemberMeeting_Meeting" ManuallyRouted="false" />
         <AssociationConnector Association="SAIMCModel.FK_MemberMeeting_Members" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SAIMCModel.QRGeneration" Width="1.5" PointX="5.25" PointY="3.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

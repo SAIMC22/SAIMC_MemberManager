@@ -40,7 +40,7 @@ namespace SAIMC_MemberManager
         {
             List<Member> members = new List<Member>();
             members = db.Members.ToList();
-            dgvMembers.DataSource = members;
+            dgvMembers.DataSource = members.Select(x=> new {Name = x.Name, Surname = x.Surname,Membership_Number = x.MemberShipNo, ID_Number = x.IdNumber, Contact_Number = x.ContactNumber,Gender = x.Gender, Date_Of_Birth = x.DOB, Paid = x.Haspaid }).ToList();
             dgvMembers.AllowUserToAddRows = false;
             dgvMembers.AllowUserToDeleteRows = true;
             dgvMembers.AllowUserToResizeRows = false;

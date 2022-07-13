@@ -17,7 +17,7 @@ namespace SAIMC_MemberManager
         SAIMCEntities db = new SAIMCEntities();
         List<MemberMeeting> membermeetingList = new List<MemberMeeting>();
         List<Meeting> meetingList = new List<Meeting>();
-        int membershipnumber;
+        string membershipnumber;
         private void Form1_Load(object sender, EventArgs e)
         {
             pbxGranted.Visible = false;
@@ -61,16 +61,16 @@ namespace SAIMC_MemberManager
                             this.Close();
                         }
                     }
-                    membershipnumber = Convert.ToInt32(txtScanmembership.Text);
+                   membershipnumber = txtScanmembership.Text;
                 }
                 
-                if (membershipnumber != 0)
+                if (membershipnumber != "")
                 {
                     AllMembersList = db.Members.ToList();
                     var Foundmember = new Member();
                     membermeetingList = db.MemberMeetings.ToList();
-                    //Fins Member with same Membership Number scanned
-                    var foundMember =  AllMembersList.FirstOrDefault(x => x.MemberShipNo == membershipnumber);
+                    //Finds Member with same Membership Number scanned
+                    var foundMember =  AllMembersList.FirstOrDefault(x => x.MemberShipNo.Trim() == membershipnumber);
                     if(foundMember != null)
                     {
                         //Add Member to new Meeting

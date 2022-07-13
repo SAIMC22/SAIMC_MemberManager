@@ -23,7 +23,7 @@ namespace SAIMC_MemberManager
         public int id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public Nullable<int> MemberShipNo { get; set; }
+        public string MemberShipNo { get; set; }
         public string ContactNumber { get; set; }
         public string IdNumber { get; set; }
         public string Gender { get; set; }
