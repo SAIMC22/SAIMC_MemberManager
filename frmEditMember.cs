@@ -48,14 +48,14 @@ namespace SAIMC_MemberManager
                 { 
                 if(Convert.ToInt32(member.MemberShipNo) == MemberShipNumber)
                 {
-                    txtName.Text = member.Name;
-                    txtSurname.Text = member.Surname;
-                    txtMemberShipnumber.Text = Convert.ToInt32(member.MemberShipNo).ToString();
-                    txtIdNumber.Text = member.IdNumber.ToString();
-                    txtcellnumber.Text = member.ContactNumber.ToString();
-                    dob.Value = member.DOB.Value;
-                    cbxgender.Text = member.Gender;
-                    if(member.Haspaid == true)
+                    txtName.Text = member.Name.TrimEnd();
+                    txtSurname.Text = member.Surname.TrimEnd();
+                    txtMemberShipnumber.Text = Convert.ToInt64(member.MemberShipNo).ToString();
+                    txtIdNumber.Text = member.IdNumber.TrimEnd();
+                            txtcellnumber.Text = member.ContactNumber.TrimEnd();
+                            dob.Value = member.DOB.Value;
+                    cbxgender.Text = member.Gender.TrimEnd();
+                            if (member.Haspaid == true)
                     {
                         cbxpayment.Text = "Paid";
                     }
@@ -82,33 +82,33 @@ namespace SAIMC_MemberManager
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
-                    if (Convert.ToInt32(txtMemberShipnumber.Text).ToString().All(char.IsDigit) == false)
+                    if (Convert.ToInt64(txtMemberShipnumber.Text).ToString().All(char.IsDigit) == false)
                     {
                         MessageBox.Show("MemberShip Number can only contain numbers");
                         return;
                     }
-                    if (Convert.ToInt32(txtIdNumber.Text).ToString().All(char.IsDigit) == false)
+                    if (txtIdNumber.Text.TrimEnd().All(char.IsDigit) == false)
                     {
                         MessageBox.Show("Id Number can only contain numbers");
                         return;
                     }
-                    if (txtIdNumber.Text.Length != 13)
+                    if (txtIdNumber.Text.TrimEnd().Length != 13)
                     {
                         MessageBox.Show("Invalid Id Number");
                         return;
                     }
-                    if (Convert.ToInt32(txtcellnumber.Text).ToString().All(char.IsDigit) == false)
+                    if (txtcellnumber.Text.TrimEnd().All(char.IsDigit) == false)
                     {
                         MessageBox.Show("Cell Phone Number can only contain numbers");
                         return;
                     }
-                    if (txtcellnumber.Text.Length != 10)
+                    if (txtcellnumber.Text.TrimEnd().Length != 10)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
                     }
 
-                    //Save New Member to Database
+                    //Save edited Member to Database
                     mymembers.Name = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
                     mymembers.MemberShipNo = txtMemberShipnumber.Text;
@@ -127,9 +127,9 @@ namespace SAIMC_MemberManager
                         mymembers.Haspaid = false;
 
                     }
-                    db.Members.Add(mymembers);
+                    //db.Members.Add(mymembers);
 
-                    string message = "Please confirm creation of:" + txtName.Text + " " + txtSurname.Text;
+                    string message = "Please confirm edit of:" + txtName.Text + " " + txtSurname.Text;
                     string title = "Please Confirm";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons);
