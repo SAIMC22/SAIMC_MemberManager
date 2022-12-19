@@ -205,7 +205,7 @@
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(253, 28);
             this.btncancel.TabIndex = 60;
-            this.btncancel.Text = "Cancel";
+            this.btncancel.Text = "Back";
             this.btncancel.UseVisualStyleBackColor = true;
             this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
@@ -237,7 +237,7 @@
             // 
             this.picboxQRCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picboxQRCode.Location = new System.Drawing.Point(556, 374);
-            this.picboxQRCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picboxQRCode.Margin = new System.Windows.Forms.Padding(2);
             this.picboxQRCode.Name = "picboxQRCode";
             this.picboxQRCode.Size = new System.Drawing.Size(137, 144);
             this.picboxQRCode.TabIndex = 82;
@@ -248,7 +248,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
             this.pictureBox1.Location = new System.Drawing.Point(137, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -312,7 +312,7 @@
             this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnSaveMem);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCreateMemberManual";
             this.Text = "Create New Member";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

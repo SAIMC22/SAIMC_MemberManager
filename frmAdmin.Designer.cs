@@ -44,10 +44,9 @@
             // 
             this.btnviewmeetings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnviewmeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewmeetings.Location = new System.Drawing.Point(306, 470);
-            this.btnviewmeetings.Margin = new System.Windows.Forms.Padding(4);
+            this.btnviewmeetings.Location = new System.Drawing.Point(230, 382);
             this.btnviewmeetings.Name = "btnviewmeetings";
-            this.btnviewmeetings.Size = new System.Drawing.Size(329, 38);
+            this.btnviewmeetings.Size = new System.Drawing.Size(247, 31);
             this.btnviewmeetings.TabIndex = 10;
             this.btnviewmeetings.Text = "View Meetings";
             this.btnviewmeetings.UseVisualStyleBackColor = true;
@@ -57,10 +56,9 @@
             // 
             this.btnGenerateQrCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnGenerateQrCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateQrCode.Location = new System.Drawing.Point(306, 332);
-            this.btnGenerateQrCode.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerateQrCode.Location = new System.Drawing.Point(230, 270);
             this.btnGenerateQrCode.Name = "btnGenerateQrCode";
-            this.btnGenerateQrCode.Size = new System.Drawing.Size(329, 38);
+            this.btnGenerateQrCode.Size = new System.Drawing.Size(247, 31);
             this.btnGenerateQrCode.TabIndex = 9;
             this.btnGenerateQrCode.Text = "Generate QR Codes";
             this.btnGenerateQrCode.UseVisualStyleBackColor = true;
@@ -71,9 +69,10 @@
             this.lbadmin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbadmin.AutoSize = true;
             this.lbadmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbadmin.Location = new System.Drawing.Point(244, 235);
+            this.lbadmin.Location = new System.Drawing.Point(183, 191);
+            this.lbadmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbadmin.Name = "lbadmin";
-            this.lbadmin.Size = new System.Drawing.Size(454, 51);
+            this.lbadmin.Size = new System.Drawing.Size(364, 39);
             this.lbadmin.TabIndex = 11;
             this.lbadmin.Text = "Select Admin Function";
             this.lbadmin.Click += new System.EventHandler(this.label1_Click);
@@ -82,10 +81,9 @@
             // 
             this.btncancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(306, 516);
-            this.btncancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btncancel.Location = new System.Drawing.Point(230, 419);
             this.btncancel.Name = "btncancel";
-            this.btncancel.Size = new System.Drawing.Size(329, 38);
+            this.btncancel.Size = new System.Drawing.Size(247, 31);
             this.btncancel.TabIndex = 12;
             this.btncancel.Text = "Scan Members";
             this.btncancel.UseVisualStyleBackColor = true;
@@ -95,10 +93,9 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(306, 378);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(230, 307);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(329, 38);
+            this.button2.Size = new System.Drawing.Size(247, 31);
             this.button2.TabIndex = 13;
             this.button2.Text = "Manage Members";
             this.button2.UseVisualStyleBackColor = true;
@@ -108,12 +105,11 @@
             // 
             this.btnCloseApplication.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCloseApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApplication.Location = new System.Drawing.Point(306, 562);
-            this.btnCloseApplication.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseApplication.Location = new System.Drawing.Point(230, 457);
             this.btnCloseApplication.Name = "btnCloseApplication";
-            this.btnCloseApplication.Size = new System.Drawing.Size(329, 38);
+            this.btnCloseApplication.Size = new System.Drawing.Size(247, 31);
             this.btnCloseApplication.TabIndex = 14;
-            this.btnCloseApplication.Text = "Close Application";
+            this.btnCloseApplication.Text = "Exit Application";
             this.btnCloseApplication.UseVisualStyleBackColor = true;
             this.btnCloseApplication.Click += new System.EventHandler(this.btnCloseApplication_Click);
             // 
@@ -121,7 +117,8 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(138, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(104, 41);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -132,10 +129,9 @@
             // 
             this.btnCreateMeeting.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCreateMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateMeeting.Location = new System.Drawing.Point(306, 424);
-            this.btnCreateMeeting.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateMeeting.Location = new System.Drawing.Point(230, 344);
             this.btnCreateMeeting.Name = "btnCreateMeeting";
-            this.btnCreateMeeting.Size = new System.Drawing.Size(329, 38);
+            this.btnCreateMeeting.Size = new System.Drawing.Size(247, 31);
             this.btnCreateMeeting.TabIndex = 16;
             this.btnCreateMeeting.Text = "Create New Meeting";
             this.btnCreateMeeting.UseVisualStyleBackColor = true;
@@ -143,9 +139,9 @@
             // 
             // frmAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 604);
+            this.ClientSize = new System.Drawing.Size(731, 491);
             this.Controls.Add(this.btnCreateMeeting);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseApplication);
@@ -155,6 +151,7 @@
             this.Controls.Add(this.btnviewmeetings);
             this.Controls.Add(this.btnGenerateQrCode);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAdmin";
             this.Text = "Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -50,8 +50,7 @@ namespace SAIMC_MemberManager
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(152, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(540, 55);
             this.label2.TabIndex = 2;
@@ -61,10 +60,9 @@ namespace SAIMC_MemberManager
             // 
             this.txtScanmembership.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtScanmembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScanmembership.Location = new System.Drawing.Point(240, 395);
-            this.txtScanmembership.Margin = new System.Windows.Forms.Padding(4);
+            this.txtScanmembership.Location = new System.Drawing.Point(180, 321);
             this.txtScanmembership.Name = "txtScanmembership";
-            this.txtScanmembership.Size = new System.Drawing.Size(481, 26);
+            this.txtScanmembership.Size = new System.Drawing.Size(362, 26);
             this.txtScanmembership.TabIndex = 4;
             this.txtScanmembership.TextChanged += new System.EventHandler(this.txtScanmembership_TextChanged);
             // 
@@ -73,8 +71,7 @@ namespace SAIMC_MemberManager
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(303, 355);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(227, 288);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(251, 29);
             this.label1.TabIndex = 5;
@@ -84,10 +81,10 @@ namespace SAIMC_MemberManager
             // 
             this.pbxGranted.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxGranted.Image = ((System.Drawing.Image)(resources.GetObject("pbxGranted.Image")));
-            this.pbxGranted.Location = new System.Drawing.Point(292, 514);
-            this.pbxGranted.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxGranted.Location = new System.Drawing.Point(219, 418);
+            this.pbxGranted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbxGranted.Name = "pbxGranted";
-            this.pbxGranted.Size = new System.Drawing.Size(385, 380);
+            this.pbxGranted.Size = new System.Drawing.Size(289, 309);
             this.pbxGranted.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxGranted.TabIndex = 6;
             this.pbxGranted.TabStop = false;
@@ -96,22 +93,22 @@ namespace SAIMC_MemberManager
             // 
             this.pbxDenied.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxDenied.Image = ((System.Drawing.Image)(resources.GetObject("pbxDenied.Image")));
-            this.pbxDenied.Location = new System.Drawing.Point(291, 514);
-            this.pbxDenied.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxDenied.Location = new System.Drawing.Point(218, 418);
+            this.pbxDenied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbxDenied.Name = "pbxDenied";
-            this.pbxDenied.Size = new System.Drawing.Size(385, 380);
+            this.pbxDenied.Size = new System.Drawing.Size(289, 309);
             this.pbxDenied.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxDenied.TabIndex = 7;
             this.pbxDenied.TabStop = false;
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.Location = new System.Drawing.Point(896, 699);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdmin.Location = new System.Drawing.Point(670, 11);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(125, 44);
+            this.btnAdmin.Size = new System.Drawing.Size(94, 36);
             this.btnAdmin.TabIndex = 8;
             this.btnAdmin.Text = "Admin";
             this.btnAdmin.UseVisualStyleBackColor = true;
@@ -122,8 +119,7 @@ namespace SAIMC_MemberManager
             this.lblMeetingAgenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMeetingAgenda.AutoSize = true;
             this.lblMeetingAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeetingAgenda.Location = new System.Drawing.Point(303, 310);
-            this.lblMeetingAgenda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMeetingAgenda.Location = new System.Drawing.Point(227, 252);
             this.lblMeetingAgenda.Name = "lblMeetingAgenda";
             this.lblMeetingAgenda.Size = new System.Drawing.Size(195, 29);
             this.lblMeetingAgenda.TabIndex = 9;
@@ -133,7 +129,8 @@ namespace SAIMC_MemberManager
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(229, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(172, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -142,9 +139,9 @@ namespace SAIMC_MemberManager
             // 
             // frmScanQR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 754);
+            this.ClientSize = new System.Drawing.Size(775, 613);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMeetingAgenda);
             this.Controls.Add(this.btnAdmin);
@@ -154,7 +151,6 @@ namespace SAIMC_MemberManager
             this.Controls.Add(this.txtScanmembership);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmScanQR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Scan Member";

@@ -45,21 +45,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMembers.Location = new System.Drawing.Point(12, 116);
-            this.dgvMembers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvMembers.Location = new System.Drawing.Point(9, 94);
+            this.dgvMembers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMembers.Name = "dgvMembers";
             this.dgvMembers.RowHeadersWidth = 51;
             this.dgvMembers.RowTemplate.Height = 24;
-            this.dgvMembers.Size = new System.Drawing.Size(1179, 409);
+            this.dgvMembers.Size = new System.Drawing.Size(884, 332);
             this.dgvMembers.TabIndex = 0;
             // 
             // txtSearchMember
             // 
             this.txtSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMember.Location = new System.Drawing.Point(172, 57);
-            this.txtSearchMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchMember.Location = new System.Drawing.Point(129, 46);
+            this.txtSearchMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearchMember.Name = "txtSearchMember";
-            this.txtSearchMember.Size = new System.Drawing.Size(260, 30);
+            this.txtSearchMember.Size = new System.Drawing.Size(196, 26);
             this.txtSearchMember.TabIndex = 2;
             this.txtSearchMember.TextChanged += new System.EventHandler(this.txtSearchMember_TextChanged);
             // 
@@ -67,9 +67,10 @@
             // 
             this.lblmembername.AutoSize = true;
             this.lblmembername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmembername.Location = new System.Drawing.Point(12, 57);
+            this.lblmembername.Location = new System.Drawing.Point(9, 46);
+            this.lblmembername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblmembername.Name = "lblmembername";
-            this.lblmembername.Size = new System.Drawing.Size(147, 25);
+            this.lblmembername.Size = new System.Drawing.Size(117, 20);
             this.lblmembername.TabIndex = 3;
             this.lblmembername.Text = "Member Name:";
             // 
@@ -77,10 +78,10 @@
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(689, 12);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreate.Location = new System.Drawing.Point(517, 10);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(245, 36);
+            this.btnCreate.Size = new System.Drawing.Size(184, 29);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create New Member";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -90,12 +91,12 @@
             // 
             this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(940, 52);
-            this.btncancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncancel.Location = new System.Drawing.Point(705, 42);
+            this.btncancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btncancel.Name = "btncancel";
-            this.btncancel.Size = new System.Drawing.Size(245, 36);
+            this.btncancel.Size = new System.Drawing.Size(184, 29);
             this.btncancel.TabIndex = 5;
-            this.btncancel.Text = "Cancel";
+            this.btncancel.Text = "Back";
             this.btncancel.UseVisualStyleBackColor = true;
             this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
@@ -103,10 +104,10 @@
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(940, 12);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(705, 10);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(245, 36);
+            this.btnDelete.Size = new System.Drawing.Size(184, 29);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -116,10 +117,10 @@
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(689, 54);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEdit.Location = new System.Drawing.Point(517, 44);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(245, 36);
+            this.btnEdit.Size = new System.Drawing.Size(184, 29);
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -127,9 +128,9 @@
             // 
             // frmManageMembers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 537);
+            this.ClientSize = new System.Drawing.Size(902, 436);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btncancel);
@@ -138,7 +139,7 @@
             this.Controls.Add(this.txtSearchMember);
             this.Controls.Add(this.dgvMembers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmManageMembers";
             this.Text = "Manage Members";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
