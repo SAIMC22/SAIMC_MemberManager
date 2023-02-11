@@ -138,5 +138,9 @@ namespace SAIMC_MemberManager
                 MessageBox.Show("Member Belongs to Past Meetings");
             }
         }
+
+        private void dgvMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
     }
 }
