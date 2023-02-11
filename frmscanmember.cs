@@ -69,7 +69,18 @@ namespace SAIMC_MemberManager
                         }
                         else
                         {
-                            this.Close();
+                            MessageBox.Show("Members can't be scan if not meeting is created");
+                            try
+                            {
+                                //Open New form To Admin
+                                frmAdmin Createmeeting = new frmAdmin();
+                                this.Hide();
+                                Createmeeting.ShowDialog();
+                                this.Close();
+                            }
+                            catch
+                            {
+                            }
                         }
                     }
                     membershipnumber = Convert.ToInt32(txtScanmembership.Text);
@@ -82,6 +93,17 @@ namespace SAIMC_MemberManager
                     membermeetingList = db.MemberMeetings.ToList();
                     //Finds Member with same Membership Number scanned
                     FoundMember = AllMembersList.Find(x => Convert.ToInt32(x.SAIMC_Nr) == membershipnumber);
+                    if(FoundMember == null)
+                    {
+                        this.BackColor = Color.Red;
+                        pbxGranted.Visible = false;
+                        pbxDenied.Visible = true;
+                        MessageBox.Show("Member not found,Please contact Admin");
+                        this.BackColor = Color.WhiteSmoke;
+                        pbxDenied.Visible = false;
+                        txtScanmembership.Text = " ";                                               
+                        return;
+                    }
                     if (FoundMember != null)
                     {
                         //Add Member to new Meeting
@@ -156,9 +178,8 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Error Occured" + ex.ToString());
             }
         }
 

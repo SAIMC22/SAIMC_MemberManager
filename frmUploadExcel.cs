@@ -123,11 +123,11 @@ namespace SAIMC_MemberManager
                     }
                 }
                 connection.Close();
-                MessageBox.Show("Data successfully inserted into SQL table.");
+                MessageBox.Show("Members List has successfully been updated");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
             }
         }
 
