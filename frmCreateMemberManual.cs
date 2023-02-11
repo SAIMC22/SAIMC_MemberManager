@@ -1,13 +1,9 @@
 ﻿using QRCoder;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
@@ -15,7 +11,8 @@ namespace SAIMC_MemberManager
     public partial class frmCreateMemberManual : Form
     {
         //DataBase Connection
-        SAIMCEntities db = new SAIMCEntities();
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
+
         public frmCreateMemberManual()
         {
             InitializeComponent();
@@ -24,15 +21,14 @@ namespace SAIMC_MemberManager
         private void btncancel_Click(object sender, EventArgs e)
         {
             try
-            { 
-            //Back to Manage Member
-            frmManageMembers frmManageMembers = new frmManageMembers();
-            this.Hide();
-            frmManageMembers.ShowDialog();
+            {
+                //Back to Manage Member
+                frmManageMembers frmManageMembers = new frmManageMembers();
+                this.Hide();
+                frmManageMembers.ShowDialog();
             }
             catch
             {
-
             }
         }
 
@@ -41,7 +37,6 @@ namespace SAIMC_MemberManager
             Member mymembers = new Member();
             try
             {
-
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
@@ -69,38 +64,33 @@ namespace SAIMC_MemberManager
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
-                    }    
+                    }
                     List<Member> memberlist = new List<Member>();
                     memberlist = db.Members.ToList();
-                    if(memberlist != null)
-                    { 
-                    foreach(Member member in memberlist)
+                    if (memberlist != null)
                     {
-                        if(member.MemberShipNo == txtMemberShipnumber.Text)
+                        foreach (Member member in memberlist)
                         {
-                            MessageBox.Show("MemberShip Number Already Exsists.");
-                            return;
+                            if (member.SAIMC_Nr == Convert.ToInt16(txtMemberShipnumber.Text))
+                            {
+                                MessageBox.Show("MemberShip Number Already Exsists.");
+                                return;
+                            }
                         }
                     }
-                    }
                     //Save New Member to Database
-                    mymembers.MemberShipNo = txtMemberShipnumber.Text;
-                    mymembers.Name = txtName.Text;
+                    mymembers.SAIMC_Nr = Convert.ToInt16(txtMemberShipnumber.Text);
+                    mymembers.Nickname = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.ContactNumber = txtcellnumber.Text;                    
-                    mymembers.IdNumber = txtIdNumber.Text;
-                    mymembers.DOB = dob.Value.Date;
-                    mymembers.Gender = cbxgender.Text;
+                    mymembers.MobilePhone = txtcellnumber.Text;
 
                     if (cbxpayment.Text == "Paid")
                     {
                         mymembers.Haspaid = true;
-
                     }
                     if (cbxpayment.Text == "unpaid")
                     {
                         mymembers.Haspaid = false;
-
                     }
                     db.Members.Add(mymembers);
 
@@ -110,7 +100,6 @@ namespace SAIMC_MemberManager
                     DialogResult result = MessageBox.Show(message, title, buttons);
                     if (result == DialogResult.No)
                     {
-
                     }
                     else
                     {
@@ -151,25 +140,22 @@ namespace SAIMC_MemberManager
                         txtIdNumber.Text = "";
                         cbxgender.Text = "";
                         cbxpayment.Text = "";
-                        MessageBox.Show("New Member Successfully Created");                       
+                        MessageBox.Show("New Member Successfully Created");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Please Fill in All required Fields");
                 }
-
             }
             catch (Exception)
             {
                 MessageBox.Show("Creation Failed,Please try Again");
             }
-
         }
 
         private void frmCreateMemberManual_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

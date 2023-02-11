@@ -17,7 +17,7 @@ namespace SAIMC_MemberManager
         public int id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int MemberShipNumber { get; set; }
+        public int SAIMC_Nr { get; set; }
         public byte[] MemberQRCode { get; set; }
     }
 }

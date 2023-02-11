@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
 {
     public partial class frmManageMembers : Form
     {
-        SAIMCEntities db = new SAIMCEntities();
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
         public static int MemberShipNumber = 0;
+
         public frmManageMembers()
         {
             InitializeComponent();
@@ -51,7 +48,7 @@ namespace SAIMC_MemberManager
             {
                 List<Member> members = new List<Member>();
                 members = db.Members.ToList();
-                dgvMembers.DataSource = members.Select(x => new { Name = x.Name, Surname = x.Surname, Membership_Number = x.MemberShipNo, ID_Number = x.IdNumber, Contact_Number = x.ContactNumber, Gender = x.Gender, Date_Of_Birth = x.DOB, Paid = x.Haspaid }).ToList();
+                dgvMembers.DataSource = members.Select(x => new { SAIMC_Nr = x.SAIMC_Nr, NickName = x.Nickname, Surname = x.Surname, Mobile_Phone = x.MobilePhone, Paid = x.Haspaid }).ToList();
                 dgvMembers.AllowUserToAddRows = false;
                 dgvMembers.AllowUserToDeleteRows = true;
                 dgvMembers.AllowUserToResizeRows = false;
@@ -71,13 +68,12 @@ namespace SAIMC_MemberManager
             {
                 List<Member> members = new List<Member>();
                 members = db.Members.ToList();
-                List<Member> member = members.FindAll(x => x.Name.Contains(txtSearchMember.Text)).ToList();
+                List<Member> member = members.FindAll(x => x.Nickname.Contains(txtSearchMember.Text)).ToList();
                 dgvMembers.DataSource = member;
                 dgvMembers.Update();
             }
             catch
             {
-
             }
         }
 
@@ -87,13 +83,12 @@ namespace SAIMC_MemberManager
             {
                 List<Member> members = new List<Member>();
                 members = db.Members.ToList();
-                List<Member> member = members.FindAll(x => x.Name.Contains(txtSearchMember.Text)).ToList();
+                List<Member> member = members.FindAll(x => x.Nickname.Contains(txtSearchMember.Text)).ToList();
                 dgvMembers.DataSource = member;
                 dgvMembers.Update();
             }
             catch
             {
-
             }
         }
 
@@ -109,7 +104,6 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-
             }
         }
 
@@ -123,7 +117,6 @@ namespace SAIMC_MemberManager
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.No)
                 {
-
                 }
                 else
                 {
@@ -131,7 +124,7 @@ namespace SAIMC_MemberManager
                     MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[2].Value.ToString());
                     List<Member> members = new List<Member>();
                     members = db.Members.ToList();
-                    Member member = members.Find(x => Convert.ToInt32(x.MemberShipNo) == Convert.ToInt32(MemberShipNumber));
+                    Member member = members.Find(x => Convert.ToInt32(x.SAIMC_Nr) == Convert.ToInt32(MemberShipNumber));
                     db.Members.Remove(member);
                     db.SaveChanges();
                     List<Member> newmemberList = new List<Member>();
@@ -144,7 +137,6 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Member Belongs to Past Meetings");
             }
-
         }
     }
 }

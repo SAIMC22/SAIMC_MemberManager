@@ -2,18 +2,10 @@
 using AForge.Video.DirectShow;
 using QRCoder;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebcamCapturer;
-using System.Drawing.Imaging;
-using System.Data.OleDb;
 
 namespace SAIMC_MemberManager
 {
@@ -23,13 +15,14 @@ namespace SAIMC_MemberManager
         {
             InitializeComponent();
         }
-        //Global Veriables        
-        VideoCaptureDevice ImagecaptureDevice;
-        FilterInfoCollection filterInfoCollection;
-        //DataBase Connection
-        SAIMCEntities db = new SAIMCEntities();
-        
 
+        //Global Veriables
+        private VideoCaptureDevice ImagecaptureDevice;
+
+        private FilterInfoCollection filterInfoCollection;
+
+        //DataBase Connection
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
 
         private void frmcreatemember_Load(object sender, EventArgs e)
         {
@@ -39,16 +32,14 @@ namespace SAIMC_MemberManager
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterInfo in filterInfoCollection)
                 cbxselectcamera.Items.Add(filterInfo.Name);
-                 cbxselectcamera.SelectedIndex = 0;
+            cbxselectcamera.SelectedIndex = 0;
         }
 
         private void btnSaveMem_Click(object sender, EventArgs e)
         {
-
             Member mymembers = new Member();
             try
             {
-
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcontactnumber.Text != " " && txtIdnumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtmembershipno.Text != "")
                 {
@@ -82,23 +73,18 @@ namespace SAIMC_MemberManager
                         }
                     }
                     //Save New Member to Database
-                    mymembers.MemberShipNo = txtmembershipno.Text;
-                    mymembers.Name = txtName.Text;
+                    mymembers.SAIMC_Nr = Convert.ToInt16(txtmembershipno.Text);
+                    mymembers.Nickname = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.ContactNumber = txtcontactnumber.Text;
-                    mymembers.IdNumber = txtIdnumber.Text;
-                    mymembers.DOB = dob.Value.Date;
-                    mymembers.Gender = cbxgender.Text;                    
+                    mymembers.MobilePhone = txtcontactnumber.Text;
 
                     if (cbxpayment.Text == "Paid")
                     {
                         mymembers.Haspaid = true;
-
                     }
                     if (cbxpayment.Text == "unpaid")
                     {
                         mymembers.Haspaid = false;
-                        
                     }
                     db.Members.Add(mymembers);
 
@@ -109,14 +95,13 @@ namespace SAIMC_MemberManager
                 {
                     MessageBox.Show("Please Fill in All required Fields");
                 }
-
             }
             catch (Exception)
             {
                 MessageBox.Show("Creation Failed,Please try Again");
             }
-
         }
+
         //Start Camera For adding New Image
         private void btnCaptureProfilepic_Click(object sender, EventArgs e)
         {
@@ -124,19 +109,19 @@ namespace SAIMC_MemberManager
             ImagecaptureDevice.NewFrame += VideoCapture_NewFrame;
             ImagecaptureDevice.Start();
         }
+
         private void VideoCapture_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             picboximagecapture.Image = (Bitmap)eventArgs.Frame.Clone();
-
         }
-        
+
         private void btntakepic_Click(object sender, EventArgs e)
         {
             picboximagecapture.Hide();
             picboxprofilepic.Image = picboximagecapture.Image;
-            picboxprofilepic.Visible = true;            
-
+            picboxprofilepic.Visible = true;
         }
+
         //Convert Image to Binary
         public byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
@@ -158,7 +143,7 @@ namespace SAIMC_MemberManager
         }
 
         private void btncancel_Click(object sender, EventArgs e)
-        {           
+        {
             frmScanQR viewscannerform = new frmScanQR();
             this.Hide();
             viewscannerform.ShowDialog();
@@ -166,15 +151,14 @@ namespace SAIMC_MemberManager
 
         private void label10_Click(object sender, EventArgs e)
         {
-
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
         }
 
-        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\keagz\source\repos\SAIMC_MemberManager\SAIMC_DataBase.accdb");
+        private OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\keagz\source\repos\SAIMC_MemberManager\SAIMC_DataBase.accdb");
+
         private void btnSaveinAccess_Click(object sender, EventArgs e)
         {
             try
@@ -209,24 +193,22 @@ namespace SAIMC_MemberManager
                     }
                 }
                 //Save New Member to Database
-               /* mymembers.MemberShipNo = txtmembershipno.Text;
-                mymembers.Name = txtName.Text;
-                mymembers.Surname = txtSurname.Text;
-                mymembers.ContactNumber = txtcontactnumber.Text;
-                mymembers.IdNumber = txtIdnumber.Text;
-                mymembers.DOB = dtpDOB.Value.Date;
-                mymembers.Gender = cbxGender.Text;
+                /* mymembers.MemberShipNo = txtmembershipno.Text;
+                 mymembers.Name = txtName.Text;
+                 mymembers.Surname = txtSurname.Text;
+                 mymembers.ContactNumber = txtcontactnumber.Text;
+                 mymembers.IdNumber = txtIdnumber.Text;
+                 mymembers.DOB = dtpDOB.Value.Date;
+                 mymembers.Gender = cbxGender.Text;
 
-                if (cbxPaymentMethod.Text == "Cash")
-                {
-                    mymembers.Haspaid = true;
-
-                }
-                if (cbxPaymentMethod.Text == "Card unpaid")
-                {
-                    mymembers.Haspaid = false;
-
-                }*/
+                 if (cbxPaymentMethod.Text == "Cash")
+                 {
+                     mymembers.Haspaid = true;
+                 }
+                 if (cbxPaymentMethod.Text == "Card unpaid")
+                 {
+                     mymembers.Haspaid = false;
+                 }*/
 
                 OleDbCommand cmd = con.CreateCommand();
                 con.Open();
@@ -236,7 +218,7 @@ namespace SAIMC_MemberManager
                 MessageBox.Show("Record Submitted", "Congrats");
                 con.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

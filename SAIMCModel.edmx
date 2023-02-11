@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SAIMCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SAIMCDBV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Meeting">
           <Key>
             <PropertyRef Name="Meetingid" />
@@ -20,20 +20,25 @@
           </Key>
           <Property Name="MemberMeetingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Meetingid" Type="int" />
-          <Property Name="id" Type="int" />
+          <Property Name="SAIMC Nr" Type="int" />
         </EntityType>
         <EntityType Name="Members">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="SAIMC Nr" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="50" />
+          <Property Name="SAIMC Nr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Invoice Type" Type="varchar" MaxLength="50" />
+          <Property Name="Members Rating" Type="varchar" MaxLength="50" />
+          <Property Name="Branch" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="char" MaxLength="10" />
+          <Property Name="Initial" Type="char" MaxLength="5" />
+          <Property Name="Nickname" Type="char" MaxLength="50" />
           <Property Name="Surname" Type="char" MaxLength="50" />
-          <Property Name="MemberShipNo" Type="char" MaxLength="25" />
-          <Property Name="ContactNumber" Type="char" MaxLength="20" />
-          <Property Name="IdNumber" Type="char" MaxLength="20" />
-          <Property Name="Gender" Type="char" MaxLength="10" />
-          <Property Name="DOB" Type="date" />
+          <Property Name="E-Mail" Type="varchar" MaxLength="100" />
+          <Property Name="MobilePhone" Type="char" MaxLength="15" />
+          <Property Name="ECSA" Type="int" />
+          <Property Name="Paid" Type="int" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Haspaid" Type="bit" />
           <Property Name="MemberQRCode" Type="image" />
         </EntityType>
@@ -44,7 +49,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="char" MaxLength="20" />
           <Property Name="Surname" Type="char" MaxLength="20" />
-          <Property Name="MemberShipNumber" Type="int" Nullable="false" />
+          <Property Name="SAIMC Nr" Type="int" Nullable="false" />
           <Property Name="MemberQRCode" Type="image" />
         </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
@@ -64,14 +69,14 @@
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="SAIMC Nr" />
             </Principal>
             <Dependent Role="MemberMeeting">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="SAIMC Nr" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SAIMCModelStoreContainer">
+        <EntityContainer Name="SAIMCDBV2ModelStoreContainer">
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberMeeting" EntityType="Self.MemberMeeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
@@ -89,7 +94,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SAIMCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SAIMCDBV2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Meeting">
           <Key>
             <PropertyRef Name="Meetingid" />
@@ -106,22 +111,27 @@
           </Key>
           <Property Name="MemberMeetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Meetingid" Type="Int32" />
-          <Property Name="id" Type="Int32" />
+          <Property Name="SAIMC_Nr" Type="Int32" />
           <NavigationProperty Name="Meeting" Relationship="Self.FK_MemberMeeting_Meeting" FromRole="MemberMeeting" ToRole="Meeting" />
           <NavigationProperty Name="Member" Relationship="Self.FK_MemberMeeting_Members" FromRole="MemberMeeting" ToRole="Members" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="SAIMC_Nr" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="SAIMC_Nr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Invoice_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Members_Rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Initial" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="MemberShipNo" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="ContactNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="IdNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="E_Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="ECSA" Type="Int32" />
+          <Property Name="Paid" Type="Int32" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Haspaid" Type="Boolean" />
           <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="MemberMeetings" Relationship="Self.FK_MemberMeeting_Members" FromRole="Members" ToRole="MemberMeeting" />
@@ -133,7 +143,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="MemberShipNumber" Type="Int32" Nullable="false" />
+          <Property Name="SAIMC_Nr" Type="Int32" Nullable="false" />
           <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
@@ -153,14 +163,14 @@
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="SAIMC_Nr" />
             </Principal>
             <Dependent Role="MemberMeeting">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="SAIMC_Nr" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SAIMCEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SAIMCDBV2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Meetings" EntityType="Self.Meeting" />
           <EntitySet Name="MemberMeetings" EntityType="Self.MemberMeeting" />
           <EntitySet Name="Members" EntityType="Self.Member" />
@@ -179,9 +189,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SAIMCModelStoreContainer" CdmEntityContainer="SAIMCEntities">
+        <EntityContainerMapping StorageEntityContainer="SAIMCDBV2ModelStoreContainer" CdmEntityContainer="SAIMCDBV2Entities">
           <EntitySetMapping Name="Meetings">
-            <EntityTypeMapping TypeName="SAIMCModel.Meeting">
+            <EntityTypeMapping TypeName="SAIMCDBV2Model.Meeting">
               <MappingFragment StoreEntitySet="Meeting">
                 <ScalarProperty Name="Meetingid" ColumnName="Meetingid" />
                 <ScalarProperty Name="Agenda" ColumnName="Agenda" />
@@ -191,37 +201,42 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MemberMeetings">
-            <EntityTypeMapping TypeName="SAIMCModel.MemberMeeting">
+            <EntityTypeMapping TypeName="SAIMCDBV2Model.MemberMeeting">
               <MappingFragment StoreEntitySet="MemberMeeting">
                 <ScalarProperty Name="MemberMeetingID" ColumnName="MemberMeetingID" />
                 <ScalarProperty Name="Meetingid" ColumnName="Meetingid" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="SAIMCModel.Member">
+            <EntityTypeMapping TypeName="SAIMCDBV2Model.Member">
               <MappingFragment StoreEntitySet="Members">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
+                <ScalarProperty Name="Invoice_Type" ColumnName="Invoice Type" />
+                <ScalarProperty Name="Members_Rating" ColumnName="Members Rating" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Initial" ColumnName="Initial" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="E_Mail" ColumnName="E-Mail" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="ECSA" ColumnName="ECSA" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="Haspaid" ColumnName="Haspaid" />
                 <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QRGenerations">
-            <EntityTypeMapping TypeName="SAIMCModel.QRGeneration">
+            <EntityTypeMapping TypeName="SAIMCDBV2Model.QRGeneration">
               <MappingFragment StoreEntitySet="QRGeneration">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="MemberShipNumber" ColumnName="MemberShipNumber" />
+                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
                 <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
 {
     public partial class frmEditMember : Form
     {
-        SAIMCEntities db = new SAIMCEntities();
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
         public static int MemberShipNumber = 0;
+
         public frmEditMember()
         {
             InitializeComponent();
@@ -22,56 +18,50 @@ namespace SAIMC_MemberManager
         private void btncancel_Click(object sender, EventArgs e)
         {
             try
-            { 
-            frmManageMembers frmManageMembers = new frmManageMembers();
-            this.Hide();
-            frmManageMembers.ShowDialog();
-            this.Close();
+            {
+                frmManageMembers frmManageMembers = new frmManageMembers();
+                this.Hide();
+                frmManageMembers.ShowDialog();
+                this.Close();
             }
             catch
             {
-
             }
         }
 
         private void frmEditMember_Load(object sender, EventArgs e)
         {
             try
-            { 
-            MemberShipNumber = frmManageMembers.MemberShipNumber;
-            List<Member> members = new List<Member>();
-            members = db.Members.ToList();
-            //members.FirstOrDefault(x => x.id == MemberId);
-            foreach(Member member in members)
             {
-                if(member != null)
-                { 
-                if(Convert.ToInt32(member.MemberShipNo) == MemberShipNumber)
+                MemberShipNumber = frmManageMembers.MemberShipNumber;
+                List<Member> members = new List<Member>();
+                members = db.Members.ToList();
+                //members.FirstOrDefault(x => x.id == MemberId);
+                foreach (Member member in members)
                 {
-                    txtName.Text = member.Name.TrimEnd();
-                    txtSurname.Text = member.Surname.TrimEnd();
-                    txtMemberShipnumber.Text = Convert.ToInt64(member.MemberShipNo).ToString();
-                    txtIdNumber.Text = member.IdNumber.TrimEnd();
-                            txtcellnumber.Text = member.ContactNumber.TrimEnd();
-                            dob.Value = member.DOB.Value;
-                    cbxgender.Text = member.Gender.TrimEnd();
+                    if (member != null)
+                    {
+                        if (Convert.ToInt32(member.SAIMC_Nr) == MemberShipNumber)
+                        {
+                            txtName.Text = member.Nickname.TrimEnd();
+                            txtSurname.Text = member.Surname.TrimEnd();
+                            txtMemberShipnumber.Text = Convert.ToInt64(member.SAIMC_Nr).ToString();
+                            txtcellnumber.Text = member.MobilePhone.TrimEnd();
                             if (member.Haspaid == true)
-                    {
-                        cbxpayment.Text = "Paid";
-                    }
-                    else
-                    {
-                        cbxpayment.Text = "Unpaid";
+                            {
+                                cbxpayment.Text = "Paid";
+                            }
+                            else
+                            {
+                                cbxpayment.Text = "Unpaid";
+                            }
+                        }
                     }
                 }
-                }
-            }
             }
             catch
             {
-
             }
-
         }
 
         private void btnSaveMem_Click(object sender, EventArgs e)
@@ -109,23 +99,18 @@ namespace SAIMC_MemberManager
                     }
 
                     //Save edited Member to Database
-                    mymembers.Name = txtName.Text;
+                    mymembers.Nickname = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
-                    mymembers.MemberShipNo = txtMemberShipnumber.Text;
-                    mymembers.IdNumber = txtIdNumber.Text;
-                    mymembers.ContactNumber = txtcellnumber.Text;
-                    mymembers.DOB = dob.Value;
-                    mymembers.Gender = cbxgender.Text;
+                    mymembers.SAIMC_Nr = Convert.ToInt16(txtMemberShipnumber.Text);
+                    mymembers.MobilePhone = txtcellnumber.Text;
 
                     if (cbxpayment.Text == "Paid")
                     {
                         mymembers.Haspaid = true;
-
                     }
                     if (cbxpayment.Text == "unpaid")
                     {
                         mymembers.Haspaid = false;
-
                     }
                     //db.Members.Add(mymembers);
 
@@ -135,7 +120,6 @@ namespace SAIMC_MemberManager
                     DialogResult result = MessageBox.Show(message, title, buttons);
                     if (result == DialogResult.No)
                     {
-
                     }
                     else
                     {
@@ -156,8 +140,6 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Creation Failed,Please try Again");
             }
-
-}
         }
     }
-
+}

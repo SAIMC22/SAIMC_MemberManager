@@ -16,7 +16,7 @@ namespace SAIMC_MemberManager
     {
         public int MemberMeetingID { get; set; }
         public Nullable<int> Meetingid { get; set; }
-        public Nullable<int> id { get; set; }
+        public Nullable<int> SAIMC_Nr { get; set; }
     
         public virtual Meeting Meeting { get; set; }
         public virtual Member Member { get; set; }

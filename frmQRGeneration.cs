@@ -1,13 +1,9 @@
 ﻿using QRCoder;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
@@ -15,7 +11,8 @@ namespace SAIMC_MemberManager
     public partial class frmQRGeneration : Form
     {
         //Database Connection
-        SAIMCEntities db = new SAIMCEntities();
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
+
         public frmQRGeneration()
         {
             InitializeComponent();
@@ -23,12 +20,10 @@ namespace SAIMC_MemberManager
 
         private void btnUploadExcel_Click(object sender, EventArgs e)
         {
-
         }
 
         private void frmQRGeneration_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,9 +31,8 @@ namespace SAIMC_MemberManager
             //Generate QR Codes
             List<QRGeneration> qrtableList = new List<QRGeneration>();
             qrtableList = db.QRGenerations.ToList();
-            foreach(QRGeneration qrcodes in qrtableList)
+            foreach (QRGeneration qrcodes in qrtableList)
             {
-
                 //Setup Folder and Files
                 // Specify a name for your top-level folder.
                 string folderName = @"c:\Downloads";
@@ -51,14 +45,13 @@ namespace SAIMC_MemberManager
                     // Create the subfolder
                     System.IO.Directory.CreateDirectory(pathString);
                     //TODO ------> Short Char Count & MemberShip Number
-                    string firststring = qrcodes.Surname + " " + qrcodes.Name + " " + qrcodes.MemberShipNumber + " " + "QRCode";
+                    string firststring = qrcodes.Surname + " " + qrcodes.Name + " " + qrcodes.SAIMC_Nr + " " + "QRCode";
                     string message = firststring.Replace(" ", firststring);
                     string fileName = System.IO.Path.GetFileName(message);
                     pathString = System.IO.Path.Combine(pathString, fileName);
                 }
-                
 
-                string QRinputtext = qrcodes.MemberShipNumber.ToString();
+                string QRinputtext = qrcodes.SAIMC_Nr.ToString();
                 QRCodeGenerator NewQR = new QRCodeGenerator();
                 QRCodeData data = NewQR.CreateQrCode(QRinputtext, QRCodeGenerator.ECCLevel.Q);
                 QRCode code = new QRCode(data);
@@ -77,8 +70,7 @@ namespace SAIMC_MemberManager
                         string filename = qrcodes.Name + qrcodes.Surname + "QRCode.jpg";
 
                         //Export QR to be Saved on Local Images
-                        picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\"+filename);
-
+                        picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\" + filename);
                     }
                 }
                 MessageBox.Show("QR Codes Successfully Generated");

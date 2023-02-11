@@ -20,14 +20,19 @@ namespace SAIMC_MemberManager
             this.MemberMeetings = new HashSet<MemberMeeting>();
         }
     
-        public int id { get; set; }
-        public string Name { get; set; }
+        public int SAIMC_Nr { get; set; }
+        public string Invoice_Type { get; set; }
+        public string Members_Rating { get; set; }
+        public string Branch { get; set; }
+        public string Title { get; set; }
+        public string Initial { get; set; }
+        public string Nickname { get; set; }
         public string Surname { get; set; }
-        public string MemberShipNo { get; set; }
-        public string ContactNumber { get; set; }
-        public string IdNumber { get; set; }
-        public string Gender { get; set; }
-        public Nullable<System.DateTime> DOB { get; set; }
+        public string E_Mail { get; set; }
+        public string MobilePhone { get; set; }
+        public Nullable<int> ECSA { get; set; }
+        public Nullable<int> Paid { get; set; }
+        public Nullable<decimal> Balance { get; set; }
         public Nullable<bool> Haspaid { get; set; }
         public byte[] MemberQRCode { get; set; }
     

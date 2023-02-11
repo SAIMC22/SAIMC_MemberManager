@@ -13,10 +13,10 @@ namespace SAIMC_MemberManager
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SAIMCEntities : DbContext
+    public partial class SAIMCDBV2Entities : DbContext
     {
-        public SAIMCEntities()
-            : base("name=SAIMCEntities")
+        public SAIMCDBV2Entities()
+            : base("name=SAIMCDBV2Entities")
         {
         }
     

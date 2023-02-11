@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Syncfusion.XlsIO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Syncfusion.XlsIO;
 
 namespace SAIMC_MemberManager
 {
@@ -14,40 +14,43 @@ namespace SAIMC_MemberManager
         {
             InitializeComponent();
         }
-        SAIMCEntities db = new SAIMCEntities();
-        List<MemberMeeting> membermeetingList = new List<MemberMeeting>();
-        List<Meeting> meetingList = new List<Meeting>();
-        int membershipnumber;
+
+        private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
+        private List<MemberMeeting> membermeetingList = new List<MemberMeeting>();
+        private List<Meeting> meetingList = new List<Meeting>();
+        private int membershipnumber;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             try
-            { 
-            pbxGranted.Visible = false;
-            pbxDenied.Visible = false;
-            meetingList = db.Meetings.ToList();
-            if (meetingList.Count > 0)
             {
-                int latestMeeting = db.Meetings.Max(p => p.Meetingid);
-                lblMeetingAgenda.Text = "Meeting Agenda:" + " " + db.Meetings.FirstOrDefault(x => x.Meetingid == latestMeeting).Agenda.ToString();
-            }
+                pbxGranted.Visible = false;
+                pbxDenied.Visible = false;
+                meetingList = db.Meetings.ToList();
+                if (meetingList.Count > 0)
+                {
+                    int latestMeeting = db.Meetings.Max(p => p.Meetingid);
+                    lblMeetingAgenda.Text = "Meeting Agenda:" + " " + db.Meetings.FirstOrDefault(x => x.Meetingid == latestMeeting).Agenda.ToString();
+                }
             }
             catch
             {
-
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
         }
+
         //Check when Textbox is Populated
-        List<Member> AllMembersList = new List<Member>();
-        Member FoundMember = new Member();
+        private List<Member> AllMembersList = new List<Member>();
+
+        private Member FoundMember = new Member();
+
         private async void txtScanmembership_TextChanged(object sender, EventArgs e)
         {
             try
-            {    
+            {
                 await Task.Delay(3);
                 {
                     meetingList = db.Meetings.ToList();
@@ -69,21 +72,21 @@ namespace SAIMC_MemberManager
                             this.Close();
                         }
                     }
-                   membershipnumber = Convert.ToInt32(txtScanmembership.Text);
+                    membershipnumber = Convert.ToInt32(txtScanmembership.Text);
                 }
-                
+
                 if (membershipnumber != 0)
                 {
                     AllMembersList = db.Members.ToList();
-                    
+
                     membermeetingList = db.MemberMeetings.ToList();
                     //Finds Member with same Membership Number scanned
-                    FoundMember =  AllMembersList.Find(x => Convert.ToInt32(x.MemberShipNo) == membershipnumber);
-                    if(FoundMember != null)
+                    FoundMember = AllMembersList.Find(x => Convert.ToInt32(x.SAIMC_Nr) == membershipnumber);
+                    if (FoundMember != null)
                     {
                         //Add Member to new Meeting
                         //Get Latest Meeting
-                        
+
                         int latestMeeting = db.Meetings.Max(p => p.Meetingid);
 
                         //Find all Member Meeting with Lastest Meeting ID
@@ -101,19 +104,19 @@ namespace SAIMC_MemberManager
                         else
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.id = FoundMember.id;
+                            membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
                             membermeeting.Meetingid = latestMeeting;
                             db.MemberMeetings.Add(membermeeting);
                             db.SaveChanges();
                         }
                         //LatestMemberMeetingList = membermeetingList.FindAll(x=>x.Meetingid == latestMeeting);
-                        var memberExsists = LatestMemberMeetingList.Find(x => x.id == FoundMember.id);
+                        var memberExsists = LatestMemberMeetingList.Find(x => x.SAIMC_Nr == FoundMember.SAIMC_Nr);
                         if (LatestMemberMeetingList != null)
                         {
                             if (memberExsists == null)
                             {
                                 MemberMeeting membermeeting = new MemberMeeting();
-                                membermeeting.id = FoundMember.id;
+                                membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
                                 membermeeting.Meetingid = latestMeeting;
                                 db.MemberMeetings.Add(membermeeting);
                                 db.SaveChanges();
@@ -122,13 +125,12 @@ namespace SAIMC_MemberManager
                         else
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.id = FoundMember.id;
+                            membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
                             membermeeting.Meetingid = latestMeeting;
                             db.MemberMeetings.Add(membermeeting);
                             db.SaveChanges();
-
                         }
-                       
+
                         if (FoundMember.Haspaid == true)
                         {
                             this.BackColor = Color.Green;
@@ -140,7 +142,7 @@ namespace SAIMC_MemberManager
                             txtScanmembership.Text = " ";
                             return;
                         }
-                       else
+                        else
                         {
                             this.BackColor = Color.Red;
                             pbxGranted.Visible = false;
@@ -151,16 +153,14 @@ namespace SAIMC_MemberManager
                             txtScanmembership.Text = " ";
                             return;
                         }
-
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show("Error Occured" + ex.ToString());
             }
-
-        }      
+        }
 
         private void expExcelbtn_Click(object sender, EventArgs e)
         {
@@ -190,19 +190,19 @@ namespace SAIMC_MemberManager
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             try
-            { 
-            //Open New form To Admin
-            frmAdmin Createmeeting = new frmAdmin();
-            this.Hide();
-            Createmeeting.ShowDialog();
-            this.Close();
+            {
+                //Open New form To Admin
+                frmAdmin Createmeeting = new frmAdmin();
+                this.Hide();
+                Createmeeting.ShowDialog();
+                this.Close();
             }
             catch
             {
-
             }
         }
     }
