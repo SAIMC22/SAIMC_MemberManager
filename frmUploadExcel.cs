@@ -71,22 +71,56 @@ namespace SAIMC_MemberManager
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    SqlCommand command = new SqlCommand("INSERT INTO dbo.Members ([SAIMC Nr],[Invoice Type],[Members Rating],[Branch],[Title],[Initial],[Nickname],[Surname],[E-Mail],[MobilePhone],[ECSA],[Paid],[Balance],[Haspaid],[MemberQRCode]) VALUES (@SAIMC_Nr, @Invoice_Type, @Members_Rating,@Branch,@Title,@Initial,@Nickname,@Surname,@EMail,@MobilePhone,@ECSA,@Paid,@Balance,NULL,NULL) ON DUPLICATE KEY UPDATE", connection);
+                    SqlCommand command = new SqlCommand("INSERT INTO dbo.Members ([SAIMC Nr],[Invoice Type],[Members Rating],[Branch],[Title],[Initial],[Nickname],[Surname],[E-Mail],[MobilePhone],[ECSA],[Paid],[Balance],[Haspaid],[MemberQRCode]) VALUES (@SAIMC_Nr, @Invoice_Type, @Members_Rating,@Branch,@Title,@Initial,@Nickname,@Surname,@EMail,@MobilePhone,@ECSA,@Paid,@Balance,NULL,NULL)", connection);
 
-                    command.Parameters.AddWithValue("@SAIMC_Nr", row["SAIMC Nr"].ToString());
-                    command.Parameters.AddWithValue("@Invoice_Type", row["Invoice Type"].ToString());
-                    command.Parameters.AddWithValue("@Members_Rating", row["Members Rating"].ToString());
-                    command.Parameters.AddWithValue("@Branch", row["Branch"].ToString());
-                    command.Parameters.AddWithValue("@Title", row["Title"].ToString());
-                    command.Parameters.AddWithValue("@Initial", row["Initial"].ToString());
-                    command.Parameters.AddWithValue("@Nickname", row["Nickname"].ToString());
-                    command.Parameters.AddWithValue("@Surname", row["Surname"].ToString());
-                    command.Parameters.AddWithValue("@EMail", row["E-Mail"].ToString());
-                    command.Parameters.AddWithValue("@MobilePhone", row["MobilePhone"].ToString());
-                    command.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
-                    command.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
-                    command.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
-                    command.ExecuteNonQuery();
+                    //Search Db to ignore exsisting Members
+                    Member FoundMember = members.Find(x => x.SAIMC_Nr == Convert.ToInt16(row["SAIMC Nr"]));
+                    if (FoundMember == null)
+                    {
+                        command.Parameters.AddWithValue("@SAIMC_Nr", row["SAIMC Nr"].ToString());
+                        command.Parameters.AddWithValue("@Invoice_Type", row["Invoice Type"].ToString());
+                        command.Parameters.AddWithValue("@Members_Rating", row["Members Rating"].ToString());
+                        command.Parameters.AddWithValue("@Branch", row["Branch"].ToString());
+                        command.Parameters.AddWithValue("@Title", row["Title"].ToString());
+                        command.Parameters.AddWithValue("@Initial", row["Initial"].ToString());
+                        command.Parameters.AddWithValue("@Nickname", row["Nickname"].ToString());
+                        command.Parameters.AddWithValue("@Surname", row["Surname"].ToString());
+                        command.Parameters.AddWithValue("@EMail", row["E-Mail"].ToString());
+                        command.Parameters.AddWithValue("@MobilePhone", row["MobilePhone"].ToString());
+                        command.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
+                        command.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
+                        command.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
+                        command.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        //Run Update Query
+                        string updateSql = "UPDATE [dbo].[Members] SET [SAIMC Nr] = @SAIMC_Nr,[Invoice Type] = @Invoice_Type,[Members Rating] = @Members_Rating,[Branch] = @Branch,[Title] = @Title,[Initial] = @Initial," +
+                            "[Nickname] = @Nickname,[Surname] = @Surname," +
+                            "[E-Mail] = @EMail ,[MobilePhone] = @MobilePhone,[ECSA] = @ECSA," +
+                            "[Paid] = @Paid,[Balance] = @Balance,[Haspaid] = NULL,[MemberQRCode] = NULL" + " " +
+                            "WHERE[SAIMC Nr] = @SAIMC_Nr";
+
+                        using (SqlCommand updateCommand = new SqlCommand(updateSql, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@SAIMC_Nr", row["SAIMC Nr"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Invoice_Type", row["Invoice Type"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Members_Rating", row["Members Rating"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Branch", row["Branch"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Title", row["Title"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Initial", row["Initial"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Nickname", row["Nickname"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Surname", row["Surname"].ToString());
+                            updateCommand.Parameters.AddWithValue("@EMail", row["E-Mail"].ToString());
+                            updateCommand.Parameters.AddWithValue("@MobilePhone", row["MobilePhone"].ToString());
+                            updateCommand.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
+                            updateCommand.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
+                            updateCommand.ExecuteNonQuery();
+                            int rowsAffected = updateCommand.ExecuteNonQuery();
+                            Console.WriteLine("Rows affected: " + rowsAffected);
+                        }
+                    }
                 }
                 connection.Close();
                 MessageBox.Show("Data successfully inserted into SQL table.");
