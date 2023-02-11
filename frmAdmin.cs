@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
@@ -19,7 +12,6 @@ namespace SAIMC_MemberManager
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btncreatenewMember_Click(object sender, EventArgs e)
@@ -34,49 +26,53 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open Create new Member Form,Please Contact Admin");
             }
         }
+
         private void btnviewmeetings_Click(object sender, EventArgs e)
         {
-            try { 
-            frmViewMeeting viewMeeting = new frmViewMeeting();
-            this.Hide();
-            viewMeeting.ShowDialog();
-            this.Close();
+            try
+            {
+                frmViewMeeting viewMeeting = new frmViewMeeting();
+                this.Hide();
+                viewMeeting.ShowDialog();
+                this.Close();
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open View Meetings Form,Please Contact Admin");
             }
         }
 
         private void btncancel_Click(object sender, EventArgs e)
         {
-            try { 
-            frmScanQR viewMeeting = new frmScanQR();
-            this.Hide();
-            viewMeeting.ShowDialog();
-            this.Close();
+            try
+            {
+                frmScanQR viewMeeting = new frmScanQR();
+                this.Hide();
+                viewMeeting.ShowDialog();
+                this.Close();
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open Scan QR code Form,Please Contact Admin");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try { 
-            //Manage Members
-            frmManageMembers viewMeeting = new frmManageMembers();
-            this.Hide();
-            viewMeeting.ShowDialog();
-            this.Hide();
+            try
+            {
+                //Manage Members
+                frmManageMembers viewMeeting = new frmManageMembers();
+                this.Hide();
+                viewMeeting.ShowDialog();
+                this.Hide();
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open Manage Members Form,Please Contact Admin");
             }
         }
 
@@ -87,37 +83,53 @@ namespace SAIMC_MemberManager
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnGenerateQrCode_Click_1(object sender, EventArgs e)
         {
-            try { 
-            //Open New form To QrCode Generation
-            frmQRGeneration QrCodeGenration = new frmQRGeneration();
-            this.Hide();
-            QrCodeGenration.ShowDialog();
-            this.Close();
+            try
+            {
+                //Open New form To QrCode Generation
+                frmQRGeneration QrCodeGenration = new frmQRGeneration();
+                this.Hide();
+                QrCodeGenration.ShowDialog();
+                this.Close();
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open Generate QR Form,Please Contact Admin");
             }
         }
 
         private void btnCreateMeeting_Click(object sender, EventArgs e)
         {
-            try { 
-            //Create New Meeting
-            frmCreateMeeting createMeeting = new frmCreateMeeting();
-            this.Hide();
-            createMeeting.ShowDialog();
+            try
+            {
+                //Create New Meeting
+                frmCreateMeeting createMeeting = new frmCreateMeeting();
+                this.Hide();
+                createMeeting.ShowDialog();
             }
             catch
             {
-
+                MessageBox.Show("An Error Occured trying to Open Create Meeting Form,Please Contact Admin");
             }
+        }
 
+        private void uploadExcelBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Upload Excel Form Location
+                frmUploadExcel uploadExcel = new frmUploadExcel();
+                this.Hide();
+                uploadExcel.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("An Error Occured trying to Open Upload Excel Form,Please Contact Admin");
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

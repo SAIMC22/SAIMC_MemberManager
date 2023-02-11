@@ -37,6 +37,7 @@
             this.btnCloseApplication = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCreateMeeting = new System.Windows.Forms.Button();
+            this.uploadExcelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             // 
             this.btnCloseApplication.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCloseApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApplication.Location = new System.Drawing.Point(306, 562);
+            this.btnCloseApplication.Location = new System.Drawing.Point(306, 605);
             this.btnCloseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseApplication.Name = "btnCloseApplication";
             this.btnCloseApplication.Size = new System.Drawing.Size(329, 38);
@@ -141,11 +142,25 @@
             this.btnCreateMeeting.UseVisualStyleBackColor = true;
             this.btnCreateMeeting.Click += new System.EventHandler(this.btnCreateMeeting_Click);
             // 
+            // uploadExcelBtn
+            // 
+            this.uploadExcelBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.uploadExcelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadExcelBtn.Location = new System.Drawing.Point(306, 559);
+            this.uploadExcelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.uploadExcelBtn.Name = "uploadExcelBtn";
+            this.uploadExcelBtn.Size = new System.Drawing.Size(329, 38);
+            this.uploadExcelBtn.TabIndex = 17;
+            this.uploadExcelBtn.Text = "Upload Excel File";
+            this.uploadExcelBtn.UseVisualStyleBackColor = true;
+            this.uploadExcelBtn.Click += new System.EventHandler(this.uploadExcelBtn_Click);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 604);
+            this.ClientSize = new System.Drawing.Size(975, 703);
+            this.Controls.Add(this.uploadExcelBtn);
             this.Controls.Add(this.btnCreateMeeting);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseApplication);
@@ -175,5 +190,6 @@
         private System.Windows.Forms.Button btnCloseApplication;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCreateMeeting;
+        private System.Windows.Forms.Button uploadExcelBtn;
     }
 }
