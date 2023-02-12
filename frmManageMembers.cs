@@ -166,6 +166,19 @@ namespace SAIMC_MemberManager
         private void btnViewMemberAttendence_Click(object sender, EventArgs e)
         {
             //View Members Attendance for all Meetings
+            try
+            {
+                int rowindex = dgvMembers.CurrentCell.RowIndex;
+                MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[0].Value);
+                frmViewMembersMeetings ViewMembersMeetingAttendance = new frmViewMembersMeetings();
+                this.Hide();
+                ViewMembersMeetingAttendance.ShowDialog();
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("An Error Occured trying to Open View Member Attendance Form");
+            }
         }
     }
 }

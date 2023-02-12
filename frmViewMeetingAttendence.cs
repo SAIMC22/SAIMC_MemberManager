@@ -69,7 +69,7 @@ namespace SAIMC_MemberManager
                         {
                             lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
                             //Remove Duplicates before Populating Table
-                            // Group records by email
+                            // Group records by SAIMC_NR
                             var groups = foundMembersInMeeting.GroupBy(c => c.SAIMC_Nr);
 
                             // Loop through each group

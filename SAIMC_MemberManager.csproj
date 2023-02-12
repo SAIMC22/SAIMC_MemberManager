@@ -298,6 +298,12 @@
     <Compile Include="frmViewMeetingAttendence.Designer.cs">
       <DependentUpon>frmViewMeetingAttendence.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewMembersMeetings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewMembersMeetings.Designer.cs">
+      <DependentUpon>frmViewMembersMeetings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Meeting.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewMeetingAttendence.resx">
       <DependentUpon>frmViewMeetingAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewMembersMeetings.resx">
+      <DependentUpon>frmViewMembersMeetings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewNewMember.resx">
       <DependentUpon>PreviewNewMember.cs</DependentUpon>
