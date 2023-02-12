@@ -19,6 +19,7 @@ namespace SAIMC_MemberManager
         private List<MemberMeeting> membermeetingList = new List<MemberMeeting>();
         private List<Meeting> meetingList = new List<Meeting>();
         private int membershipnumber;
+        public static int meetingId = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -29,8 +30,8 @@ namespace SAIMC_MemberManager
                 meetingList = db.Meetings.ToList();
                 if (meetingList.Count > 0)
                 {
-                    int latestMeeting = db.Meetings.Max(p => p.Meetingid);
-                    lblMeetingAgenda.Text = "Meeting Agenda:" + " " + db.Meetings.FirstOrDefault(x => x.Meetingid == latestMeeting).Agenda.ToString();
+                    meetingId = frmSelectMeetingToScanMembers.meetingId;
+                    lblMeetingAgenda.Text = "Meeting Agenda:" + " " + db.Meetings.FirstOrDefault(x => x.Meetingid == meetingId).Agenda.ToString();
                 }
             }
             catch
@@ -107,17 +108,14 @@ namespace SAIMC_MemberManager
                     if (FoundMember != null)
                     {
                         //Add Member to new Meeting
-                        //Get Latest Meeting
-
-                        int latestMeeting = db.Meetings.Max(p => p.Meetingid);
-
-                        //Find all Member Meeting with Lastest Meeting ID
+                        //Get Selected Meeting From SelectMeetingForScan Form
+                        meetingId = frmSelectMeetingToScanMembers.meetingId;
                         List<MemberMeeting> LatestMemberMeetingList = new List<MemberMeeting>();
                         if (membermeetingList.Count != 0)
                         {
                             foreach (MemberMeeting meeting in membermeetingList)
                             {
-                                if (latestMeeting == meeting.Meetingid)
+                                if (meetingId == meeting.Meetingid)
                                 {
                                     LatestMemberMeetingList.Add(meeting);
                                 }
@@ -129,7 +127,7 @@ namespace SAIMC_MemberManager
                             //Get Member Meeting ID compared to SAIMC_Nr
 
                             membermeeting.MemberId = FoundMember.MemberId;
-                            membermeeting.Meetingid = latestMeeting;
+                            membermeeting.Meetingid = meetingId;
                             db.MemberMeetings.Add(membermeeting);
                             db.SaveChanges();
                         }
@@ -141,7 +139,7 @@ namespace SAIMC_MemberManager
                             {
                                 MemberMeeting membermeeting = new MemberMeeting();
                                 membermeeting.MemberId = FoundMember.MemberId;
-                                membermeeting.Meetingid = latestMeeting;
+                                membermeeting.Meetingid = meetingId;
                                 db.MemberMeetings.Add(membermeeting);
                                 db.SaveChanges();
                             }
@@ -150,7 +148,7 @@ namespace SAIMC_MemberManager
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
                             membermeeting.MemberId = FoundMember.MemberId;
-                            membermeeting.Meetingid = latestMeeting;
+                            membermeeting.Meetingid = meetingId;
                             membermeeting.Member = null;
                             membermeeting.Meeting = null;
                             db.MemberMeetings.Add(membermeeting);
@@ -230,6 +228,10 @@ namespace SAIMC_MemberManager
             catch
             {
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -36,7 +36,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnCloseApplication = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCreateMeeting = new System.Windows.Forms.Button();
             this.uploadExcelBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,7 +45,7 @@
             // 
             this.btnviewmeetings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnviewmeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewmeetings.Location = new System.Drawing.Point(306, 470);
+            this.btnviewmeetings.Location = new System.Drawing.Point(306, 424);
             this.btnviewmeetings.Margin = new System.Windows.Forms.Padding(4);
             this.btnviewmeetings.Name = "btnviewmeetings";
             this.btnviewmeetings.Size = new System.Drawing.Size(329, 38);
@@ -84,7 +83,7 @@
             // 
             this.btncancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(306, 560);
+            this.btncancel.Location = new System.Drawing.Point(306, 514);
             this.btncancel.Margin = new System.Windows.Forms.Padding(4);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(329, 38);
@@ -110,7 +109,7 @@
             // 
             this.btnCloseApplication.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCloseApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApplication.Location = new System.Drawing.Point(306, 649);
+            this.btnCloseApplication.Location = new System.Drawing.Point(306, 603);
             this.btnCloseApplication.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseApplication.Name = "btnCloseApplication";
             this.btnCloseApplication.Size = new System.Drawing.Size(329, 38);
@@ -130,24 +129,11 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCreateMeeting
-            // 
-            this.btnCreateMeeting.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCreateMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateMeeting.Location = new System.Drawing.Point(306, 424);
-            this.btnCreateMeeting.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreateMeeting.Name = "btnCreateMeeting";
-            this.btnCreateMeeting.Size = new System.Drawing.Size(329, 38);
-            this.btnCreateMeeting.TabIndex = 16;
-            this.btnCreateMeeting.Text = "Create New Meeting";
-            this.btnCreateMeeting.UseVisualStyleBackColor = true;
-            this.btnCreateMeeting.Click += new System.EventHandler(this.btnCreateMeeting_Click);
-            // 
             // uploadExcelBtn
             // 
             this.uploadExcelBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.uploadExcelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadExcelBtn.Location = new System.Drawing.Point(306, 603);
+            this.uploadExcelBtn.Location = new System.Drawing.Point(306, 557);
             this.uploadExcelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.uploadExcelBtn.Name = "uploadExcelBtn";
             this.uploadExcelBtn.Size = new System.Drawing.Size(329, 38);
@@ -160,7 +146,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(306, 514);
+            this.button1.Location = new System.Drawing.Point(306, 468);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(329, 38);
@@ -176,7 +162,6 @@
             this.ClientSize = new System.Drawing.Size(975, 703);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.uploadExcelBtn);
-            this.Controls.Add(this.btnCreateMeeting);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseApplication);
             this.Controls.Add(this.button2);
@@ -204,7 +189,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCloseApplication;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnCreateMeeting;
         private System.Windows.Forms.Button uploadExcelBtn;
         private System.Windows.Forms.Button button1;
     }

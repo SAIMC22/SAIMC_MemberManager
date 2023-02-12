@@ -57,9 +57,9 @@ namespace SAIMC_MemberManager
                     db.Meetings.Add(meeting);
                     db.SaveChanges();
                     MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
-                    frmAdmin frmAdmin = new frmAdmin();
+                    frmSelectMeetingToScanMembers frmSelectMeetingToScanMembers = new frmSelectMeetingToScanMembers();
                     this.Hide();
-                    frmAdmin.ShowDialog();
+                    frmSelectMeetingToScanMembers.ShowDialog();
                     this.Close();
                 }
             }

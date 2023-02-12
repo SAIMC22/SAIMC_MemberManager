@@ -280,6 +280,12 @@
     <Compile Include="frmscanmember.Designer.cs">
       <DependentUpon>frmscanmember.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelectMeetingToScanMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectMeetingToScanMembers.Designer.cs">
+      <DependentUpon>frmSelectMeetingToScanMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUploadExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmscanmember.resx">
       <DependentUpon>frmscanmember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectMeetingToScanMembers.resx">
+      <DependentUpon>frmSelectMeetingToScanMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUploadExcel.resx">
       <DependentUpon>frmUploadExcel.cs</DependentUpon>

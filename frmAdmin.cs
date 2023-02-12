@@ -49,9 +49,9 @@ namespace SAIMC_MemberManager
         {
             try
             {
-                frmScanQR viewMeeting = new frmScanQR();
+                frmSelectMeetingToScanMembers selectMeetingForSCanning = new frmSelectMeetingToScanMembers();
                 this.Hide();
-                viewMeeting.ShowDialog();
+                selectMeetingForSCanning.ShowDialog();
                 this.Close();
             }
             catch
