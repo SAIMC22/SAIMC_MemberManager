@@ -63,10 +63,10 @@
             // txtSearchMember
             // 
             this.txtSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMember.Location = new System.Drawing.Point(173, 167);
+            this.txtSearchMember.Location = new System.Drawing.Point(288, 170);
             this.txtSearchMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchMember.Name = "txtSearchMember";
-            this.txtSearchMember.Size = new System.Drawing.Size(260, 30);
+            this.txtSearchMember.Size = new System.Drawing.Size(383, 30);
             this.txtSearchMember.TabIndex = 2;
             this.txtSearchMember.TextChanged += new System.EventHandler(this.txtSearchMember_TextChanged);
             // 
@@ -74,11 +74,11 @@
             // 
             this.lblmembername.AutoSize = true;
             this.lblmembername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmembername.Location = new System.Drawing.Point(13, 167);
+            this.lblmembername.Location = new System.Drawing.Point(12, 170);
             this.lblmembername.Name = "lblmembername";
-            this.lblmembername.Size = new System.Drawing.Size(147, 25);
+            this.lblmembername.Size = new System.Drawing.Size(260, 25);
             this.lblmembername.TabIndex = 3;
-            this.lblmembername.Text = "Member Name:";
+            this.lblmembername.Text = "Search by Member\'s  Name:";
             // 
             // btnCreate
             // 

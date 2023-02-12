@@ -37,6 +37,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Mamange Member Form");
             }
         }
 
@@ -102,9 +103,9 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error occured trying to Load View Members Meetings");
             }
         }
 
@@ -116,9 +117,9 @@ namespace SAIMC_MemberManager
                 dgvMemberMeetings.DataSource = meeting;
                 dgvMemberMeetings.Update();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error occured trying to search for Member");
             }
         }
 
@@ -176,7 +177,7 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Member Meeting Attendance List has Successfully been exported to Excel");
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Failed to Export to Excel");
             }

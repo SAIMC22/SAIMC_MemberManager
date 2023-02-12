@@ -33,6 +33,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Load Select Meeting to scan Members.");
             }
         }
 
@@ -45,9 +46,9 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to Load Admin Form");
             }
         }
 
@@ -59,7 +60,7 @@ namespace SAIMC_MemberManager
                 //Search by Agenda
                 if (cbxMeetings.Text == "")
                 {
-                    MessageBox.Show("Please Select an Agenda");
+                    MessageBox.Show("Please Select a Meeting.");
                     return;
                 }
                 List<Member> foundMembersInMeeting = new List<Member>();
@@ -72,9 +73,9 @@ namespace SAIMC_MemberManager
                 frmScanMembers.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to Select Meeting.");
             }
         }
 
@@ -89,7 +90,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Create Meeting Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open Create Meeting Form");
             }
         }
     }

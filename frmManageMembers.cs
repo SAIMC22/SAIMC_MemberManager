@@ -26,9 +26,9 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to open the View Meetings Form.");
             }
         }
 
@@ -41,9 +41,9 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to open the View Meetings Form.");
             }
         }
 
@@ -64,9 +64,9 @@ namespace SAIMC_MemberManager
                 dgvMembers.AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error Occured Loading the Members");
             }
         }
 
@@ -82,7 +82,7 @@ namespace SAIMC_MemberManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to search for Member.");
             }
         }
 
@@ -96,9 +96,9 @@ namespace SAIMC_MemberManager
                 dgvMembers.DataSource = member;
                 dgvMembers.Update();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to search for Member.");
             }
         }
 
@@ -112,9 +112,9 @@ namespace SAIMC_MemberManager
                 this.Hide();
                 editmember.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to edit a Member.");
             }
         }
 
@@ -157,9 +157,9 @@ namespace SAIMC_MemberManager
                         DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error occured trying to delete a Member.");
             }
         }
 

@@ -36,6 +36,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to load the Scan Members Form.");
             }
         }
 
@@ -81,6 +82,7 @@ namespace SAIMC_MemberManager
                             }
                             catch
                             {
+                                MessageBox.Show("An Error occured trying to scan Member");
                             }
                         }
                     }
@@ -180,9 +182,9 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error occured trying to scan Member");
             }
         }
 
@@ -209,9 +211,9 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Success");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to Export Excel File.");
             }
         }
 
@@ -227,6 +229,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Load Admin Form.");
             }
         }
 

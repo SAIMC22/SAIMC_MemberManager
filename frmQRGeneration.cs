@@ -77,9 +77,9 @@ namespace SAIMC_MemberManager
                 }
                 MessageBox.Show("QR Codes Successfully Generated and are stored in Downloads Folder on your Local Machine.");
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error occured trying to generate QR Codes");
             }
         }
 

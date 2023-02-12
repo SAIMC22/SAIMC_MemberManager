@@ -33,9 +33,9 @@ namespace SAIMC_MemberManager
                 dgvMeetings.AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to Load All meeetings.");
             }
         }
 
@@ -48,9 +48,9 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error occured trying to Load Admin Form");
             }
         }
 
@@ -64,9 +64,9 @@ namespace SAIMC_MemberManager
                 dgvMeetings.DataSource = member;
                 dgvMeetings.Update();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error occured trying to search All meetings");
             }
         }
 
@@ -81,7 +81,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Create Meeting Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open Create Meeting Form");
             }
         }
 
@@ -95,9 +95,9 @@ namespace SAIMC_MemberManager
                 this.Hide();
                 editMeeting.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error Occured trying to load Edit Member form");
             }
         }
 
@@ -133,7 +133,7 @@ namespace SAIMC_MemberManager
                     dgvMeetings.ColumnHeadersHeightSizeMode =
                         DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
                     dgvMeetings.AutoSizeColumnsMode =
-                        DataGridViewAutoSizeColumnsMode.Fill;                   
+                        DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
             catch

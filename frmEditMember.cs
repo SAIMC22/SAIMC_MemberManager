@@ -26,6 +26,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to open the Manage Members Form.");
             }
         }
 
@@ -61,6 +62,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Edit Members,Please Try again.");
             }
         }
 
@@ -128,7 +130,7 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Please Fill in All required Fields");
                 }
             }
-            catch (Exception)
+            catch
             {
                 MessageBox.Show("Edit Failed,Please try Again");
             }

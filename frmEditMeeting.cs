@@ -38,6 +38,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Edit Member,Please try Again.");
             }
         }
 
@@ -79,7 +80,7 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Please Fill in All required Fields");
                 }
             }
-            catch (Exception)
+            catch
             {
                 MessageBox.Show("Edit Failed,Please try Again");
             }

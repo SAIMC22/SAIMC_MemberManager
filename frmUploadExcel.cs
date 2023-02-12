@@ -119,7 +119,7 @@ namespace SAIMC_MemberManager
                                 "[Nickname] = @Nickname,[Surname] = @Surname," +
                                 "[E_Mail] = @EMail ,[MobilePhone] = @MobilePhone,[ECSA] = @ECSA," +
                                 "[Paid] = @Paid,[Balance] = @Balance,[Haspaid] = @HasPaid" + " " +
-                                "WHERE[SAIMC Nr] = @SAIMC_Nr";
+                                "WHERE[SAIMC_Nr] = @SAIMC_Nr";
 
                             using (SqlCommand updateCommand = new SqlCommand(updateSql, connection))
                             {
@@ -158,16 +158,15 @@ namespace SAIMC_MemberManager
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.OK)
                 {
-                    frmAdmin ViewAdminForm = new frmAdmin();
-                    this.Hide();
-                    ViewAdminForm.ShowDialog();
-                    this.Close();
+                    /* frmAdmin ViewAdminForm = new frmAdmin();
+                     this.Hide();
+                     ViewAdminForm.ShowDialog();
+                     this.Close();*/
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
             }
         }
 
@@ -180,9 +179,9 @@ namespace SAIMC_MemberManager
                 ViewAdminForm.ShowDialog();
                 this.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Failed to open admin Form, Please contact Admin");
+                MessageBox.Show("Failed to open admin Form");
             }
         }
 

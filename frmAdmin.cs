@@ -41,7 +41,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open View Meetings Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open View Meetings Form.");
             }
         }
 
@@ -56,7 +56,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Scan QR code Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open Scan QR code Form");
             }
         }
 
@@ -72,7 +72,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Manage Members Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open View Meetings Form");
             }
         }
 
@@ -97,7 +97,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Generate QR Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open Generate QR Form");
             }
         }
 
@@ -112,7 +112,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error Occured trying to Open Create Meeting Form,Please Contact Admin");
+                MessageBox.Show("An Error Occured trying to Open Create Meeting Form");
             }
         }
 
@@ -125,10 +125,9 @@ namespace SAIMC_MemberManager
                 this.Hide();
                 uploadExcel.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show("An Error Occured trying to Open Upload Excel Form,Please Contact Admin");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error Occured trying to Open Upload Excel Form");
             }
         }
 
@@ -141,10 +140,9 @@ namespace SAIMC_MemberManager
                 this.Hide();
                 viewAllMeetings.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show("An Error Occured trying to Open Upload Excel Form,Please Contact Admin");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("An Error Occured trying to Open View All Meetings Form");
             }
         }
     }

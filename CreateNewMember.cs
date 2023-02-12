@@ -95,7 +95,7 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Please Fill in All required Fields");
                 }
             }
-            catch (Exception)
+            catch
             {
                 MessageBox.Show("Creation Failed,Please try Again");
             }
@@ -217,9 +217,9 @@ namespace SAIMC_MemberManager
                 MessageBox.Show("Record Submitted", "Congrats");
                 con.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Failed to Create new Member");
             }
         }
     }

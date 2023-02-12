@@ -104,9 +104,9 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error Occured trying to few Member's meeting attendance");
             }
         }
 
@@ -121,6 +121,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Load Admin Form");
             }
         }
 
@@ -137,9 +138,12 @@ namespace SAIMC_MemberManager
                 {
                     cbxMeetings.Items.Add(meeting.Agenda);
                 }
+                int latestMeetng = MeetingList.Max(x => (x.Meetingid));
+                cbxMeetings.Text = MeetingList.Find(x => x.Meetingid == latestMeetng).Agenda;
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to View Meetings");
             }
         }
 
@@ -192,6 +196,7 @@ namespace SAIMC_MemberManager
             }
             catch
             {
+                MessageBox.Show("An Error occured trying to Search Meeting that Member has Attended");
             }
         }
 
@@ -262,7 +267,7 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Attendance List has Successfully been exported to Excel");
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Failed to Export to Excel");
             }
