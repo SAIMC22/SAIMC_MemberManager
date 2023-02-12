@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SAIMC_MemberManager
 {
-    public partial class frmViewMeeting : Form
+    public partial class frmViewMeetingAttendence : Form
     {
         private List<Member> members = new List<Member>();
         private List<MemberMeeting> Membermeetings = new List<MemberMeeting>();
@@ -14,7 +14,7 @@ namespace SAIMC_MemberManager
         private List<Meeting> MeetingList = new List<Meeting>();
         private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
 
-        public frmViewMeeting()
+        public frmViewMeetingAttendence()
         {
             InitializeComponent();
         }
@@ -52,24 +52,50 @@ namespace SAIMC_MemberManager
                         {
                             foreach (var member in members)
                             {
-                                if (member.SAIMC_Nr == membermeeting.MemberId)
+                                if (member.MemberId == membermeeting.MemberId)
                                 {
                                     foundMembersInMeeting.Add(member);
                                 }
                             }
                         }
-                        lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
-                        dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Nickname, Surname = x.Surname, Membership_Number = x.SAIMC_Nr, Contact_Number = x.MobilePhone, Paid = x.Haspaid }).ToList();
-                        dgvMeeting.AllowUserToAddRows = false;
-                        dgvMeeting.AllowUserToDeleteRows = true;
-                        dgvMeeting.AllowUserToResizeRows = false;
-                        dgvMeeting.RowHeadersWidthSizeMode =
-                            DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-                        dgvMeeting.ColumnHeadersHeightSizeMode =
-                            DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-                        dgvMeeting.AutoSizeColumnsMode =
-                            DataGridViewAutoSizeColumnsMode.Fill;
-                        dgvMeeting.Update();
+                        if (foundMembersInMeeting.Count() == 0)
+                        {
+                            MessageBox.Show("No Members Attended this meeting.");
+                            dgvMeeting.DataSource = null;
+                        }
+                        else
+                        {
+                            lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
+                            //Remove Duplicates before Populating Table
+                            // Group records by email
+                            var groups = foundMembersInMeeting.GroupBy(c => c.SAIMC_Nr);
+
+                            // Loop through each group
+                            foreach (var group in groups)
+                            {
+                                // Check if the group has more than one item
+                                if (group.Count() > 1)
+                                {
+                                    // Remove duplicates except for the first item
+                                    for (int i = 1; i < group.Count(); i++)
+                                    {
+                                        foundMembersInMeeting.Remove(group.ElementAt(i));
+                                    }
+                                }
+
+                                dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Nickname, Surname = x.Surname, SAIMC_Nr = x.SAIMC_Nr, Contact_Number = x.MobilePhone, Paid = x.Haspaid }).ToList();
+                                dgvMeeting.AllowUserToAddRows = false;
+                                dgvMeeting.AllowUserToDeleteRows = true;
+                                dgvMeeting.AllowUserToResizeRows = false;
+                                dgvMeeting.RowHeadersWidthSizeMode =
+                                    DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                                dgvMeeting.ColumnHeadersHeightSizeMode =
+                                    DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                                dgvMeeting.AutoSizeColumnsMode =
+                                    DataGridViewAutoSizeColumnsMode.Fill;
+                                dgvMeeting.Update();
+                            }
+                        }
                     }
                 }
             }
@@ -137,14 +163,14 @@ namespace SAIMC_MemberManager
                     {
                         foreach (var member in members)
                         {
-                            if (member.SAIMC_Nr == membermeeting.MemberId)
+                            if (member.MemberId == membermeeting.MemberId)
                             {
                                 foundMembersInMeeting.Add(member);
                             }
                         }
                     }
                     lblMeetingAttendanceCount.Text = foundMembersInMeeting.Count.ToString();
-                    dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Nickname, Surname = x.Surname, Membership_Number = x.SAIMC_Nr, Contact_Number = x.MobilePhone, Paid = x.Haspaid }).ToList();
+                    dgvMeeting.DataSource = foundMembersInMeeting.Select(x => new { Name = x.Nickname, Surname = x.Surname, SAIMC_Nr = x.SAIMC_Nr, Contact_Number = x.MobilePhone, Paid = x.Haspaid }).ToList();
                     dgvMeeting.AllowUserToAddRows = false;
                     dgvMeeting.AllowUserToDeleteRows = true;
                     dgvMeeting.AllowUserToResizeRows = false;

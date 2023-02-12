@@ -1,6 +1,6 @@
 ﻿namespace SAIMC_MemberManager
 {
-    partial class frmViewMeeting
+    partial class frmViewMeetingAttendence
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewMeeting));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewMeetingAttendence));
             this.dgvMeeting = new System.Windows.Forms.DataGridView();
             this.btnsearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();

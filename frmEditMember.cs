@@ -82,7 +82,7 @@ namespace SAIMC_MemberManager
                     }
                     if (txtcellnumber.Text.TrimEnd().All(char.IsDigit) == false)
                     {
-                        MessageBox.Show("Cell Phone Number can only contain numbers");
+                        MessageBox.Show("Cell Phone Number can only contain numbers with no spaces or Characters");
                         return;
                     }
                     if (txtcellnumber.Text.TrimEnd().Length > 11)

@@ -121,10 +121,19 @@ namespace SAIMC_MemberManager
                     Meeting meeting = meetings.Find(x => Convert.ToInt32(x.Meetingid) == Convert.ToInt32(meetingId));
                     db.Meetings.Remove(meeting);
                     db.SaveChanges();
-                    List<Meeting> updatedMeetingList = new List<Meeting>();
-                    updatedMeetingList = db.Meetings.ToList();
-                    dgvMeetings.DataSource = updatedMeetingList;
-                    dgvMeetings.Update();
+                    //Display Same updated Meeting List
+                    List<Meeting> Meetings = new List<Meeting>();
+                    Meetings = db.Meetings.ToList();
+                    dgvMeetings.DataSource = Meetings.Select(x => new { MeetingId = x.Meetingid, Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
+                    dgvMeetings.AllowUserToAddRows = false;
+                    dgvMeetings.AllowUserToDeleteRows = true;
+                    dgvMeetings.AllowUserToResizeRows = false;
+                    dgvMeetings.RowHeadersWidthSizeMode =
+                        DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                    dgvMeetings.ColumnHeadersHeightSizeMode =
+                        DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                    dgvMeetings.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;                   
                 }
             }
             catch

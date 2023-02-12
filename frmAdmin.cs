@@ -34,7 +34,7 @@ namespace SAIMC_MemberManager
         {
             try
             {
-                frmViewMeeting viewMeeting = new frmViewMeeting();
+                frmViewMeetingAttendence viewMeeting = new frmViewMeetingAttendence();
                 this.Hide();
                 viewMeeting.ShowDialog();
                 this.Close();

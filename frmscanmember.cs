@@ -134,13 +134,13 @@ namespace SAIMC_MemberManager
                             db.SaveChanges();
                         }
                         //LatestMemberMeetingList = membermeetingList.FindAll(x=>x.Meetingid == latestMeeting);
-                        var memberExsists = LatestMemberMeetingList.Find(x => x.MemberId == FoundMember.SAIMC_Nr);
+                        var memberExsists = LatestMemberMeetingList.Find(x => x.MemberId == FoundMember.MemberId);
                         if (LatestMemberMeetingList != null)
                         {
                             if (memberExsists == null)
                             {
                                 MemberMeeting membermeeting = new MemberMeeting();
-                                membermeeting.MemberId = FoundMember.SAIMC_Nr;
+                                membermeeting.MemberId = FoundMember.MemberId;
                                 membermeeting.Meetingid = latestMeeting;
                                 db.MemberMeetings.Add(membermeeting);
                                 db.SaveChanges();
@@ -149,7 +149,7 @@ namespace SAIMC_MemberManager
                         else
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.MemberId = FoundMember.SAIMC_Nr;
+                            membermeeting.MemberId = FoundMember.MemberId;
                             membermeeting.Meetingid = latestMeeting;
                             membermeeting.Member = null;
                             membermeeting.Meeting = null;
@@ -182,8 +182,9 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                //MessageBox.Show(ex.ToString());
             }
         }
 

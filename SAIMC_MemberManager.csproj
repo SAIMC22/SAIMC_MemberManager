@@ -286,11 +286,11 @@
     <Compile Include="frmUploadExcel.Designer.cs">
       <DependentUpon>frmUploadExcel.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmViewMeeting.cs">
+    <Compile Include="frmViewMeetingAttendence.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewMeeting.Designer.cs">
-      <DependentUpon>frmViewMeeting.cs</DependentUpon>
+    <Compile Include="frmViewMeetingAttendence.Designer.cs">
+      <DependentUpon>frmViewMeetingAttendence.cs</DependentUpon>
     </Compile>
     <Compile Include="Meeting.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -365,8 +365,8 @@
     <EmbeddedResource Include="frmUploadExcel.resx">
       <DependentUpon>frmUploadExcel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewMeeting.resx">
-      <DependentUpon>frmViewMeeting.cs</DependentUpon>
+    <EmbeddedResource Include="frmViewMeetingAttendence.resx">
+      <DependentUpon>frmViewMeetingAttendence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewNewMember.resx">
       <DependentUpon>PreviewNewMember.cs</DependentUpon>
@@ -459,7 +459,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.edmx.sql" />
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

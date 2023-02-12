@@ -53,7 +53,9 @@
           <Property Name="MemberQRCode" Type="image" />
         </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
-          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Meeting">
@@ -65,7 +67,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MemberMeeting_Members">
-          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
@@ -147,7 +151,9 @@
           <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
-          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Meeting">
@@ -159,7 +165,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MemberMeeting_Members">
-          <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Members" Type="Self.Member" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">

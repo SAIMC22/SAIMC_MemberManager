@@ -136,21 +136,30 @@ namespace SAIMC_MemberManager
                 else
                 {
                     int rowindex = dgvMembers.CurrentCell.RowIndex;
-                    MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[2].Value.ToString());
+                    MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[0].Value.ToString());
                     List<Member> members = new List<Member>();
                     members = db.Members.ToList();
                     Member member = members.Find(x => Convert.ToInt32(x.SAIMC_Nr) == Convert.ToInt32(MemberShipNumber));
                     db.Members.Remove(member);
                     db.SaveChanges();
-                    List<Member> newmemberList = new List<Member>();
-                    newmemberList = db.Members.ToList();
-                    dgvMembers.DataSource = newmemberList;
-                    dgvMembers.Update();
+                    //Load Same DGV as Before
+                    List<Member> newmembers = new List<Member>();
+                    newmembers = db.Members.ToList();
+                    dgvMembers.DataSource = newmembers.Select(x => new { SAIMC_Nr = x.SAIMC_Nr, NickName = x.Nickname, Surname = x.Surname, Mobile_Phone = x.MobilePhone, Paid = x.Haspaid }).ToList();
+                    dgvMembers.AllowUserToAddRows = false;
+                    dgvMembers.AllowUserToDeleteRows = true;
+                    dgvMembers.AllowUserToResizeRows = false;
+                    dgvMembers.RowHeadersWidthSizeMode =
+                        DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                    dgvMembers.ColumnHeadersHeightSizeMode =
+                        DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                    dgvMembers.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Member Belongs to Past Meetings");
+                MessageBox.Show(ex.ToString());
             }
         }
     }
