@@ -95,7 +95,7 @@
             this.button1.Location = new System.Drawing.Point(470, 410);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 41);
+            this.button1.Size = new System.Drawing.Size(310, 41);
             this.button1.TabIndex = 50;
             this.button1.Text = "Create new Meeting";
             this.button1.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.cancelbtn.Location = new System.Drawing.Point(470, 469);
             this.cancelbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(189, 39);
+            this.cancelbtn.Size = new System.Drawing.Size(310, 39);
             this.cancelbtn.TabIndex = 51;
             this.cancelbtn.Text = "Back";
             this.cancelbtn.UseVisualStyleBackColor = true;

@@ -250,6 +250,12 @@
     <Compile Include="frmCreateMemberManual.Designer.cs">
       <DependentUpon>frmCreateMemberManual.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditMeeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMeeting.Designer.cs">
+      <DependentUpon>frmEditMeeting.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditMember.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +328,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SAIMCMembers.cs" />
+    <Compile Include="frmViewAllMeetings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewAllMeetings.Designer.cs">
+      <DependentUpon>frmViewAllMeetings.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewMeetingDto.cs" />
     <EmbeddedResource Include="CreateNewMember.resx">
       <DependentUpon>CreateNewMember.cs</DependentUpon>
@@ -334,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateMemberManual.resx">
       <DependentUpon>frmCreateMemberManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMeeting.resx">
+      <DependentUpon>frmEditMeeting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditMember.resx">
       <DependentUpon>frmEditMember.cs</DependentUpon>
@@ -366,6 +381,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="frmViewAllMeetings.resx">
+      <DependentUpon>frmViewAllMeetings.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>

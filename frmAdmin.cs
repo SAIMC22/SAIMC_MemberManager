@@ -131,5 +131,21 @@ namespace SAIMC_MemberManager
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Upload Excel Form Location
+                frmViewAllMeetings viewAllMeetings = new frmViewAllMeetings();
+                this.Hide();
+                viewAllMeetings.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("An Error Occured trying to Open Upload Excel Form,Please Contact Admin");
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

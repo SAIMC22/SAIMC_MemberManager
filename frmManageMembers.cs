@@ -112,17 +112,21 @@ namespace SAIMC_MemberManager
                 this.Hide();
                 editmember.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dgvMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                string message = "Are you sure you want to delete?";
+                string message = "Are you sure you want to delete? All meeting record for this member will be lost!";
                 string title = "Please Confirm Deletion";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show(message, title, buttons);
@@ -148,10 +152,6 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Member Belongs to Past Meetings");
             }
-        }
-
-        private void dgvMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
     }
 }

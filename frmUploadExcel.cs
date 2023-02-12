@@ -100,13 +100,13 @@ namespace SAIMC_MemberManager
                         }
                         command.ExecuteNonQuery();
                     }
-                   /* else
+                    else
                     {
                         //Run Update Query
-                        string updateSql = "UPDATE [dbo].[Members] SET [SAIMC Nr] = @SAIMC_Nr,[Invoice Type] = @Invoice_Type,[Members Rating] = @Members_Rating,[Branch] = @Branch,[Title] = @Title,[Initial] = @Initial," +
+                        string updateSql = "UPDATE [dbo].[Members] SET [SAIMC_Nr] = @SAIMC_Nr,[Invoice_Type] = @Invoice_Type,[Members_Rating] = @Members_Rating,[Branch] = @Branch,[Title] = @Title,[Initial] = @Initial," +
                             "[Nickname] = @Nickname,[Surname] = @Surname," +
-                            "[E-Mail] = @EMail ,[MobilePhone] = @MobilePhone,[ECSA] = @ECSA," +
-                            "[Paid] = @Paid,[Balance] = @Balance,[Haspaid] = NULL,[MemberQRCode] = NULL" + " " +
+                            "[E_Mail] = @EMail ,[MobilePhone] = @MobilePhone,[ECSA] = @ECSA," +
+                            "[Paid] = @Paid,[Balance] = @Balance,[Haspaid] = @HasPaid" + " " +
                             "WHERE[SAIMC Nr] = @SAIMC_Nr";
 
                         using (SqlCommand updateCommand = new SqlCommand(updateSql, connection))
@@ -124,16 +124,24 @@ namespace SAIMC_MemberManager
                             updateCommand.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
                             updateCommand.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
                             updateCommand.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
+                            if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y')
+                            {
+                                updateCommand.Parameters.AddWithValue("@HasPaid", 1);
+                            }
+                            else
+                            {
+                                updateCommand.Parameters.AddWithValue("@HasPaid", 0);
+                            }
                             updateCommand.ExecuteNonQuery();
                             int rowsAffected = updateCommand.ExecuteNonQuery();
                             Console.WriteLine("Rows affected: " + rowsAffected);
                         }
-                    }*/
+                    }
                 }
                 connection.Close();
                 MessageBox.Show("Members List has successfully been updated");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
                 MessageBox.Show(ex.ToString());
@@ -153,6 +161,10 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Failed to open admin Form, Please contact Admin");
             }
+        }
+
+        private void frmUploadExcel_Load(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -66,9 +66,12 @@ namespace SAIMC_MemberManager
 
         private void btnSaveMem_Click(object sender, EventArgs e)
         {
-            Member mymembers = new Member();
+            Member mymember = new Member();
+            List<Member> allMembers = new List<Member>();
+            allMembers = db.Members.ToList();
             try
             {
+                mymember = allMembers.Find(x => x.SAIMC_Nr == MemberShipNumber);
                 //Add Member Details to system and Create a QR Code for that Member
                 if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
@@ -89,20 +92,19 @@ namespace SAIMC_MemberManager
                     }
 
                     //Save edited Member to Database
-                    mymembers.Nickname = txtName.Text;
-                    mymembers.Surname = txtSurname.Text;
-                    mymembers.SAIMC_Nr = Convert.ToInt16(txtMemberShipnumber.Text);
-                    mymembers.MobilePhone = txtcellnumber.Text;
+                    mymember.Nickname = txtName.Text;
+                    mymember.Surname = txtSurname.Text;
+                    mymember.SAIMC_Nr = Convert.ToInt16(txtMemberShipnumber.Text);
+                    mymember.MobilePhone = txtcellnumber.Text;
 
                     if (cbxpayment.Text == "Paid")
                     {
-                        mymembers.Haspaid = true;
+                        mymember.Haspaid = true;
                     }
                     if (cbxpayment.Text == "unpaid")
                     {
-                        mymembers.Haspaid = false;
+                        mymember.Haspaid = false;
                     }
-                    //db.Members.Add(mymembers);
 
                     string message = "Please confirm edit of: " + txtName.Text + " " + txtSurname.Text;
                     string title = "Please Confirm";
@@ -114,7 +116,7 @@ namespace SAIMC_MemberManager
                     else
                     {
                         db.SaveChanges();
-                        MessageBox.Show("New Member Successfully Created");
+                        MessageBox.Show("Member Successfully Edited");
                         frmManageMembers frmManageMembers = new frmManageMembers();
                         this.Hide();
                         frmManageMembers.ShowDialog();
@@ -128,7 +130,7 @@ namespace SAIMC_MemberManager
             }
             catch (Exception)
             {
-                MessageBox.Show("Creation Failed,Please try Again");
+                MessageBox.Show("Edit Failed,Please try Again");
             }
         }
     }
