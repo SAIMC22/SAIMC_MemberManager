@@ -48,7 +48,7 @@ namespace SAIMC_MemberManager
                         System.IO.Directory.CreateDirectory(pathString);
                         //TODO ------> Short Char Count & MemberShip Number
                         string firststring = members.Surname.Trim() + " " + members.Nickname.Trim() + " " + members.SAIMC_Nr + " " + "QRCode";
-                       // string message = firststring.Replace(" ", firststring);
+                        // string message = firststring.Replace(" ", firststring);
                         string fileName = System.IO.Path.GetFileName(firststring);
                         pathString = System.IO.Path.Combine(pathString, fileName);
                     }
@@ -74,11 +74,10 @@ namespace SAIMC_MemberManager
                             picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\" + filename);
                         }
                     }
-                   
                 }
                 MessageBox.Show("QR Codes Successfully Generated and are stored in Downloads Folder on your Local Machine.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

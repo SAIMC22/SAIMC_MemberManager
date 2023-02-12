@@ -67,9 +67,9 @@ namespace SAIMC_MemberManager
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
-            frmAdmin frmAdmin = new frmAdmin();
+            frmSelectMeetingToScanMembers frmSelectMeetingToScanMembers = new frmSelectMeetingToScanMembers();
             this.Hide();
-            frmAdmin.ShowDialog();
+            frmSelectMeetingToScanMembers.ShowDialog();
             this.Close();
         }
     }
