@@ -110,6 +110,16 @@ namespace SAIMC_MemberManager
 
         private void txtSearchMember_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                List<Meeting> meeting = AttendenanceMeetingList.FindAll(x => x.Agenda.Contains(txtSearchMember.Text)).ToList();
+                dgvMemberMeetings.DataSource = meeting;
+                dgvMemberMeetings.Update();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
