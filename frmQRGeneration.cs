@@ -37,7 +37,7 @@ namespace SAIMC_MemberManager
                 {
                     //Setup Folder and Files
                     // Specify a name for your top-level folder.
-                    string folderName = @"c:\Downloads";
+                    string folderName = @"C:\Downloads";
 
                     // To create a string that specifies the path to a subfolder under your
                     // top-level folder, add a name for the subfolder to folderName.
@@ -47,9 +47,9 @@ namespace SAIMC_MemberManager
                         // Create the subfolder
                         System.IO.Directory.CreateDirectory(pathString);
                         //TODO ------> Short Char Count & MemberShip Number
-                        string firststring = members.Surname + " " + members.Nickname + " " + members.SAIMC_Nr + " " + "QRCode";
-                        string message = firststring.Replace(" ", firststring);
-                        string fileName = System.IO.Path.GetFileName(message);
+                        string firststring = members.Surname.Trim() + " " + members.Nickname.Trim() + " " + members.SAIMC_Nr + " " + "QRCode";
+                       // string message = firststring.Replace(" ", firststring);
+                        string fileName = System.IO.Path.GetFileName(firststring);
                         pathString = System.IO.Path.Combine(pathString, fileName);
                     }
 
@@ -69,8 +69,7 @@ namespace SAIMC_MemberManager
                             bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                             QRCode = new byte[ms.ToArray().Length];
                             QRCode = ms.ToArray();
-                            string filename = members.Nickname + members.Surname + "QRCode.jpg";
-
+                            string filename = members.Surname.Trim() + " " + members.Nickname.Trim() + " " + members.SAIMC_Nr + " " + "QRCode.jpg";
                             //Export QR to be Saved on Local Images
                             picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\" + filename);
                         }
