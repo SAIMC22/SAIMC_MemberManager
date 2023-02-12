@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace SAIMC_MemberManager
         private List<MemberMeeting> foundMemberMeetings = new List<MemberMeeting>();
         private List<Meeting> MeetingList = new List<Meeting>();
         private SAIMCDBV2Entities db = new SAIMCDBV2Entities();
+        private List<Member> foundMembersInMeeting = new List<Member>();
 
         public frmViewMeetingAttendence()
         {
@@ -30,7 +32,7 @@ namespace SAIMC_MemberManager
                 }
                 else
                 {
-                    List<Member> foundMembersInMeeting = new List<Member>();
+                    //List<Member> foundMembersInMeeting = new List<Member>();
                     MeetingList = db.Meetings.ToList();
                     var foundMeeting = MeetingList.Find(x => x.Agenda == cbxMeetings.Text);
                     if (foundMeeting == null)
@@ -94,6 +96,9 @@ namespace SAIMC_MemberManager
                                 dgvMeeting.AutoSizeColumnsMode =
                                     DataGridViewAutoSizeColumnsMode.Fill;
                                 dgvMeeting.Update();
+                                //Display Export Button
+                                btnExportToExcel.Enabled = true;
+                                btnExportToExcel.Visible = true;
                             }
                         }
                     }
@@ -123,6 +128,8 @@ namespace SAIMC_MemberManager
         {
             try
             {
+                btnExportToExcel.Enabled = false;
+                btnExportToExcel.Visible = false;
                 dtpSearchDate.MaxDate = DateTime.Today;
                 MeetingList = db.Meetings.ToList();
                 MeetingList.Sort((x, y) => x.Agenda.CompareTo(y.Agenda));
@@ -178,10 +185,86 @@ namespace SAIMC_MemberManager
                     dgvMeeting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
                     dgvMeeting.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgvMeeting.Update();
+                    //Display Export Button
+                    btnExportToExcel.Enabled = true;
+                    btnExportToExcel.Visible = true;
                 }
             }
             catch
             {
+            }
+        }
+
+        private void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //List<Member> foundMembersInMeeting = new List<Member>();
+                MeetingList = db.Meetings.ToList();
+                var foundMeeting = MeetingList.Find(x => x.Agenda == cbxMeetings.Text);
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.FileName = "Agenda" + " " + foundMeeting.Agenda + " " + "Date " + foundMeeting.date.ToString("yyyy-MM-dd");
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var excelApp = new Microsoft.Office.Interop.Excel.Application();
+                    var workbook = excelApp.Workbooks.Add(Type.Missing);
+                    var worksheet = (Worksheet)workbook.Sheets[1];
+                    worksheet.Name = "AttendanceList";
+
+                    int row = 1;
+                    foreach (var item in foundMembersInMeeting)
+                    {
+                        // Add column headings
+                        worksheet.Cells[1, 1] = "SAIMC_Nr";
+                        worksheet.Cells[1, 2] = "Title";
+                        worksheet.Cells[1, 3] = "Nickname";
+                        worksheet.Cells[1, 4] = "Surname";
+                        worksheet.Cells[1, 5] = "MobilePhone";
+                        worksheet.Cells[1, 6] = "Haspaid";
+
+                        // Style column headings
+                        var columnHeadingsRange = worksheet.Range["A1", "F1"];
+                        columnHeadingsRange.Font.Bold = true;
+                        columnHeadingsRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                        columnHeadingsRange.Borders.LineStyle = XlLineStyle.xlContinuous;
+                        columnHeadingsRange.Borders.Weight = XlBorderWeight.xlThin;
+
+                        //Add Data to Excel Sheet
+                        worksheet.Cells[row + 1, 1] = item.SAIMC_Nr;
+                        worksheet.Cells[row + 1, 2] = item.Title;
+                        worksheet.Cells[row + 1, 3] = item.Nickname;
+                        worksheet.Cells[row + 1, 4] = item.Surname;
+                        worksheet.Cells[row + 1, 5] = item.MobilePhone;
+                        if (item.Haspaid == true)
+                        {
+                            worksheet.Cells[row, 6] = "Yes";
+                        }
+                        else
+                        {
+                            worksheet.Cells[row, 6] = "No";
+                        }
+                        row++;
+                    }
+                    //Style Cells
+                    var usedRange = worksheet.UsedRange;
+                    // Add a border around all cells with data
+                    usedRange.Borders.LineStyle = XlLineStyle.xlContinuous;
+                    usedRange.Borders.Weight = XlBorderWeight.xlThin;
+
+                    workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    workbook.Close();
+                    excelApp.Quit();
+                    MessageBox.Show("Attendance List has Successfully been exported to Excel");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to Export to Excel");
             }
         }
     }

@@ -162,5 +162,10 @@ namespace SAIMC_MemberManager
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnViewMemberAttendence_Click(object sender, EventArgs e)
+        {
+            //View Members Attendance for all Meetings
+        }
     }
 }

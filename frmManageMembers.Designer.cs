@@ -37,6 +37,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnViewMemberAttendence = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.dgvMembers.Name = "dgvMembers";
             this.dgvMembers.RowHeadersWidth = 51;
             this.dgvMembers.RowTemplate.Height = 24;
-            this.dgvMembers.Size = new System.Drawing.Size(1216, 521);
+            this.dgvMembers.Size = new System.Drawing.Size(1346, 605);
             this.dgvMembers.TabIndex = 0;
             this.dgvMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellContentClick);
             // 
@@ -83,7 +84,7 @@
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(727, 122);
+            this.btnCreate.Location = new System.Drawing.Point(857, 122);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(245, 36);
@@ -96,7 +97,7 @@
             // 
             this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancel.Location = new System.Drawing.Point(978, 162);
+            this.btncancel.Location = new System.Drawing.Point(1108, 162);
             this.btncancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(245, 36);
@@ -109,7 +110,7 @@
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(727, 164);
+            this.btnEdit.Location = new System.Drawing.Point(857, 164);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(245, 36);
@@ -122,7 +123,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(978, 122);
+            this.button1.Location = new System.Drawing.Point(1108, 122);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(245, 36);
@@ -136,17 +137,31 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(490, 22);
+            this.label1.Location = new System.Drawing.Point(555, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(339, 46);
             this.label1.TabIndex = 8;
             this.label1.Text = "Manage Members";
             // 
+            // btnViewMemberAttendence
+            // 
+            this.btnViewMemberAttendence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewMemberAttendence.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewMemberAttendence.Location = new System.Drawing.Point(857, 82);
+            this.btnViewMemberAttendence.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewMemberAttendence.Name = "btnViewMemberAttendence";
+            this.btnViewMemberAttendence.Size = new System.Drawing.Size(496, 36);
+            this.btnViewMemberAttendence.TabIndex = 9;
+            this.btnViewMemberAttendence.Text = "View Members Meetings Attended";
+            this.btnViewMemberAttendence.UseVisualStyleBackColor = true;
+            this.btnViewMemberAttendence.Click += new System.EventHandler(this.btnViewMemberAttendence_Click);
+            // 
             // frmManageMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 754);
+            this.ClientSize = new System.Drawing.Size(1370, 838);
+            this.Controls.Add(this.btnViewMemberAttendence);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEdit);
@@ -177,5 +192,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnViewMemberAttendence;
     }
 }

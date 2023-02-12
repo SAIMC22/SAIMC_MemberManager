@@ -46,6 +46,7 @@
             this.lblMeetingAttendanceCount = new System.Windows.Forms.Label();
             this.lblCPDPointsOfMeeting = new System.Windows.Forms.Label();
             this.lblMeetingDate = new System.Windows.Forms.Label();
+            this.btnExportToExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeeting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1160, 69);
+            this.button1.Location = new System.Drawing.Point(1160, 110);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 34);
@@ -243,11 +244,25 @@
             this.lblMeetingDate.Size = new System.Drawing.Size(0, 29);
             this.lblMeetingDate.TabIndex = 20;
             // 
-            // frmViewMeeting
+            // btnExportToExcel
+            // 
+            this.btnExportToExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToExcel.Location = new System.Drawing.Point(1160, 69);
+            this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportToExcel.Name = "btnExportToExcel";
+            this.btnExportToExcel.Size = new System.Drawing.Size(192, 34);
+            this.btnExportToExcel.TabIndex = 21;
+            this.btnExportToExcel.Text = "Export to Excel";
+            this.btnExportToExcel.UseVisualStyleBackColor = true;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
+            // 
+            // frmViewMeetingAttendence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1511, 988);
+            this.Controls.Add(this.btnExportToExcel);
             this.Controls.Add(this.lblMeetingDate);
             this.Controls.Add(this.lblCPDPointsOfMeeting);
             this.Controls.Add(this.lblMeetingAttendanceCount);
@@ -268,7 +283,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1499, 1027);
-            this.Name = "frmViewMeeting";
+            this.Name = "frmViewMeetingAttendence";
             this.Text = "View Meetings";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmViewMeeting_Load);
@@ -297,5 +312,6 @@
         private System.Windows.Forms.Label lblMeetingAttendanceCount;
         private System.Windows.Forms.Label lblCPDPointsOfMeeting;
         private System.Windows.Forms.Label lblMeetingDate;
+        private System.Windows.Forms.Button btnExportToExcel;
     }
 }
