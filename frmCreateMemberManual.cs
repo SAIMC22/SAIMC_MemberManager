@@ -38,21 +38,11 @@ namespace SAIMC_MemberManager
             try
             {
                 //Add Member Details to system and Create a QR Code for that Member
-                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
+                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
                     if (txtMemberShipnumber.Text.All(char.IsDigit) == false)
                     {
                         MessageBox.Show("MemberShip Number can only contain numbers");
-                        return;
-                    }
-                    if (txtIdNumber.Text.All(char.IsDigit) == false)
-                    {
-                        MessageBox.Show("Id Number can only contain numbers");
-                        return;
-                    }
-                    if (txtIdNumber.Text.Length != 13)
-                    {
-                        MessageBox.Show("Invalid Id Number");
                         return;
                     }
                     if (txtcellnumber.Text.All(char.IsDigit) == false)
@@ -60,7 +50,7 @@ namespace SAIMC_MemberManager
                         MessageBox.Show("Cell Phone Number can only contain numbers");
                         return;
                     }
-                    if (txtcellnumber.Text.Length != 10)
+                    if (txtcellnumber.Text.Length > 11)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
@@ -71,7 +61,7 @@ namespace SAIMC_MemberManager
                     {
                         foreach (Member member in memberlist)
                         {
-                            if (member.SAIMC_Nr == Convert.ToInt16(txtMemberShipnumber.Text))
+                            if (member.SAIMC_Nr == Convert.ToInt32(txtMemberShipnumber.Text))
                             {
                                 MessageBox.Show("MemberShip Number Already Exsists.");
                                 return;
@@ -79,10 +69,19 @@ namespace SAIMC_MemberManager
                         }
                     }
                     //Save New Member to Database
-                    mymembers.SAIMC_Nr = Convert.ToInt16(txtMemberShipnumber.Text);
+                    mymembers.SAIMC_Nr = Convert.ToInt32(txtMemberShipnumber.Text);
+                    mymembers.Invoice_Type = null;
+                    mymembers.Members_Rating = null;
+                    mymembers.Branch = null;
+                    mymembers.Title = null;
+                    mymembers.Initial = null;
                     mymembers.Nickname = txtName.Text;
                     mymembers.Surname = txtSurname.Text;
+                    mymembers.E_Mail = null;
                     mymembers.MobilePhone = txtcellnumber.Text;
+                    mymembers.ECSA = null;
+                    mymembers.Paid = null;
+                    mymembers.Balance = null;
 
                     if (cbxpayment.Text == "Paid")
                     {
@@ -93,13 +92,14 @@ namespace SAIMC_MemberManager
                         mymembers.Haspaid = false;
                     }
                     db.Members.Add(mymembers);
-
+                    db.SaveChanges();
                     string message = "Please confirm creation of:" + txtName.Text + " " + txtSurname.Text; ;
                     string title = "Please Confirm";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons);
                     if (result == DialogResult.No)
                     {
+                        MessageBox.Show("Creation of new Member declined.");
                     }
                     else
                     {
@@ -119,7 +119,6 @@ namespace SAIMC_MemberManager
                                 bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                                 QRCode = new byte[ms.ToArray().Length];
                                 QRCode = ms.ToArray();
-                                mymembers.MemberQRCode = QRCode;
 
                                 //Export QR to be Saved on Local Images
                                 string InitialFileToOpen = @"C:\";
@@ -132,13 +131,11 @@ namespace SAIMC_MemberManager
                                 }
                             }
                         }
-                        db.SaveChanges();
+
                         txtMemberShipnumber.Text = "";
                         txtName.Text = "";
                         txtSurname.Text = "";
                         txtcellnumber.Text = "";
-                        txtIdNumber.Text = "";
-                        cbxgender.Text = "";
                         cbxpayment.Text = "";
                         MessageBox.Show("New Member Successfully Created");
                     }
@@ -148,9 +145,10 @@ namespace SAIMC_MemberManager
                     MessageBox.Show("Please Fill in All required Fields");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Creation Failed,Please try Again");
+                //MessageBox.Show("Creation Failed,Please try Again");
+                MessageBox.Show(ex.ToString());
             }
         }
 

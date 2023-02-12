@@ -31,9 +31,9 @@ namespace SAIMC_MemberManager
             try
             {
                 //Generate QR Codes
-                List<QRGeneration> qrtableList = new List<QRGeneration>();
-                qrtableList = db.QRGenerations.ToList();
-                foreach (QRGeneration qrcodes in qrtableList)
+                List<Member> MemberList = new List<Member>();
+                MemberList = db.Members.ToList();
+                foreach (Member members in MemberList)
                 {
                     //Setup Folder and Files
                     // Specify a name for your top-level folder.
@@ -47,13 +47,13 @@ namespace SAIMC_MemberManager
                         // Create the subfolder
                         System.IO.Directory.CreateDirectory(pathString);
                         //TODO ------> Short Char Count & MemberShip Number
-                        string firststring = qrcodes.Surname + " " + qrcodes.Name + " " + qrcodes.SAIMC_Nr + " " + "QRCode";
+                        string firststring = members.Surname + " " + members.Nickname + " " + members.SAIMC_Nr + " " + "QRCode";
                         string message = firststring.Replace(" ", firststring);
                         string fileName = System.IO.Path.GetFileName(message);
                         pathString = System.IO.Path.Combine(pathString, fileName);
                     }
 
-                    string QRinputtext = qrcodes.SAIMC_Nr.ToString();
+                    string QRinputtext = members.SAIMC_Nr.ToString();
                     QRCodeGenerator NewQR = new QRCodeGenerator();
                     QRCodeData data = NewQR.CreateQrCode(QRinputtext, QRCodeGenerator.ECCLevel.Q);
                     QRCode code = new QRCode(data);
@@ -69,14 +69,15 @@ namespace SAIMC_MemberManager
                             bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                             QRCode = new byte[ms.ToArray().Length];
                             QRCode = ms.ToArray();
-                            string filename = qrcodes.Name + qrcodes.Surname + "QRCode.jpg";
+                            string filename = members.Nickname + members.Surname + "QRCode.jpg";
 
                             //Export QR to be Saved on Local Images
                             picboxQRCode.Image.Save(@"C:\Downloads\QRCodes\" + filename);
                         }
                     }
-                    MessageBox.Show("QR Codes Successfully Generated");
+                   
                 }
+                MessageBox.Show("QR Codes Successfully Generated and are stored in Downloads Folder on your Local Machine.");
             }
             catch(Exception ex)
             {

@@ -52,7 +52,7 @@ namespace SAIMC_MemberManager
                         {
                             foreach (var member in members)
                             {
-                                if (member.SAIMC_Nr == membermeeting.SAIMC_Nr)
+                                if (member.SAIMC_Nr == membermeeting.MemberId)
                                 {
                                     foundMembersInMeeting.Add(member);
                                 }
@@ -73,8 +73,9 @@ namespace SAIMC_MemberManager
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -98,7 +99,7 @@ namespace SAIMC_MemberManager
             {
                 dtpSearchDate.MaxDate = DateTime.Today;
                 MeetingList = db.Meetings.ToList();
-                MeetingList.Sort((y, x) => x.Agenda.CompareTo(y.Agenda));
+                MeetingList.Sort((x, y) => x.Agenda.CompareTo(y.Agenda));
                 foreach (var meeting in MeetingList)
                 {
                     cbxMeetings.Items.Add(meeting.Agenda);
@@ -136,7 +137,7 @@ namespace SAIMC_MemberManager
                     {
                         foreach (var member in members)
                         {
-                            if (member.SAIMC_Nr == membermeeting.SAIMC_Nr)
+                            if (member.SAIMC_Nr == membermeeting.MemberId)
                             {
                                 foundMembersInMeeting.Add(member);
                             }

@@ -26,8 +26,10 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch
-            { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btncancel_Click(object sender, EventArgs e)
@@ -39,7 +41,10 @@ namespace SAIMC_MemberManager
                 viewMeeting.ShowDialog();
                 this.Close();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void frmManageMembers_Load(object sender, EventArgs e)
@@ -59,7 +64,10 @@ namespace SAIMC_MemberManager
                 dgvMembers.AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSearchMember_Click(object sender, EventArgs e)
@@ -72,8 +80,9 @@ namespace SAIMC_MemberManager
                 dgvMembers.DataSource = member;
                 dgvMembers.Update();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -87,8 +96,9 @@ namespace SAIMC_MemberManager
                 dgvMembers.DataSource = member;
                 dgvMembers.Update();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -97,13 +107,14 @@ namespace SAIMC_MemberManager
             try
             {
                 int rowindex = dgvMembers.CurrentCell.RowIndex;
-                MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[2].Value.ToString());
+                MemberShipNumber = Convert.ToInt32(dgvMembers.Rows[rowindex].Cells[0].Value.ToString());
                 frmEditMember editmember = new frmEditMember();
                 this.Hide();
                 editmember.ShowDialog();
             }
-            catch
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
         }
 

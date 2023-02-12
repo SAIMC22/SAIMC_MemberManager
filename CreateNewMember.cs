@@ -59,7 +59,6 @@ namespace SAIMC_MemberManager
                             bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                             QRCode = new byte[ms.ToArray().Length];
                             QRCode = ms.ToArray();
-                            mymembers.MemberQRCode = QRCode;
 
                             //Export QR to be Saved on Local Images
                             string InitialFileToOpen = @"C:\";

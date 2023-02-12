@@ -14,6 +14,13 @@ namespace SAIMC_MemberManager
     
     public partial class Member
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Member()
+        {
+            this.MemberMeetings = new HashSet<MemberMeeting>();
+        }
+    
+        public int MemberId { get; set; }
         public int SAIMC_Nr { get; set; }
         public string Invoice_Type { get; set; }
         public string Members_Rating { get; set; }
@@ -28,6 +35,8 @@ namespace SAIMC_MemberManager
         public string Paid { get; set; }
         public string Balance { get; set; }
         public Nullable<bool> Haspaid { get; set; }
-        public byte[] MemberQRCode { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MemberMeeting> MemberMeetings { get; set; }
     }
 }

@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e416c474fa564f58babe1c4bba22093f" Name="Diagram1">
+      <Diagram DiagramId="b10301c920ef4e2d9728305acfc75963" Name="Diagram1">
         <EntityTypeShape EntityType="SAIMCDBV2Model.Meeting" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SAIMCDBV2Model.MemberMeeting" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAIMCDBV2Model.MemberMeeting" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAIMCDBV2Model.Member" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SAIMCDBV2Model.QRGeneration" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SAIMCDBV2Model.Member" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="SAIMCDBV2Model.FK_MemberMeeting_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="SAIMCDBV2Model.FK_MemberMeeting_Members" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -71,7 +71,7 @@ namespace SAIMC_MemberManager
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    SqlCommand command = new SqlCommand("INSERT INTO dbo.Members ([SAIMC Nr],[Invoice Type],[Members Rating],[Branch],[Title],[Initial],[Nickname],[Surname],[E-Mail],[MobilePhone],[ECSA],[Paid],[Balance],[Haspaid],[MemberQRCode]) VALUES (@SAIMC_Nr, @Invoice_Type, @Members_Rating,@Branch,@Title,@Initial,@Nickname,@Surname,@EMail,@MobilePhone,@ECSA,@Paid,@Balance,NULL,NULL)", connection);
+                    SqlCommand command = new SqlCommand("INSERT INTO dbo.Members ([SAIMC_Nr],[Invoice_Type],[Members_Rating],[Branch],[Title],[Initial],[Nickname],[Surname],[E_Mail],[MobilePhone],[ECSA],[Paid],[Balance],[Haspaid]) VALUES (@SAIMC_Nr, @Invoice_Type, @Members_Rating,@Branch,@Title,@Initial,@Nickname,@Surname,@EMail,@MobilePhone,@ECSA,@Paid,@Balance,@HasPaid)", connection);
 
                     //Search Db to ignore exsisting Members
                     Member FoundMember = members.Find(x => x.SAIMC_Nr == Convert.ToInt16(row["SAIMC Nr"]));
@@ -90,9 +90,17 @@ namespace SAIMC_MemberManager
                         command.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
                         command.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
                         command.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
+                        if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y')
+                        {
+                            command.Parameters.AddWithValue("@HasPaid", 1);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@HasPaid", 0);
+                        }
                         command.ExecuteNonQuery();
                     }
-                    else
+                   /* else
                     {
                         //Run Update Query
                         string updateSql = "UPDATE [dbo].[Members] SET [SAIMC Nr] = @SAIMC_Nr,[Invoice Type] = @Invoice_Type,[Members Rating] = @Members_Rating,[Branch] = @Branch,[Title] = @Title,[Initial] = @Initial," +
@@ -120,14 +128,15 @@ namespace SAIMC_MemberManager
                             int rowsAffected = updateCommand.ExecuteNonQuery();
                             Console.WriteLine("Rows affected: " + rowsAffected);
                         }
-                    }
+                    }*/
                 }
                 connection.Close();
                 MessageBox.Show("Members List has successfully been updated");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
+                //MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
+                MessageBox.Show(ex.ToString());
             }
         }
 

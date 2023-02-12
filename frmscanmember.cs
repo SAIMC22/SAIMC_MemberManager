@@ -93,7 +93,7 @@ namespace SAIMC_MemberManager
                     membermeetingList = db.MemberMeetings.ToList();
                     //Finds Member with same Membership Number scanned
                     FoundMember = AllMembersList.Find(x => Convert.ToInt32(x.SAIMC_Nr) == membershipnumber);
-                    if(FoundMember == null)
+                    if (FoundMember == null)
                     {
                         this.BackColor = Color.Red;
                         pbxGranted.Visible = false;
@@ -101,7 +101,7 @@ namespace SAIMC_MemberManager
                         MessageBox.Show("Member not found,Please contact Admin");
                         this.BackColor = Color.WhiteSmoke;
                         pbxDenied.Visible = false;
-                        txtScanmembership.Text = " ";                                               
+                        txtScanmembership.Text = " ";
                         return;
                     }
                     if (FoundMember != null)
@@ -126,19 +126,21 @@ namespace SAIMC_MemberManager
                         else
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
+                            //Get Member Meeting ID compared to SAIMC_Nr
+
+                            membermeeting.MemberId = FoundMember.MemberId;
                             membermeeting.Meetingid = latestMeeting;
                             db.MemberMeetings.Add(membermeeting);
                             db.SaveChanges();
                         }
                         //LatestMemberMeetingList = membermeetingList.FindAll(x=>x.Meetingid == latestMeeting);
-                        var memberExsists = LatestMemberMeetingList.Find(x => x.SAIMC_Nr == FoundMember.SAIMC_Nr);
+                        var memberExsists = LatestMemberMeetingList.Find(x => x.MemberId == FoundMember.SAIMC_Nr);
                         if (LatestMemberMeetingList != null)
                         {
                             if (memberExsists == null)
                             {
                                 MemberMeeting membermeeting = new MemberMeeting();
-                                membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
+                                membermeeting.MemberId = FoundMember.SAIMC_Nr;
                                 membermeeting.Meetingid = latestMeeting;
                                 db.MemberMeetings.Add(membermeeting);
                                 db.SaveChanges();
@@ -147,8 +149,10 @@ namespace SAIMC_MemberManager
                         else
                         {
                             MemberMeeting membermeeting = new MemberMeeting();
-                            membermeeting.SAIMC_Nr = FoundMember.SAIMC_Nr;
+                            membermeeting.MemberId = FoundMember.SAIMC_Nr;
                             membermeeting.Meetingid = latestMeeting;
+                            membermeeting.Member = null;
+                            membermeeting.Meeting = null;
                             db.MemberMeetings.Add(membermeeting);
                             db.SaveChanges();
                         }

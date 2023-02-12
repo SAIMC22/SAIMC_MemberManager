@@ -20,29 +20,27 @@
           </Key>
           <Property Name="MemberMeetingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Meetingid" Type="int" />
-          <Property Name="SAIMC Nr" Type="int" />
+          <Property Name="MemberId" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Members">
           <Key>
-            <PropertyRef Name="SAIMC Nr" />
+            <PropertyRef Name="MemberId" />
           </Key>
-          <Property Name="SAIMC Nr" Type="int" Nullable="false" />
-          <Property Name="Invoice Type" Type="varchar" MaxLength="50" />
-          <Property Name="Members Rating" Type="varchar" MaxLength="50" />
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SAIMC_Nr" Type="int" Nullable="false" />
+          <Property Name="Invoice_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Members_Rating" Type="varchar" MaxLength="50" />
           <Property Name="Branch" Type="varchar" MaxLength="50" />
           <Property Name="Title" Type="char" MaxLength="10" />
           <Property Name="Initial" Type="char" MaxLength="5" />
           <Property Name="Nickname" Type="char" MaxLength="50" />
           <Property Name="Surname" Type="char" MaxLength="50" />
-          <Property Name="E-Mail" Type="varchar" MaxLength="100" />
-          <Property Name="MobilePhone" Type="varchar" MaxLength="12" />
+          <Property Name="E_Mail" Type="varchar" MaxLength="100" />
+          <Property Name="MobilePhone" Type="varchar" MaxLength="15" />
           <Property Name="ECSA" Type="varchar" MaxLength="100" />
           <Property Name="Paid" Type="varchar" MaxLength="100" />
           <Property Name="Balance" Type="varchar" MaxLength="100" />
           <Property Name="Haspaid" Type="bit" />
-          <Property Name="MemberQRCode" Type="image" />
         </EntityType>
         <EntityType Name="QRGeneration">
           <Key>
@@ -66,31 +64,29 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MemberMeeting_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SAIMCDBV2ModelStoreContainer">
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberMeeting" EntityType="Self.MemberMeeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QRGeneration" EntityType="Self.QRGeneration" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Members" EntityType="Self.Members" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Members].[SAIMC Nr] AS [SAIMC Nr], 
-    [Members].[Invoice Type] AS [Invoice Type], 
-    [Members].[Members Rating] AS [Members Rating], 
-    [Members].[Branch] AS [Branch], 
-    [Members].[Title] AS [Title], 
-    [Members].[Initial] AS [Initial], 
-    [Members].[Nickname] AS [Nickname], 
-    [Members].[Surname] AS [Surname], 
-    [Members].[E-Mail] AS [E-Mail], 
-    [Members].[MobilePhone] AS [MobilePhone], 
-    [Members].[ECSA] AS [ECSA], 
-    [Members].[Paid] AS [Paid], 
-    [Members].[Balance] AS [Balance], 
-    [Members].[Haspaid] AS [Haspaid], 
-    [Members].[MemberQRCode] AS [MemberQRCode]
-    FROM [dbo].[Members] AS [Members]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_MemberMeeting_Meeting" Association="Self.FK_MemberMeeting_Meeting">
             <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MemberMeeting" EntitySet="MemberMeeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberMeeting_Members" Association="Self.FK_MemberMeeting_Members">
+            <End Role="Members" EntitySet="Members" />
             <End Role="MemberMeeting" EntitySet="MemberMeeting" />
           </AssociationSet>
         </EntityContainer>
@@ -115,23 +111,15 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
           </Key>
           <Property Name="MemberMeetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Meetingid" Type="Int32" />
-          <Property Name="SAIMC_Nr" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" />
           <NavigationProperty Name="Meeting" Relationship="Self.FK_MemberMeeting_Meeting" FromRole="MemberMeeting" ToRole="Meeting" />
-        </EntityType>
-        <EntityType Name="QRGeneration">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="SAIMC_Nr" Type="Int32" Nullable="false" />
-          <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberMeeting_Members" FromRole="MemberMeeting" ToRole="Members" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
-            <PropertyRef Name="SAIMC_Nr" />
+            <PropertyRef Name="MemberId" />
           </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SAIMC_Nr" Type="Int32" Nullable="false" />
           <Property Name="Invoice_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Members_Rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -141,11 +129,21 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
           <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="E_Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MobilePhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ECSA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Paid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Balance" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Haspaid" Type="Boolean" />
+          <NavigationProperty Name="MemberMeetings" Relationship="Self.FK_MemberMeeting_Members" FromRole="Members" ToRole="MemberMeeting" />
+        </EntityType>
+        <EntityType Name="QRGeneration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="SAIMC_Nr" Type="Int32" Nullable="false" />
           <Property Name="MemberQRCode" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_MemberMeeting_Meeting">
@@ -160,13 +158,29 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MemberMeeting_Members">
+          <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="MemberMeeting" Type="Self.MemberMeeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberMeeting">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SAIMCDBV2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Meetings" EntityType="Self.Meeting" />
           <EntitySet Name="MemberMeetings" EntityType="Self.MemberMeeting" />
-          <EntitySet Name="QRGenerations" EntityType="Self.QRGeneration" />
           <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="QRGenerations" EntityType="Self.QRGeneration" />
           <AssociationSet Name="FK_MemberMeeting_Meeting" Association="Self.FK_MemberMeeting_Meeting">
             <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MemberMeeting" EntitySet="MemberMeetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberMeeting_Members" Association="Self.FK_MemberMeeting_Members">
+            <End Role="Members" EntitySet="Members" />
             <End Role="MemberMeeting" EntitySet="MemberMeetings" />
           </AssociationSet>
         </EntityContainer>
@@ -191,7 +205,28 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
               <MappingFragment StoreEntitySet="MemberMeeting">
                 <ScalarProperty Name="MemberMeetingID" ColumnName="MemberMeetingID" />
                 <ScalarProperty Name="Meetingid" ColumnName="Meetingid" />
-                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="SAIMCDBV2Model.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC_Nr" />
+                <ScalarProperty Name="Invoice_Type" ColumnName="Invoice_Type" />
+                <ScalarProperty Name="Members_Rating" ColumnName="Members_Rating" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Initial" ColumnName="Initial" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="ECSA" ColumnName="ECSA" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Haspaid" ColumnName="Haspaid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -202,27 +237,6 @@ warning 6002: The table/view 'SAIMCDBV2.dbo.Members' does not have a primary key
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
-                <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="SAIMCDBV2Model.Member">
-              <MappingFragment StoreEntitySet="Members">
-                <ScalarProperty Name="SAIMC_Nr" ColumnName="SAIMC Nr" />
-                <ScalarProperty Name="Invoice_Type" ColumnName="Invoice Type" />
-                <ScalarProperty Name="Members_Rating" ColumnName="Members Rating" />
-                <ScalarProperty Name="Branch" ColumnName="Branch" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Initial" ColumnName="Initial" />
-                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="E_Mail" ColumnName="E-Mail" />
-                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
-                <ScalarProperty Name="ECSA" ColumnName="ECSA" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-                <ScalarProperty Name="Haspaid" ColumnName="Haspaid" />
                 <ScalarProperty Name="MemberQRCode" ColumnName="MemberQRCode" />
               </MappingFragment>
             </EntityTypeMapping>

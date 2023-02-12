@@ -70,21 +70,11 @@ namespace SAIMC_MemberManager
             try
             {
                 //Add Member Details to system and Create a QR Code for that Member
-                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && txtIdNumber.Text != "" && cbxgender.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
+                if (txtName.Text != "" && txtSurname.Text != "" && txtcellnumber.Text != "" && cbxpayment.Text != "" && txtMemberShipnumber.Text != "")
                 {
                     if (Convert.ToInt64(txtMemberShipnumber.Text).ToString().All(char.IsDigit) == false)
                     {
                         MessageBox.Show("MemberShip Number can only contain numbers");
-                        return;
-                    }
-                    if (txtIdNumber.Text.TrimEnd().All(char.IsDigit) == false)
-                    {
-                        MessageBox.Show("Id Number can only contain numbers");
-                        return;
-                    }
-                    if (txtIdNumber.Text.TrimEnd().Length != 13)
-                    {
-                        MessageBox.Show("Invalid Id Number");
                         return;
                     }
                     if (txtcellnumber.Text.TrimEnd().All(char.IsDigit) == false)
@@ -92,7 +82,7 @@ namespace SAIMC_MemberManager
                         MessageBox.Show("Cell Phone Number can only contain numbers");
                         return;
                     }
-                    if (txtcellnumber.Text.TrimEnd().Length != 10)
+                    if (txtcellnumber.Text.TrimEnd().Length > 11)
                     {
                         MessageBox.Show("Invalid Cell Number");
                         return;
@@ -114,7 +104,7 @@ namespace SAIMC_MemberManager
                     }
                     //db.Members.Add(mymembers);
 
-                    string message = "Please confirm edit of:" + txtName.Text + " " + txtSurname.Text;
+                    string message = "Please confirm edit of: " + txtName.Text + " " + txtSurname.Text;
                     string title = "Please Confirm";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons);
