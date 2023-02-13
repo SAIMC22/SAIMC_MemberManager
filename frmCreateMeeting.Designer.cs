@@ -57,7 +57,7 @@
             // 
             this.txtagenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtagenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtagenda.Location = new System.Drawing.Point(403, 290);
+            this.txtagenda.Location = new System.Drawing.Point(446, 290);
             this.txtagenda.Margin = new System.Windows.Forms.Padding(4);
             this.txtagenda.MinimumSize = new System.Drawing.Size(4, 20);
             this.txtagenda.Name = "txtagenda";
@@ -69,7 +69,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(234, 290);
+            this.label10.Location = new System.Drawing.Point(307, 290);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(128, 32);
@@ -81,7 +81,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(229, 330);
+            this.label2.Location = new System.Drawing.Point(261, 330);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 32);
@@ -92,12 +92,12 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(470, 410);
+            this.button1.Location = new System.Drawing.Point(431, 410);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(310, 41);
             this.button1.TabIndex = 50;
-            this.button1.Text = "Create new Meeting";
+            this.button1.Text = "Create New Meeting";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -105,7 +105,7 @@
             // 
             this.cancelbtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cancelbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.Location = new System.Drawing.Point(470, 469);
+            this.cancelbtn.Location = new System.Drawing.Point(431, 469);
             this.cancelbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelbtn.Name = "cancelbtn";
             this.cancelbtn.Size = new System.Drawing.Size(310, 39);
@@ -118,7 +118,7 @@
             // 
             this.nudCPDPoints.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nudCPDPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCPDPoints.Location = new System.Drawing.Point(403, 333);
+            this.nudCPDPoints.Location = new System.Drawing.Point(446, 333);
             this.nudCPDPoints.Margin = new System.Windows.Forms.Padding(4);
             this.nudCPDPoints.Name = "nudCPDPoints";
             this.nudCPDPoints.Size = new System.Drawing.Size(421, 30);
@@ -128,7 +128,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(250, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(334, 56);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

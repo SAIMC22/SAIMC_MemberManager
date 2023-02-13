@@ -61,7 +61,7 @@ namespace SAIMC_MemberManager
             // 
             this.txtScanmembership.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtScanmembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScanmembership.Location = new System.Drawing.Point(396, 384);
+            this.txtScanmembership.Location = new System.Drawing.Point(363, 384);
             this.txtScanmembership.Margin = new System.Windows.Forms.Padding(4);
             this.txtScanmembership.Name = "txtScanmembership";
             this.txtScanmembership.Size = new System.Drawing.Size(708, 45);
@@ -76,9 +76,9 @@ namespace SAIMC_MemberManager
             this.label1.Location = new System.Drawing.Point(48, 389);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 36);
+            this.label1.Size = new System.Drawing.Size(299, 36);
             this.label1.TabIndex = 5;
-            this.label1.Text = "MemberShip Number:";
+            this.label1.Text = "Membership Number:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pbxGranted
@@ -123,10 +123,10 @@ namespace SAIMC_MemberManager
             this.lblMeetingAgenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMeetingAgenda.AutoSize = true;
             this.lblMeetingAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeetingAgenda.Location = new System.Drawing.Point(296, 297);
+            this.lblMeetingAgenda.Location = new System.Drawing.Point(445, 305);
             this.lblMeetingAgenda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMeetingAgenda.Name = "lblMeetingAgenda";
-            this.lblMeetingAgenda.Size = new System.Drawing.Size(274, 39);
+            this.lblMeetingAgenda.Size = new System.Drawing.Size(262, 38);
             this.lblMeetingAgenda.TabIndex = 9;
             this.lblMeetingAgenda.Text = "Meeting Agenda:";
             // 
@@ -134,7 +134,7 @@ namespace SAIMC_MemberManager
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(335, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(264, 52);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

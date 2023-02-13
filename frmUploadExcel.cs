@@ -164,9 +164,10 @@ namespace SAIMC_MemberManager
                      this.Close();*/
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
             }
         }
 

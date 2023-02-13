@@ -55,51 +55,54 @@ namespace SAIMC_MemberManager
                 MeetingsForMemberFound = AllMemberMeetings.FindAll(x => x.MemberId == FoundMember.MemberId);
                 if (FoundMember != null)
                 {
-                    lblMemberName.Text = "Members Name:" + " " + FoundMember.Nickname.Trim() + " " + FoundMember.Surname;
-                    lblSAIMCNr.Text = "SAIMC Number:" + " " + FoundMember.SAIMC_Nr.ToString();
-
-                    if (MeetingsForMemberFound != null)
+                    if (MeetingsForMemberFound.Count != 0)
                     {
-                        foreach (var memberMeeting in MeetingsForMemberFound)
+                        lblMemberName.Text = "Members Name:" + " " + FoundMember.Nickname.Trim() + " " + FoundMember.Surname;
+                        lblSAIMCNr.Text = "SAIMC Number:" + " " + FoundMember.SAIMC_Nr.ToString();
+
+                        if (MeetingsForMemberFound != null)
                         {
-                            if (memberMeeting.MemberId == FoundMember.MemberId)
+                            foreach (var memberMeeting in MeetingsForMemberFound)
                             {
-                                foreach (var meeting in AllMeetingList)
+                                if (memberMeeting.MemberId == FoundMember.MemberId)
                                 {
-                                    if (meeting.Meetingid == memberMeeting.Meetingid)
+                                    foreach (var meeting in AllMeetingList)
                                     {
-                                        AttendenanceMeetingList.Add(meeting);
+                                        if (meeting.Meetingid == memberMeeting.Meetingid)
+                                        {
+                                            AttendenanceMeetingList.Add(meeting);
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    // Group records by SAIMC_NR
-                    var groups = AttendenanceMeetingList.GroupBy(c => c.Agenda);
+                        // Group records by SAIMC_NR
+                        var groups = AttendenanceMeetingList.GroupBy(c => c.Agenda);
 
-                    // Loop through each group
-                    foreach (var group in groups)
-                    {
-                        // Check if the group has more than one item
-                        if (group.Count() > 1)
+                        // Loop through each group
+                        foreach (var group in groups)
                         {
-                            // Remove duplicates except for the first item
-                            for (int i = 1; i < group.Count(); i++)
+                            // Check if the group has more than one item
+                            if (group.Count() > 1)
                             {
-                                AttendenanceMeetingList.Remove(group.ElementAt(i));
+                                // Remove duplicates except for the first item
+                                for (int i = 1; i < group.Count(); i++)
+                                {
+                                    AttendenanceMeetingList.Remove(group.ElementAt(i));
+                                }
                             }
+                            //Display Datagrid View of Meetings
+                            dgvMemberMeetings.DataSource = AttendenanceMeetingList.Select(x => new { Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
+                            dgvMemberMeetings.AllowUserToAddRows = false;
+                            dgvMemberMeetings.AllowUserToDeleteRows = true;
+                            dgvMemberMeetings.AllowUserToResizeRows = false;
+                            dgvMemberMeetings.RowHeadersWidthSizeMode =
+                                DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                            dgvMemberMeetings.ColumnHeadersHeightSizeMode =
+                                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                            dgvMemberMeetings.AutoSizeColumnsMode =
+                                DataGridViewAutoSizeColumnsMode.Fill;
                         }
-                        //Display Datagrid View of Meetings
-                        dgvMemberMeetings.DataSource = AttendenanceMeetingList.Select(x => new { Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
-                        dgvMemberMeetings.AllowUserToAddRows = false;
-                        dgvMemberMeetings.AllowUserToDeleteRows = true;
-                        dgvMemberMeetings.AllowUserToResizeRows = false;
-                        dgvMemberMeetings.RowHeadersWidthSizeMode =
-                            DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-                        dgvMemberMeetings.ColumnHeadersHeightSizeMode =
-                            DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-                        dgvMemberMeetings.AutoSizeColumnsMode =
-                            DataGridViewAutoSizeColumnsMode.Fill;
                     }
                 }
             }
@@ -181,6 +184,11 @@ namespace SAIMC_MemberManager
             {
                 MessageBox.Show("Failed to Export to Excel");
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

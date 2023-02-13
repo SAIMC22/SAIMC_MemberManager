@@ -76,10 +76,10 @@
             // 
             this.btnsearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearch.Location = new System.Drawing.Point(425, 375);
+            this.btnsearch.Location = new System.Drawing.Point(410, 375);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(225, 34);
+            this.btnsearch.Size = new System.Drawing.Size(264, 34);
             this.btnsearch.TabIndex = 13;
             this.btnsearch.Text = "Begin Scanning";
             this.btnsearch.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(425, 473);
+            this.button1.Location = new System.Drawing.Point(410, 473);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 34);
+            this.button1.Size = new System.Drawing.Size(264, 34);
             this.button1.TabIndex = 14;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::SAIMC_MemberManager.Properties.Resources.SAIMC_NEW2;
-            this.pictureBox1.Location = new System.Drawing.Point(277, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(216, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(520, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -113,10 +113,10 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(425, 424);
+            this.button2.Location = new System.Drawing.Point(410, 424);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 34);
+            this.button2.Size = new System.Drawing.Size(264, 34);
             this.button2.TabIndex = 17;
             this.button2.Text = "Create New Meeting";
             this.button2.UseVisualStyleBackColor = true;

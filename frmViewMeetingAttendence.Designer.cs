@@ -73,7 +73,7 @@
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(225, 34);
             this.btnsearch.TabIndex = 1;
-            this.btnsearch.Text = "Search by Agenda";
+            this.btnsearch.Text = "Search";
             this.btnsearch.UseVisualStyleBackColor = true;
             this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
@@ -95,7 +95,7 @@
             this.button1.Location = new System.Drawing.Point(1160, 110);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 34);
+            this.button1.Size = new System.Drawing.Size(225, 34);
             this.button1.TabIndex = 4;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             this.btnSearchbyDate.Name = "btnSearchbyDate";
             this.btnSearchbyDate.Size = new System.Drawing.Size(227, 34);
             this.btnSearchbyDate.TabIndex = 10;
-            this.btnSearchbyDate.Text = "Search by Date";
+            this.btnSearchbyDate.Text = "Search";
             this.btnSearchbyDate.UseVisualStyleBackColor = true;
             this.btnSearchbyDate.Click += new System.EventHandler(this.btnSearchbyDate_Click);
             // 
@@ -251,7 +251,7 @@
             this.btnExportToExcel.Location = new System.Drawing.Point(1160, 69);
             this.btnExportToExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportToExcel.Name = "btnExportToExcel";
-            this.btnExportToExcel.Size = new System.Drawing.Size(192, 34);
+            this.btnExportToExcel.Size = new System.Drawing.Size(225, 34);
             this.btnExportToExcel.TabIndex = 21;
             this.btnExportToExcel.Text = "Export to Excel";
             this.btnExportToExcel.UseVisualStyleBackColor = true;
