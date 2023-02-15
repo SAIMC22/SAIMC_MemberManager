@@ -282,11 +282,11 @@ namespace SAIMC_MemberManager
                             worksheet.Cells[row + 1, 13] = (double)Convert.ToDouble(item.Balance);
                             if (item.Haspaid == true)
                             {
-                                worksheet.Cells[row, 14] = "Yes";
+                                worksheet.Cells[row + 1, 14] = "Yes";
                             }
                             else
                             {
-                                worksheet.Cells[row, 14] = "No";
+                                worksheet.Cells[row + 1, 14] = "No";
                             }
                             row++;
                         }
