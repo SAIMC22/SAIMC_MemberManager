@@ -60,9 +60,21 @@ namespace SAIMC_MemberManager
             {
                 List<Meeting> meetings = new List<Meeting>();
                 meetings = db.Meetings.ToList();
-                List<Meeting> member = meetings.FindAll(x => x.Agenda.Contains(txtSearchMeeting.Text)).ToList();
-                dgvMeetings.DataSource = member;
-                dgvMeetings.Update();
+                if (meetings.Count != 0)
+                {
+                    List<Meeting> meetingsList = meetings.FindAll(x => x.Agenda.Contains(txtSearchMeeting.Text)).ToList();
+                    dgvMeetings.DataSource = meetingsList.Select(x => new { MeetingId = x.Meetingid, Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
+                    dgvMeetings.AllowUserToAddRows = false;
+                    dgvMeetings.AllowUserToDeleteRows = true;
+                    dgvMeetings.AllowUserToResizeRows = false;
+                    dgvMeetings.RowHeadersWidthSizeMode =
+                        DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                    dgvMeetings.ColumnHeadersHeightSizeMode =
+                        DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                    dgvMeetings.AutoSizeColumnsMode =
+                        DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvMeetings.Update();
+                }
             }
             catch
             {
@@ -89,11 +101,18 @@ namespace SAIMC_MemberManager
         {
             try
             {
-                int rowindex = dgvMeetings.CurrentCell.RowIndex;
-                meetingId = Convert.ToInt32(dgvMeetings.Rows[rowindex].Cells[0].Value);
-                frmEditMeeting editMeeting = new frmEditMeeting();
-                this.Hide();
-                editMeeting.ShowDialog();
+                if (dgvMeetings.Rows.Count == 0)
+                {
+                    MessageBox.Show("No Meetings to be edited");
+                }
+                else
+                {
+                    int rowindex = dgvMeetings.CurrentCell.RowIndex;
+                    meetingId = Convert.ToInt32(dgvMeetings.Rows[rowindex].Cells[0].Value);
+                    frmEditMeeting editMeeting = new frmEditMeeting();
+                    this.Hide();
+                    editMeeting.ShowDialog();
+                }
             }
             catch
             {
@@ -105,35 +124,42 @@ namespace SAIMC_MemberManager
         {
             try
             {
-                string message = "Are you sure you want to delete? All Attendance for this meeting will be lost!";
-                string title = "Please Confirm Deletion";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show(message, title, buttons);
-                if (result == DialogResult.No)
+                if (dgvMeetings.Rows.Count == 0)
                 {
+                    MessageBox.Show("No Meetings to be edited");
                 }
                 else
                 {
-                    int rowindex = dgvMeetings.CurrentCell.RowIndex;
-                    meetingId = Convert.ToInt32(dgvMeetings.Rows[rowindex].Cells[0].Value);
-                    List<Meeting> meetings = new List<Meeting>();
-                    meetings = db.Meetings.ToList();
-                    Meeting meeting = meetings.Find(x => Convert.ToInt32(x.Meetingid) == Convert.ToInt32(meetingId));
-                    db.Meetings.Remove(meeting);
-                    db.SaveChanges();
-                    //Display Same updated Meeting List
-                    List<Meeting> Meetings = new List<Meeting>();
-                    Meetings = db.Meetings.ToList();
-                    dgvMeetings.DataSource = Meetings.Select(x => new { MeetingId = x.Meetingid, Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
-                    dgvMeetings.AllowUserToAddRows = false;
-                    dgvMeetings.AllowUserToDeleteRows = true;
-                    dgvMeetings.AllowUserToResizeRows = false;
-                    dgvMeetings.RowHeadersWidthSizeMode =
-                        DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-                    dgvMeetings.ColumnHeadersHeightSizeMode =
-                        DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-                    dgvMeetings.AutoSizeColumnsMode =
-                        DataGridViewAutoSizeColumnsMode.Fill;
+                    string message = "Are you sure you want to delete? All Attendance for this meeting will be lost!";
+                    string title = "Please Confirm Deletion";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
+                    if (result == DialogResult.No)
+                    {
+                    }
+                    else
+                    {
+                        int rowindex = dgvMeetings.CurrentCell.RowIndex;
+                        meetingId = Convert.ToInt32(dgvMeetings.Rows[rowindex].Cells[0].Value);
+                        List<Meeting> meetings = new List<Meeting>();
+                        meetings = db.Meetings.ToList();
+                        Meeting meeting = meetings.Find(x => Convert.ToInt32(x.Meetingid) == Convert.ToInt32(meetingId));
+                        db.Meetings.Remove(meeting);
+                        db.SaveChanges();
+                        //Display Same updated Meeting List
+                        List<Meeting> Meetings = new List<Meeting>();
+                        Meetings = db.Meetings.ToList();
+                        dgvMeetings.DataSource = Meetings.Select(x => new { MeetingId = x.Meetingid, Agenda = x.Agenda, Date = x.date, CPD_Points = x.CPDpoints }).ToList();
+                        dgvMeetings.AllowUserToAddRows = false;
+                        dgvMeetings.AllowUserToDeleteRows = true;
+                        dgvMeetings.AllowUserToResizeRows = false;
+                        dgvMeetings.RowHeadersWidthSizeMode =
+                            DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+                        dgvMeetings.ColumnHeadersHeightSizeMode =
+                            DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                        dgvMeetings.AutoSizeColumnsMode =
+                            DataGridViewAutoSizeColumnsMode.Fill;
+                    }
                 }
             }
             catch

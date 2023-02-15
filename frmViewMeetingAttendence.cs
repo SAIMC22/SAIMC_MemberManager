@@ -133,6 +133,15 @@ namespace SAIMC_MemberManager
                 btnExportToExcel.Visible = false;
                 dtpSearchDate.MaxDate = DateTime.Today;
                 MeetingList = db.Meetings.ToList();
+                if(MeetingList.Count == 0)
+                {
+                    MessageBox.Show("There are no Meetings in the System to be viewed.");
+                    //Open New form To QAdmin Form)
+                    frmAdmin frmAdmin = new frmAdmin();
+                    this.Hide();
+                    frmAdmin.ShowDialog();
+                    this.Close();
+                }
                 MeetingList.Sort((x, y) => x.Agenda.CompareTo(y.Agenda));
                 foreach (var meeting in MeetingList)
                 {

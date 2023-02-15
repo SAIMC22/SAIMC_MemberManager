@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnViewMemberAttendence = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             // txtSearchMember
             // 
             this.txtSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMember.Location = new System.Drawing.Point(288, 170);
+            this.txtSearchMember.Location = new System.Drawing.Point(297, 122);
             this.txtSearchMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchMember.Name = "txtSearchMember";
             this.txtSearchMember.Size = new System.Drawing.Size(383, 30);
@@ -74,7 +75,7 @@
             // 
             this.lblmembername.AutoSize = true;
             this.lblmembername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmembername.Location = new System.Drawing.Point(27, 173);
+            this.lblmembername.Location = new System.Drawing.Point(27, 125);
             this.lblmembername.Name = "lblmembername";
             this.lblmembername.Size = new System.Drawing.Size(255, 25);
             this.lblmembername.TabIndex = 3;
@@ -156,11 +157,24 @@
             this.btnViewMemberAttendence.UseVisualStyleBackColor = true;
             this.btnViewMemberAttendence.Click += new System.EventHandler(this.btnViewMemberAttendence_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(297, 164);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(383, 36);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Export Member List to Excel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmManageMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 838);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnViewMemberAttendence);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -193,5 +207,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnViewMemberAttendence;
+        private System.Windows.Forms.Button button2;
     }
 }

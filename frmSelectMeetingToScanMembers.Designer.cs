@@ -65,7 +65,7 @@
             this.cbxMeetings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbxMeetings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMeetings.FormattingEnabled = true;
-            this.cbxMeetings.Location = new System.Drawing.Point(365, 283);
+            this.cbxMeetings.Location = new System.Drawing.Point(382, 283);
             this.cbxMeetings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxMeetings.Name = "cbxMeetings";
             this.cbxMeetings.Size = new System.Drawing.Size(448, 33);
@@ -92,7 +92,7 @@
             this.button1.Location = new System.Drawing.Point(410, 473);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 34);
+            this.button1.Size = new System.Drawing.Size(264, 37);
             this.button1.TabIndex = 14;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;

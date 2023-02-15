@@ -24,6 +24,18 @@ namespace SAIMC_MemberManager
 
         private void frmQRGeneration_Load(object sender, EventArgs e)
         {
+            //Generate QR Codes
+            List<Member> MemberList = new List<Member>();
+            MemberList = db.Members.ToList();
+            if(MemberList.Count == 0)
+            {
+                MessageBox.Show("There are no members in the system.Please add or upload members.");
+                //Open New form To QAdmin Form)
+                frmAdmin frmAdmin = new frmAdmin();
+                this.Hide();
+                frmAdmin.ShowDialog();
+                this.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

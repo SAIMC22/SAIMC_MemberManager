@@ -61,7 +61,7 @@ namespace SAIMC_MemberManager
             // 
             this.txtScanmembership.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtScanmembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScanmembership.Location = new System.Drawing.Point(363, 384);
+            this.txtScanmembership.Location = new System.Drawing.Point(380, 384);
             this.txtScanmembership.Margin = new System.Windows.Forms.Padding(4);
             this.txtScanmembership.Name = "txtScanmembership";
             this.txtScanmembership.Size = new System.Drawing.Size(708, 45);

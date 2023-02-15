@@ -166,8 +166,9 @@ namespace SAIMC_MemberManager
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("This Excel File does not match the data Setup of the SQL Members Table");
+                //MessageBox.Show(ex.ToString());
+                dgvMembers.DataSource = null;
+                MessageBox.Show("Upload Failed - This Excel File does not match the data Setup of the Database Members Table");                
             }
         }
 

@@ -25,6 +25,30 @@ namespace SAIMC_MemberManager
             try
             {
                 MeetingList = db.Meetings.ToList();
+                if(MeetingList.Count == 0)
+                {
+                    string message = "Would you like to create your first Meeting?";
+                    string title = "No Meetings in the System!";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = System.Windows.Forms.MessageBox.Show(message, title, buttons);
+                    if (result == DialogResult.No)
+                    {
+                        //Open New form To QAdmin Form)
+                        frmAdmin frmAdmin = new frmAdmin();
+                        this.Hide();
+                        frmAdmin.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        //Open New form To QAdmin Form)
+                        frmCreateMeeting frmCreateMeeting = new frmCreateMeeting();
+                        this.Hide();
+                        frmCreateMeeting.ShowDialog();
+                        this.Close();
+                        
+                    }
+                    }
                 MeetingList.Sort((x, y) => x.Agenda.CompareTo(y.Agenda));
                 foreach (var meeting in MeetingList)
                 {
