@@ -281,5 +281,10 @@ namespace SAIMC_MemberManager
                 MessageBox.Show("Failed to Export to Excel");
             }
         }
+
+        private void cbxMeetings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

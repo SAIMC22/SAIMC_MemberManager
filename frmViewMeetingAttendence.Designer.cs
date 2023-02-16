@@ -146,6 +146,7 @@
             this.cbxMeetings.Name = "cbxMeetings";
             this.cbxMeetings.Size = new System.Drawing.Size(700, 33);
             this.cbxMeetings.TabIndex = 9;
+            this.cbxMeetings.SelectedIndexChanged += new System.EventHandler(this.cbxMeetings_SelectedIndexChanged);
             // 
             // btnSearchbyDate
             // 

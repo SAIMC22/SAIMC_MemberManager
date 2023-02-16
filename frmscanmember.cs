@@ -184,7 +184,6 @@ namespace SAIMC_MemberManager
             }
             catch
             {
-                MessageBox.Show("An Error occured trying to scan Member");
             }
         }
 

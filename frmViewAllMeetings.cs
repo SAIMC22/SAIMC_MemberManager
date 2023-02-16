@@ -126,7 +126,7 @@ namespace SAIMC_MemberManager
             {
                 if (dgvMeetings.Rows.Count == 0)
                 {
-                    MessageBox.Show("No Meetings to be edited");
+                    MessageBox.Show("No Meetings to be Deleted.");
                 }
                 else
                 {

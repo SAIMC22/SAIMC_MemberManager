@@ -54,6 +54,8 @@ namespace SAIMC_MemberManager
                 {
                     cbxMeetings.Items.Add(meeting.Agenda);
                 }
+                int latestMeetng = MeetingList.Max(x => (x.Meetingid));
+                cbxMeetings.Text = MeetingList.Find(x => x.Meetingid == latestMeetng).Agenda;
             }
             catch
             {

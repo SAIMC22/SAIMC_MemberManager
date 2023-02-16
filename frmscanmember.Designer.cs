@@ -61,7 +61,7 @@ namespace SAIMC_MemberManager
             // 
             this.txtScanmembership.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtScanmembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScanmembership.Location = new System.Drawing.Point(380, 384);
+            this.txtScanmembership.Location = new System.Drawing.Point(404, 375);
             this.txtScanmembership.Margin = new System.Windows.Forms.Padding(4);
             this.txtScanmembership.Name = "txtScanmembership";
             this.txtScanmembership.Size = new System.Drawing.Size(708, 45);
@@ -73,7 +73,7 @@ namespace SAIMC_MemberManager
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 389);
+            this.label1.Location = new System.Drawing.Point(13, 384);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(299, 36);
