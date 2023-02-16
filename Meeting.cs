@@ -23,7 +23,7 @@ namespace SAIMC_MemberManager
         public int Meetingid { get; set; }
         public string Agenda { get; set; }
         public System.DateTime date { get; set; }
-        public Nullable<int> CPDpoints { get; set; }
+        public Nullable<decimal> CPDpoints { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberMeeting> MemberMeetings { get; set; }

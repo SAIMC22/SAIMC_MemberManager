@@ -12,7 +12,7 @@
           <Property Name="Meetingid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Agenda" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
-          <Property Name="CPDpoints" Type="int" />
+          <Property Name="CPDpoints" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="MemberMeeting">
           <Key>
@@ -106,7 +106,7 @@
           <Property Name="Meetingid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Agenda" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CPDpoints" Type="Int32" />
+          <Property Name="CPDpoints" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="MemberMeetings" Relationship="Self.FK_MemberMeeting_Meeting" FromRole="Meeting" ToRole="MemberMeeting" />
         </EntityType>
         <EntityType Name="MemberMeeting">

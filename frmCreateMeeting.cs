@@ -38,7 +38,7 @@ namespace SAIMC_MemberManager
                         Meeting meeting = new Meeting();
                         meeting.Agenda = txtagenda.Text;
                         meeting.date = DateTime.Now;
-                        meeting.CPDpoints = Convert.ToInt32(nudCPDPoints.Value);
+                        meeting.CPDpoints = nudCPDPoints.Value;
                         db.Meetings.Add(meeting);
                         db.SaveChanges();
                         MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
@@ -53,7 +53,7 @@ namespace SAIMC_MemberManager
                     Meeting meeting = new Meeting();
                     meeting.Agenda = txtagenda.Text;
                     meeting.date = DateTime.Now;
-                    meeting.CPDpoints = Convert.ToInt32(nudCPDPoints.Value);
+                    meeting.CPDpoints = nudCPDPoints.Value;
                     db.Meetings.Add(meeting);
                     db.SaveChanges();
                     MessageBox.Show("Meeting Created", "Success", MessageBoxButtons.OK);
