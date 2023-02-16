@@ -102,7 +102,7 @@ namespace SAIMC_MemberManager
                             command.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
                             command.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
                             command.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
-                            if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y')
+                            if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y' || (row["HasPaid"]).ToString() == "yes" || (row["HasPaid"]).ToString() == "Yes")
                             {
                                 command.Parameters.AddWithValue("@HasPaid", 1);
                             }
@@ -136,7 +136,7 @@ namespace SAIMC_MemberManager
                                 updateCommand.Parameters.AddWithValue("@ECSA", row["ECSA"].ToString());
                                 updateCommand.Parameters.AddWithValue("@Paid", row["Paid"].ToString());
                                 updateCommand.Parameters.AddWithValue("@Balance", row["Balance"].ToString());
-                                if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y')
+                                if (Convert.ToChar(row["HasPaid"]) == 'Y' || Convert.ToChar(row["HasPaid"]) == 'y' || (row["HasPaid"]).ToString() == "yes" || (row["HasPaid"]).ToString() == "Yes")
                                 {
                                     updateCommand.Parameters.AddWithValue("@HasPaid", 1);
                                 }
@@ -166,9 +166,9 @@ namespace SAIMC_MemberManager
             }
             catch(Exception ex)
             {
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 dgvMembers.DataSource = null;
-                MessageBox.Show("Upload Failed - This Excel File does not match the data Setup of the Database Members Table");                
+                //MessageBox.Show("Upload Failed - This Excel File does not match the data Setup of the Database Members Table");                
             }
         }
 
