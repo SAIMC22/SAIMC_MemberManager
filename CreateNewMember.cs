@@ -17,6 +17,7 @@ namespace SAIMC_MemberManager
         }
 
         //Global Veriables
+        //Test PR
         private VideoCaptureDevice ImagecaptureDevice;
 
         private FilterInfoCollection filterInfoCollection;
